@@ -1,0 +1,135 @@
+.container-secao4-tela-inicial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 20px;
+    background-color: #0D0D0D;
+    flex-direction: column;
+}
+
+.titulo-secao4-tela-inicial {
+    font-family: "Playfair Display", serif;
+    color: #D9D7D7;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.subtitulo-secao4-tela-inicial {
+    padding-top: 50px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #C3A144;
+}
+
+.linha-separadora-secao4-tela-inicial {
+    width: 100px;
+    height: 2px;
+    background-color: #C3A144;
+    margin: 20px auto;
+}
+
+.grid-barbeiros-secao4-tela-inicial {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+
+.barbeiro-secao4-tela-inicial {
+    background-color: #111111;
+    border: 1px solid #1d1d1d;
+    border-radius: 20px;
+    max-width: 450px;
+    cursor: pointer;
+}
+
+.barbeiro-secao4-tela-inicial:hover {
+    border-color: #505050;
+    box-shadow: 0 0 1px #C3A144;
+    transition: all 0.1s ease;
+}
+
+.config-img-barbeiro-secao4-tela-inicial{
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+
+.nome-barbeiro-secao4-tela-inicial{
+    padding: 15px 20px 0 20px;
+    font-family: "Playfair Display", serif;
+    color: #f3f3f3;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.servicos-barbeiro-secao4-tela-inicial {
+    padding: 0px 20px 0 20px;
+    font-family: "Poppins", sans-serif;
+    color: #C3A144;
+    font-size: 19px;
+    margin-top: 10px;
+}
+
+.layout-caracteristca-barbeiro-secao4-tela-inicial {
+    padding: 0px 20px 0 20px;
+    display: flex;
+    align-items: end;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.avalicao-babeiro-secao4-tela-inicial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    margin-top: 20px;
+}
+
+.numero-avaliacao-barbeiro-secao4-tela-inicial{
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.anos-de-experiencia-barbeiro-secao4-tela-inicial {
+    font-family: "Poppins", sans-serif;
+    color: #424242;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.campo-botao-selecionar-barbeiro-secao4-tela-inicial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.botao-selecionar-barbeiro-secao4-tela-inicial {
+    padding: 10px 20px;
+    background-color: #2B1B12;
+    color: #9F843A;
+    border: 0.1px solid #9F843A;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 50px;
+    width: 300px;
+}
+
+.botao-selecionar-barbeiro-secao4-tela-inicial:hover {
+    border-color: #C3A144;
+    box-shadow: 0 0 1px #C3A144;
+    transition: all 0.1s ease;
+}

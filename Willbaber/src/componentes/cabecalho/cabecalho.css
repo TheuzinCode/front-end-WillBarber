@@ -1,0 +1,102 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-cabecalho{
+    font-family: "Poppins", sans-serif;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 150px;
+    padding-left: 150px;
+    padding-right: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent; 
+    transition: all 0.5s ease;
+}
+
+.container-cabecalho.cabecalho-ativo {
+    background-color: rgba(0, 0, 0, 0.95); 
+    padding: 45px 150px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+.nome-barber{
+    display: flex;
+}
+
+.texto-nome-barber{
+    align-self: center;
+    font-family: "Playfair Display", serif;
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.logo-cabecalho{
+    align-items: center;
+    align-content: center;
+    align-self: center;        
+    width: 35px;
+    height: 35px;
+}
+
+.texto-navbar{
+    font-family: "Poppins", sans-serif;
+    color: rgb(163, 163, 163);
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 25px;
+    text-decoration: none;
+}
+
+.texto-navbar-botao{
+    font-family: "Poppins", sans-serif;
+    color: black;
+    font-size: 17px;
+    font-weight: 500;
+    margin-right: 20px;
+    text-decoration: none;
+    background-color: #BF9445;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+.texto-navbar-cliente-logado{
+    font-family: "Poppins", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    font-weight: 500;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.inicial-cliente-cabecalho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Playfair Display", serif;
+    color: rgb(0, 0, 0);
+    font-size: 23px;
+    font-weight: 500;
+    margin-right: 8px;
+    text-decoration: none;
+    background-color: #e8ad41a1;
+    height: 45px;
+    width: 45px;
+    border-radius: 30px;
+}
+
+.container-navbar-cabecalho{
+    display: flex;
+    align-items: center;
+}

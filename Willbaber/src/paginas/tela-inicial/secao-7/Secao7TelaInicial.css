@@ -1,0 +1,90 @@
+.container-secao7-tela-inicial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    background-color: #0f0f0f;
+}
+
+
+.titulo-secao7-tela-inicial {
+    font-family: "Playfair Display", serif;
+    color: #D9D7D7;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.subtitulo-secao7-tela-inicial {
+    padding-top: 50px;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #C3A144;
+}
+
+.linha-separadora-secao7-tela-inicial {
+    width: 340px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    height: 2px;
+    background-color: #C3A144;
+}
+
+.campo-local-secao7-tela-inicial {
+    color: white;
+    display: flex;
+    margin-right: 200px;
+    margin-top: 25px;
+}
+
+.icone-local-secao7-tela-inicial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    width: 65px;
+    color: #C3A144;
+    font-size: 20px;
+    margin-right: 10px;
+    background-color:#2B1B12;
+    border-radius: 15px;
+    margin-right: 25px;
+}
+
+.subtitulo-local-secao7-tela-inicial {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #484848;
+}
+
+.titulo-local-secao7-tela-inicial {
+    font-family: "Poppins", sans-serif;
+    color: #D9D7D7;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.maps-secao7-tela-inicial {
+    margin-left: 20px;
+    border-radius: 20px;
+}
+
+
+.botao-agendar-secao7-tela-inicial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 300px;
+    margin-top: 60px;
+    padding: 15px 30px;
+    background-color: #C3A144;
+    color: #0f0f0f;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+}
