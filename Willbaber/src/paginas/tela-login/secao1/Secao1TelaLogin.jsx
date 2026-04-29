@@ -88,7 +88,7 @@ const Secao1TelaLogin = () => {
         </div>
 
         <div className="texto-cadastrar-secao1-tela-login">
-          Não tem uma conta? <Link className="link-cadastrar-secao1-tela-login" to="/cadastro">Cadastre-se</Link>
+          Não tem uma conta? <Link className="link-cadastrar-secao1-tela-login" to="/criarconta">Cadastre-se</Link>
         </div>
       </div>
 
