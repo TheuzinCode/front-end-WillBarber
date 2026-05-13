@@ -57,7 +57,7 @@ const secao2TelaAgendamento = () => {
     <>
       <Cabecalho estatico={true} />
 
-      <div className="container-secao1-tela-agendamento">
+      <div className="container-secao2-tela-agendamento">
         <div className="layout-etapas-tela-agendamento">
           <div>
             <div className="numeros-etapas-tela-agendamento-laranja" >

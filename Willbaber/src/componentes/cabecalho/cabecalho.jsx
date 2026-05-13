@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../imgs/logo.png";
+import { IoExitOutline } from "react-icons/io5";
 import "./cabecalho.css";
+
 
 function cabecalho({ estatico }) {
 
@@ -34,6 +36,15 @@ function cabecalho({ estatico }) {
         return () => window.removeEventListener("scroll", escutarScroll);
     }, [estatico]);
 
+
+    const deslogar = () => {
+        localStorage.removeItem("clientAuth")
+        localStorage.removeItem("dadosBarbeiro");
+        localStorage.removeItem("dadosServico");
+        localStorage.removeItem("horarioSelecionado");
+        setCliente(null);
+    }
+
     return (
         <>
             <header className={`container-cabecalho ${ativo ? "cabecalho-ativo" : ""}`}>
@@ -56,14 +67,15 @@ function cabecalho({ estatico }) {
                             <Link to="/" className="texto-navbar">
                                 Inicio
                             </Link>
-                            <Link to="/Barbeiros" className="texto-navbar">
-                                Barbeiros
-                            </Link>
 
 
                             {cliente ? (
                                 <>
-
+                                    <div>
+                                        <Link to="/bonus" className="texto-navbar">
+                                            Bônus
+                                        </Link>
+                                    </div>
                                     <div className="inicial-cliente-cabecalho" >
                                         {cliente.nome.charAt(0)}
                                     </div>
@@ -73,6 +85,14 @@ function cabecalho({ estatico }) {
                                         </Link>
                                     </div>
 
+                                    <button className="icone-sair-cabecalho" onClick={deslogar}>
+                                        <div className="icone-sair-cabecalho">
+                                            <IoExitOutline color="#C9A646" size={30} />
+                                        </div>
+                                    </button>
+
+
+
 
                                 </>
 
@@ -81,7 +101,7 @@ function cabecalho({ estatico }) {
                                     <Link to="/Login" className="texto-navbar">
                                         Entrar
                                     </Link>
-                                    <Link to="/Agendar" className="texto-navbar-botao">
+                                    <Link  to={cliente ? "/Agendar" : "/Login"} className="texto-navbar-botao">
                                         Agendar Agora
                                     </Link>
                                 </>

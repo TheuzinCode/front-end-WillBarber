@@ -243,6 +243,16 @@ const secao4TelaAgendamento = () => {
             </div>
           </div>
 
+
+          <div className="layout-total-valor-informacoes-tela-agendamento-secao4">
+            <div className="texto-total-informacoes-tela-agendamento-secao4">
+              Total
+            </div>
+            <div className="valor-total-informacoes-tela-agendamento-secao4">
+              R$ {dadosServico.preco},00 
+            </div>
+          </div>
+
         </div>
 
 
@@ -250,7 +260,7 @@ const secao4TelaAgendamento = () => {
 
 
 
-        <div className="container-buttons-tela-agendamento-secao2">
+        <div className="container-buttons-tela-agendamento-secao4">
           <div>
             <Link to="/selecionarHorario" className="texto-button-voltar-tela-agendamento-secao2">
               <div className="button-voltar-tela-agendamento-secao2">
