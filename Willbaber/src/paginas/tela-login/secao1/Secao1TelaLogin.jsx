@@ -44,8 +44,6 @@ const Secao1TelaLogin = () => {
 
       navigate("/");
 
-      window.location.reload();
-
     } catch(error) {
       console.error("Erro:", error);
       alert("Email ou senha inválidos");

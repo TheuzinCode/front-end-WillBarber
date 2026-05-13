@@ -5,7 +5,7 @@ import { CiCalendar } from "react-icons/ci";
 import { IoStar } from "react-icons/io5";
 
 
-function Secao1TelaInicial() {
+function Secao1TelaInicial({ cliente }) {
     return (
         <>
             <div className='container-secao1'>
@@ -19,19 +19,42 @@ function Secao1TelaInicial() {
                         <p className='texto-descricao-secao1'>Experimente o melhor em cuidados masculinos. Cortes precisos, <br />
                             barbas impecáveis e uma experiência única em São Paulo.</p>
                         <div className='campo-agendar-e-criar-conta-secao1'>
-                            <div className='layout-agendar-secao1'>
-                                <Link to="/" className="botao-agendar-secao1">
-                                    <CiCalendar className='icone-calendario' />
-                                    Agendar horario
-                                </Link>
-                            </div>
-                            <div>
-                                <div>
-                                    <Link to="/" className="botao-criar-conta-secao1">
-                                        Criar Conta
-                                    </Link>
-                                </div>
-                            </div>
+
+                            {cliente ? (
+                                <>
+                                    <div className='layout-agendar-secao1'>
+                                        <Link to="/agendamento" className="botao-agendar-secao1">
+                                            <CiCalendar className='icone-calendario' />
+                                            Agendar horario
+                                        </Link>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <Link to="/perfil" className="botao-criar-conta-secao1">
+                                                Meus agendamentos
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                <div className='layout-agendar-secao1'>
+                                        <Link to="/login" className="botao-agendar-secao1">
+                                            <CiCalendar className='icone-calendario' />
+                                            Agendar horario
+                                        </Link>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <Link to="/criarconta" className="botao-criar-conta-secao1">
+                                                Criar Conta
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </>
+                            )}
+
+
                         </div>
 
                         <div className='layout-caracteristicas-secao1'>

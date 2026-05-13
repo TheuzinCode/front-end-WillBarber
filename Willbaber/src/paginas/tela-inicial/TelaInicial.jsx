@@ -22,9 +22,9 @@ function Telainicial() {
 
     return (
         <>
-            <Cabecalho estatico={false} cliente={cliente} />
+            <Cabecalho estatico={false} />
 
-            <Secao1TelaInicial />
+            <Secao1TelaInicial cliente={cliente} />
 
             <Secao2TelaInicial />
 

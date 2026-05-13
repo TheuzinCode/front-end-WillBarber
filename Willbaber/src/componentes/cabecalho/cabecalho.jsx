@@ -3,8 +3,16 @@ import { Link } from "react-router-dom";
 import Logo from "../../imgs/logo.png";
 import "./cabecalho.css";
 
-function cabecalho({ estatico, cliente }) {
+function cabecalho({ estatico }) {
 
+    const [cliente, setCliente] = useState(null);
+
+    useEffect(() => {
+        const userStorage = localStorage.getItem("clientAuth");
+        if (userStorage) {
+            setCliente(JSON.parse(userStorage));
+        }
+    }, []);
 
 
     const [ativo, setAtivo] = useState(estatico);
@@ -32,12 +40,16 @@ function cabecalho({ estatico, cliente }) {
                 <div>
                     <div className="container-cabecalho">
                         <div className="nome-barber">
-                            <div className="logo-cabecalho">
-                                <img className="logo-cabecalho" src={Logo} alt="Logo" />
-                            </div>
-                            <div className="texto-nome-barber">
-                                WILL BARBER
-                            </div>
+                            <Link to="/" className="texto-nome-barber" style={{ textDecoration: 'none', display: 'flex' }}>
+                                <div className="logo-cabecalho">
+                                    <img className="logo-cabecalho" src={Logo} alt="Logo" />
+                                </div>
+
+                                <div className="texto-nome-barber">
+                                    WILL BARBER
+                                </div>
+                            </Link>
+
 
                         </div>
                         <div className="container-navbar-cabecalho">
@@ -51,16 +63,16 @@ function cabecalho({ estatico, cliente }) {
 
                             {cliente ? (
                                 <>
-                                    
-                                        <div className="inicial-cliente-cabecalho" >
-                                            {cliente.nome.charAt(0)}
-                                        </div>
-                                        <div>
-                                            <Link to="/Perfil" className="texto-navbar-cliente-logado">
-                                                 Olá, {cliente.nome}
-                                            </Link>
-                                        </div>
-                                    
+
+                                    <div className="inicial-cliente-cabecalho" >
+                                        {cliente.nome.charAt(0)}
+                                    </div>
+                                    <div>
+                                        <Link to="/Perfil" className="texto-navbar-cliente-logado">
+                                            Olá, {cliente.nome}
+                                        </Link>
+                                    </div>
+
 
                                 </>
 
