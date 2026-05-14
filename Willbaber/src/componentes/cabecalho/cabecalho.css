@@ -108,3 +108,12 @@
     border: transparent;
     cursor: pointer;
 }
+
+.icone-diamond-cabecalho{
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    gap: 10px;
+    color: #C9A646;
+    font-weight: 600;
+}

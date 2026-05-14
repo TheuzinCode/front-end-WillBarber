@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../imgs/logo.png";
 import { IoExitOutline } from "react-icons/io5";
+import { IoDiamondOutline } from "react-icons/io5";
 import "./cabecalho.css";
 
 
@@ -75,6 +76,10 @@ function cabecalho({ estatico }) {
                                         <Link to="/bonus" className="texto-navbar">
                                             Bônus
                                         </Link>
+                                    </div>
+                                    <div className="icone-diamond-cabecalho">
+                                        <IoDiamondOutline color="#C9A646" size={20}/>
+                                        {cliente.pontos}
                                     </div>
                                     <div className="inicial-cliente-cabecalho" >
                                         {cliente.nome.charAt(0)}

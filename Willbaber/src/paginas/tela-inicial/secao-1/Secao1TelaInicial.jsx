@@ -22,6 +22,7 @@ function Secao1TelaInicial({ cliente }) {
 
                             {cliente ? (
                                 <>
+                                    
                                     <div className='layout-agendar-secao1'>
                                         <Link to="/agendamento" className="botao-agendar-secao1">
                                             <CiCalendar className='icone-calendario' />
