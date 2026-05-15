@@ -1,0 +1,119 @@
+.container-geral-meusdados {
+    min-height: 100vh;
+    background-color: #000000;
+}
+
+.container-meusdados {
+    padding-top: 200px;
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.topo-meusdados {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.titulo-meusdados {
+    font-size: 54px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: white;
+}
+
+.btn-agendamentos-meusdados {
+    border: 1px solid #b6922e;
+    color: #d7b24b;
+    background: transparent;
+    padding: 14px 24px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 15px;
+}
+
+.btn-agendamentos-meusdados:hover {
+    background: #b6922e;
+    color: #000;
+}
+
+.card-perfil-meusdados {
+    background: #0c0c0c;
+    border: 1px solid #1b1b1b;
+    border-radius: 28px;
+    padding: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.perfil-esquerda-meusdados {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar-meusdados {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #2d2412;
+    border: 2px solid #c9a53f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    color: #d3ae45;
+    font-weight: 600;
+}
+
+.perfil-info-meusdados h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.perfil-info-meusdados p {
+    color: #767676;
+    font-size: 16px;
+}
+
+.stats-meusdados {
+    display: flex;
+    gap: 55px;
+}
+
+.stat-meusdados {
+    text-align: center;
+    position: relative;
+}
+
+.stat-meusdados:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -28px;
+    top: 5px;
+    width: 1px;
+    height: 55px;
+    background: #2a2a2a;
+}
+
+.stat-meusdados h3 {
+    color: #d3ae45;
+    font-size: 38px;
+    margin-bottom: 6px;
+}
+
+.stat-meusdados span {
+    color: #7a7a7a;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
