@@ -67,7 +67,9 @@ const secao4TelaAgendamento = () => {
       },
       servico: {
         id: dadosServico.servicoId
-      }
+      },
+      pontos: dadosServico.pontos
+
     }
 
     console.log(order)

@@ -2,12 +2,13 @@ import "./Meusdados.css";
 import { useEffect, useState } from "react";
 import Menuperfil from "../menuperfil/menuperfil.jsx"
 import MeusAgendamentos from "../componentes/agendamentos/Agendamentos.jsx"
+import MeuPerfil from "../componentes/meuperfil/Meuperfil.jsx"
 
 const Meusdados = () => {
 
     const [dadosCliente, setDadosCliente] = useState({});
     const [loading, setLoading] = useState(true);
-    const [agedamentos, setAgendamentos] = useState([])
+    const [abaAtiva, setAbaAtiva] = useState("historico");
 
     useEffect(() => {
 
@@ -100,8 +101,20 @@ const Meusdados = () => {
                         </div>
                     </div>
                 </div>
-                <Menuperfil />
-                <MeusAgendamentos id={dadosCliente.id} />
+
+                <Menuperfil
+                    abaAtiva={abaAtiva}
+                    setAbaAtiva={setAbaAtiva}
+                />
+
+                {abaAtiva === "historico" && (
+                    <MeusAgendamentos id={dadosCliente.id} />
+                )}
+
+                {abaAtiva === "perfil" && (
+                    <MeuPerfil />
+                )}
+
             </div>
         </div>
     );

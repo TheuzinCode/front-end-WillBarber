@@ -1,18 +1,23 @@
 import "./meuperfil.css"
 
-const menuperfil = () => {
+const menuperfil = ({ abaAtiva, setAbaAtiva }) => {
     return (
         <>
             <div className="menu">
-                <button className="ativo">
-                    <i className="fa-solid fa-clock-rotate-left"></i>
-                    Histórico
-                </button>
-                
-                <button>
-                    <i className="fa-regular fa-user"></i>
-                    Perfil
-                </button>
+                <button
+                className={abaAtiva === "historico" ? "ativo" : ""}
+                onClick={() => setAbaAtiva("historico")}
+            >
+                Histórico
+            </button>
+
+            <button
+                className={abaAtiva === "perfil" ? "ativo" : ""}
+                onClick={() => setAbaAtiva("perfil")}
+            >
+                Perfil
+            </button>
+
             </div>
         </>
     )

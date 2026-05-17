@@ -21,6 +21,7 @@ const Agendamentos = ({ id }) => {
                 }
 
                 const data = await resp.json();
+                console.log(data)
 
                 setAgendamentos(data);
 
@@ -59,7 +60,7 @@ const Agendamentos = ({ id }) => {
 
                                     <span className="fidelidade">
                                         <i className="fa-solid fa-medal"></i>
-                                        +1 fidelidade
+                                        +{agendamento.pontos} Pontos
                                     </span>
 
                                 </h3>

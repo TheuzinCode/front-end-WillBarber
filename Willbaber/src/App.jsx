@@ -8,6 +8,7 @@ import Secao4TelaAgendamento from "./paginas/cliente/agendamento/secao4/secao4Te
 import TelaPerfil from "./paginas/cliente/perfil/TelaPerfil.jsx";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
+import Meuperfil from "./paginas/cliente/perfil/componentes/meuperfil/Meuperfil.jsx";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/selecionarHorario" element={<Secao3TelaAgendamento />} />
           <Route path="/confirmarAgendamento" element={<Secao4TelaAgendamento />} />
           <Route path="/perfil" element={<TelaPerfil />} />
+          <Route path="/editar-perfil" element={<Meuperfil />} />
         </Routes>
       </BrowserRouter>
     </>
