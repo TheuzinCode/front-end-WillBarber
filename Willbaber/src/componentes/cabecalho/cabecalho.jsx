@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import Logo from "../../imgs/logo.png";
 import { IoExitOutline } from "react-icons/io5";
 import { IoDiamondOutline } from "react-icons/io5";
@@ -7,6 +7,8 @@ import "./cabecalho.css";
 
 
 function cabecalho({ estatico }) {
+
+    const navigate = useNavigate()
 
     const [cliente, setCliente] = useState(null);
 
@@ -44,6 +46,7 @@ function cabecalho({ estatico }) {
         localStorage.removeItem("dadosServico");
         localStorage.removeItem("horarioSelecionado");
         setCliente(null);
+        navigate("/")
     }
 
     return (
