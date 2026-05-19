@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../imgs/logo.png";
 import { IoExitOutline } from "react-icons/io5";
 import { IoDiamondOutline } from "react-icons/io5";
@@ -81,7 +81,7 @@ function cabecalho({ estatico }) {
                                         </Link>
                                     </div>
                                     <div className="icone-diamond-cabecalho">
-                                        <IoDiamondOutline color="#C9A646" size={20}/>
+                                        <IoDiamondOutline color="#C9A646" size={20} />
                                         {cliente.pontos}
                                     </div>
                                     <div className="inicial-cliente-cabecalho" >
@@ -109,7 +109,7 @@ function cabecalho({ estatico }) {
                                     <Link to="/Login" className="texto-navbar">
                                         Entrar
                                     </Link>
-                                    <Link  to={cliente ? "/Agendar" : "/Login"} className="texto-navbar-botao">
+                                    <Link to={cliente ? "/Agendar" : "/Login"} className="texto-navbar-botao">
                                         Agendar Agora
                                     </Link>
                                 </>

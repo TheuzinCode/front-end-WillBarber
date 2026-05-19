@@ -1,0 +1,9 @@
+.container-pagina-inicial-gestor-central {
+    min-height: 100vh;
+    background: #050505;
+}
+
+.conteudo-pagina-gestor{
+    margin-left:300px;
+    padding:30px;
+}

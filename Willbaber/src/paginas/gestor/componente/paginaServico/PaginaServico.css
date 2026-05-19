@@ -1,0 +1,256 @@
+.pagina-servicos{
+    padding:30px;
+    background:#050505;
+    min-height:100vh;
+    color:white;
+    font-family:'Inter', sans-serif;
+}
+
+/* TOPO */
+
+.topo-servicos{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+.titulo-servicos{
+    font-size:34px;
+    margin-bottom:6px;
+}
+
+.subtitulo-servicos{
+    color:#6f6f6f;
+    font-size:15px;
+}
+
+.acoes-topo-servicos{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.botao-ver-site{
+    background:none;
+    border:none;
+    color:#7c7c7c;
+    cursor:pointer;
+}
+
+.avatar-admin{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#d0ad49;
+    color:#000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+}
+
+/* BARRA ACOES */
+
+.barra-acoes-servicos{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.quantidade-servicos{
+    background:#241d0f;
+    color:#d0ad49;
+
+    padding:10px 16px;
+    border-radius:999px;
+
+    font-weight:600;
+}
+
+.grupo-botoes-servicos{
+    display:flex;
+    gap:14px;
+}
+
+.botao-editar-precos{
+    height:52px;
+    padding:0 24px;
+
+    border-radius:999px;
+    border:1px solid #7a6220;
+
+    background:transparent;
+    color:#d0ad49;
+
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.botao-editar-precos:hover{
+    background:#d0ad49;
+    color:#000;
+}
+
+.botao-novo-servico{
+    height:52px;
+    padding:0 28px;
+
+    border:none;
+    border-radius:999px;
+
+    background:#d0ad49;
+    color:#000;
+
+    font-size:15px;
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+/* TABELA */
+
+.container-tabela-servicos{
+    background:#0a0a0a;
+    border:1px solid #2a2a2a;
+    border-radius:24px;
+    overflow:hidden;
+}
+
+.tabela-servicos{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.tabela-servicos thead{
+    background:#101010;
+}
+
+.tabela-servicos th{
+    text-align:left;
+    padding:24px;
+    color:#7d7d7d;
+    font-size:14px;
+    font-weight:500;
+}
+
+.tabela-servicos td{
+    padding:18px 24px;
+    border-top:1px solid #1d1d1d;
+}
+
+/* SERVICO */
+
+.informacoes-servico{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.icone-servico{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+
+    background:#211b0f;
+    color:#d0ad49;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:20px;
+}
+
+.titulo-item-servico{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:20px;
+    font-weight:600;
+
+    margin-bottom:6px;
+}
+
+.descricao-servico{
+    color:#6f6f6f;
+    font-size:14px;
+}
+
+/* TAG */
+
+.tag-popular{
+    background:#2a220f;
+    color:#d0ad49;
+
+    padding:5px 10px;
+    border-radius:999px;
+
+    font-size:12px;
+    font-weight:600;
+}
+
+/* VALOR */
+
+.valor-servico{
+    color:#d0ad49;
+    font-size:22px;
+    font-weight:700;
+}
+
+/* STATUS */
+
+.status-ativo{
+    background:#0f2a18;
+    color:#35d679;
+
+    padding:8px 16px;
+    border-radius:999px;
+
+    font-size:14px;
+    font-weight:600;
+}
+
+/* ACOES */
+
+.acoes-servico{
+    display:flex;
+    gap:10px;
+}
+
+.botao-editar,
+.botao-excluir{
+    width:38px;
+    height:38px;
+
+    border:none;
+    border-radius:10px;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.botao-editar{
+    background:#1a1a1a;
+    color:#cfcfcf;
+}
+
+.botao-excluir{
+    background:#2a1010;
+    color:#ff5f5f;
+}
+
+.botao-editar:hover{
+    background:#2d2d2d;
+}
+
+.botao-excluir:hover{
+    background:#4a1515;
+}

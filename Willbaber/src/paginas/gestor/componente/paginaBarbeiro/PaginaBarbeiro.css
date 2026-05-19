@@ -1,0 +1,274 @@
+.pagina-barbeiros{
+    background:#050505;
+    min-height:100vh;
+    padding:30px;
+    color:white;
+    font-family:'Inter', sans-serif;
+}
+
+/* TOPO */
+
+.topo-barbeiros{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.titulo-barbeiros{
+    font-size:34px;
+    margin-bottom:6px;
+}
+
+.subtitulo-barbeiros{
+    color:#6f6f6f;
+    font-size:15px;
+}
+
+.acoes-topo-barbeiros{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.botao-ver-site{
+    background:none;
+    border:none;
+    color:#7b7b7b;
+    cursor:pointer;
+}
+
+.avatar-admin{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#d0ad49;
+    color:#000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+}
+
+/* BARRA */
+
+.barra-superior-barbeiros{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:28px;
+}
+
+.informacoes-barbeiros{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.quantidade-barbeiros{
+    background:#241d0f;
+    color:#d0ad49;
+
+    padding:10px 16px;
+    border-radius:999px;
+
+    font-weight:600;
+}
+
+.barbeiros-ativos{
+    color:#8f8f8f;
+}
+
+.botao-cadastrar-barbeiro{
+    height:52px;
+    padding:0 28px;
+
+    border:none;
+    border-radius:999px;
+
+    background:#d0ad49;
+    color:#000;
+
+    font-size:15px;
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+/* GRID */
+
+.grid-barbeiros{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:22px;
+}
+
+/* CARD */
+
+.card-barbeiro{
+    background:#0a0a0a;
+    border:1px solid #3a3a3a;
+    border-radius:24px;
+    padding:22px;
+}
+
+.barbeiro-inativo{
+    opacity:.6;
+}
+
+.topo-card-barbeiro{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:18px;
+}
+
+.informacoes-principais-barbeiro{
+    display:flex;
+    gap:16px;
+}
+
+.foto-barbeiro{
+    width:62px;
+    height:62px;
+    border-radius:16px;
+    object-fit:cover;
+}
+
+.nome-barbeiro{
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+.especialidade-barbeiro{
+    color:#d0ad49;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.detalhes-barbeiro{
+    display:flex;
+    gap:14px;
+    color:#6f6f6f;
+    font-size:14px;
+}
+
+.avaliacao-barbeiro{
+    color:#ffffff;
+    font-weight:700;
+}
+
+.avaliacao-barbeiro span{
+    color:#777;
+    font-weight:400;
+}
+
+/* LINHA DIAS */
+
+.linha-dias{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.status-online,
+.status-offline{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+}
+
+.status-online{
+    background:#43e487;
+}
+
+.status-offline{
+    background:#4d5563;
+}
+
+.dias-trabalho{
+    display:flex;
+    gap:8px;
+}
+
+.dias-trabalho span{
+    background:#171717;
+    color:#8a8a8a;
+
+    padding:5px 10px;
+    border-radius:8px;
+
+    font-size:12px;
+}
+
+/* DESCRICAO */
+
+.descricao-barbeiro{
+    color:#7c7c7c;
+    line-height:1.5;
+    margin-bottom:22px;
+    border-bottom:1px solid #242424;
+    padding-bottom:22px;
+}
+
+/* RODAPE */
+
+.rodape-card-barbeiro{
+    display:flex;
+    gap:12px;
+}
+
+.botao-editar-barbeiro,
+.botao-desativar-barbeiro,
+.botao-ativar-barbeiro,
+.botao-excluir-barbeiro{
+    height:46px;
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.botao-editar-barbeiro{
+    flex:1;
+    background:#171717;
+    color:#d5d5d5;
+}
+
+.botao-desativar-barbeiro{
+    flex:1;
+    background:#2a220d;
+    color:#f0c34f;
+}
+
+.botao-ativar-barbeiro{
+    flex:1;
+    background:#0d2918;
+    color:#40d77d;
+}
+
+.botao-excluir-barbeiro{
+    width:48px;
+    background:#2a1010;
+    color:#ff5d5d;
+}
+
+.botao-editar-barbeiro:hover{
+    background:#262626;
+}
+
+.botao-desativar-barbeiro:hover{
+    background:#3b2f0d;
+}
+
+.botao-ativar-barbeiro:hover{
+    background:#124025;
+}
+
+.botao-excluir-barbeiro:hover{
+    background:#481515;
+}
