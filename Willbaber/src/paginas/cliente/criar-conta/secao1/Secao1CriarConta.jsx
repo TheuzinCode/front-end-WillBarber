@@ -21,6 +21,21 @@ const secao1CriarConta = () => {
             return;
         }
 
+        if (senha.length < 8) {
+            alert("A senha deve ter no mínimo 8 caracteres");
+            return;
+        }
+
+        if (cpf.length !== 11) {
+            alert("O CPF deve ter exatamente 11 números");
+            return;
+        }
+
+        if (!email.includes("@")) {
+            alert("Digite um email válido");
+            return;
+        }
+
         const horarios = [
             {
                 diaSemana: "MONDAY",
@@ -64,6 +79,25 @@ const secao1CriarConta = () => {
         }
     }
 
+
+    const formatarCPF = (valor) => {
+        valor = valor.replace(/\D/g, "");
+
+        valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+        valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+        valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+        return valor;
+    }
+    const formatarTelefone = (valor) => {
+        valor = valor.replace(/\D/g, "");
+
+        valor = valor.replace(/^(\d{2})(\d)/g, "($1)$2");
+        valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+
+        return valor;
+    }
+
     return (
         <>
             <div className="container-secao1-criar-conta">
@@ -82,35 +116,66 @@ const secao1CriarConta = () => {
                                 <label className="label-secao1-criar-conta">Nome Completo</label>
                             </div>
                             <div>
-                                <input className="input-secao1-criar-conta" type="text" id="nomeCompleto" name="nomeCompleto" value={nomeCompleto} onChange={(e) => setNomeCompleto(e.target.value)} />
+                                <input className="input-secao1-criar-conta"
+                                    type="text"
+                                    id="nomeCompleto"
+                                    name="nomeCompleto"
+                                    value={nomeCompleto} onChange={(e) => setNomeCompleto(e.target.value)} />
                             </div>
 
                             <div className="label-secao1-criar-conta">
                                 <label className="label-secao1-criar-conta">CPF</label>
                             </div>
                             <div>
-                                <input className="input-secao1-criar-conta" type="text" id="cpf" name="cpf" value={cpf} onChange={(e) => setCpf(e.target.value)} />
+                                <input className="input-secao1-criar-conta"
+                                    type="text"
+                                    id="cpf"
+                                    name="cpf"
+                                    value={formatarCPF(cpf)}
+                                    onChange={(e) => setCpf(e.target.value.replace(/\D/g, ""))}
+                                    minLength={14}
+                                    maxLength={14}
+                                />
                             </div>
 
                             <div className="label-secao1-criar-conta">
                                 <label className="label-secao1-criar-conta">Email</label>
                             </div>
                             <div>
-                                <input className="input-secao1-criar-conta" type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <input className="input-secao1-criar-conta"
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={email} onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
                             </div>
 
                             <div className="label-secao1-criar-conta">
                                 <label className="label-secao1-criar-conta">Telefone</label>
                             </div>
                             <div>
-                                <input className="input-secao1-criar-conta" type="text" id="telefone" name="telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} />
+                                <input className="input-secao1-criar-conta"
+                                    type="text"
+                                    id="telefone"
+                                    name="telefone"
+                                    value={formatarTelefone(telefone)}
+                                    onChange={(e) => setTelefone(e.target.value.replace(/\D/g, ""))}
+                                    maxLength={14}
+                                />
                             </div>
 
                             <div className="label-secao1-criar-conta">
                                 <label className="label-secao1-criar-conta">Senha</label>
                             </div>
                             <div>
-                                <input className="input-secao1-criar-conta" type="password" id="password" name="password" value={senha} onChange={(e) => setSenha(e.target.value)} />
+                                <input className="input-secao1-criar-conta"
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    value={senha} onChange={(e) => setSenha(e.target.value)}
+                                    minLength={8}
+                                />
                             </div>
 
                             <button className="botao-entrar-secao1-criar-conta" type="submit">Cadastrar</button>

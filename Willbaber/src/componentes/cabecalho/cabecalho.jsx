@@ -47,6 +47,8 @@ function cabecalho({ estatico }) {
         localStorage.removeItem("horarioSelecionado");
         setCliente(null);
         navigate("/")
+        window.location.reload();
+        
     }
 
     return (
