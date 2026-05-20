@@ -103,7 +103,7 @@ function Secao3TelaInicial() {
                         </div>
                     </div>
                 </div>
-                <Link to={cliente ? "/agendamento" : "/Login"} className="botao-agendar-servico-secao3-tela-inicial">
+                <Link to={cliente ? "/novo-agendamento" : "/Login"} className="botao-agendar-servico-secao3-tela-inicial">
                     Agendar Serviço
                 </Link>
 

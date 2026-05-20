@@ -1,0 +1,153 @@
+/* CARD */
+
+.card-agendamento-meus-agendamentos-passados {
+    width: 100%;
+
+    background: #080808;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 22px;
+
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    max-width: 1200px;
+    height: 140px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+}
+
+.lado-esquerdo-agendamento-meus-agendamentos-passados {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.icone-servico-meus-agendamentos-passados {
+    width: 56px;
+    height: 56px;
+
+    border-radius: 14px;
+
+    background: #2d180d;
+    color: #d6af47;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+}
+
+.info-servico-meus-agendamentos-passados {
+    font-size: 30px;
+    margin-bottom: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.titulo-servico-meus-agendamentos-passados {
+    color: #dfe6f2;
+    font-size: 23px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+}
+
+.barbeiro-servico-meus-agendamentos-passados {
+    color: #6e6e6e;
+    margin-bottom: 5px;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+}
+
+.informacoes-agendamento-passados {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    color: #8f9bb3;
+    font-size: 14px;
+
+}
+
+.data-agendamento-passados {
+    color: #8f9bb3;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+}
+
+/* STATUS */
+
+.status-pendente-passados {
+    background: #083d15;
+    color: #29ff57;
+
+    padding: 6px 12px;
+    border-radius: 20px;
+
+    font-weight: bold;
+}
+
+.status-confirmado-passados {
+    background: #032b47;
+    color: #2ba8ff;
+
+    padding: 6px 12px;
+    border-radius: 20px;
+
+    font-weight: bold;
+}
+
+/* DIREITA */
+
+.lado-direito-agendamento-passados {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.lado-direito-agendamento-passados h1 {
+    font-size: 26px;
+    color: white;
+}
+
+.acoes-agendamento-passados {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.botao-reagendar-passados {
+    background: transparent;
+
+    border: 1px solid #7b6517;
+
+    color: #d6af47;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.botao-cancelar-passados {
+    background: transparent;
+
+    border: 1px solid #6a1616;
+
+    color: #ff4b4b;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+    font-weight: bold;
+}

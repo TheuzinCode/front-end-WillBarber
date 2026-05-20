@@ -1,0 +1,63 @@
+.barra-filtros {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    
+}
+
+.filtros {
+    display: flex;
+    align-items: center;
+
+    background: #0c0c0c;
+
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.botao-filtro {
+    border: none;
+    background: transparent;
+
+    color: #8f9bb3;
+
+    padding: 14px 22px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.botao-filtro.ativo {
+    background: #d6af47;
+    color: black;
+}
+
+.botao-novo-agendamento {
+    border: none;
+
+    background: #d6af47;
+    color: black;
+
+    padding: 15px 24px;
+
+    border-radius: 16px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.texto-novo-agendamento {
+
+    text-decoration: none;
+}

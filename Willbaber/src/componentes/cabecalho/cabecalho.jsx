@@ -111,7 +111,7 @@ function cabecalho({ estatico }) {
                                     <Link to="/Login" className="texto-navbar">
                                         Entrar
                                     </Link>
-                                    <Link to={cliente ? "/Agendar" : "/Login"} className="texto-navbar-botao">
+                                    <Link to={cliente ? "/novo-agendamento" : "/Login"} className="texto-navbar-botao">
                                         Agendar Agora
                                     </Link>
                                 </>

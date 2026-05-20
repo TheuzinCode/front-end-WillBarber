@@ -117,3 +117,8 @@
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+
+.ver-agendamentos-meusdados {
+    text-decoration: none;
+    color: #d3ae45;
+}

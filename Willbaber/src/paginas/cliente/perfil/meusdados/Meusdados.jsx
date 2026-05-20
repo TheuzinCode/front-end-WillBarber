@@ -1,5 +1,6 @@
 import "./Meusdados.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Menuperfil from "../menuperfil/menuperfil.jsx"
 import MeusAgendamentos from "../componentes/agendamentos/Agendamentos.jsx"
 import MeuPerfil from "../componentes/meuperfil/Meuperfil.jsx"
@@ -62,10 +63,13 @@ const Meusdados = () => {
                     <h1 className="titulo-meusdados">
                         Meu Perfil
                     </h1>
+                    <Link to="/meus-agendamentos" className="ver-agendamentos-meusdados">
+                        <button className="btn-agendamentos-meusdados">
 
-                    <button className="btn-agendamentos-meusdados">
-                        Ver Agendamentos
-                    </button>
+                            Ver Agendamentos
+
+                        </button>
+                    </Link>
 
                 </div>
 
@@ -116,7 +120,7 @@ const Meusdados = () => {
                 )}
 
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -11,6 +11,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Meuperfil from "./paginas/cliente/perfil/componentes/meuperfil/Meuperfil.jsx";
 import PaginaInicialGestor from "./paginas/gestor/PaginaInicialGestor.jsx";
+import MeusAgendamentos from "./paginas/cliente/meus-agendamentos/MeusAgendamentos.jsx"
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
           <Route path="/" element={<Telainicial />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/criarconta" element={<CriarConta />} />
-          <Route path="/agendamento" element={<Agendamento />} />
+          <Route path="/novo-agendamento" element={<Agendamento />} />
           <Route path="/selecionarServico" element={<Secao2TelaAgendamento />} />
           <Route path="/selecionarHorario" element={<Secao3TelaAgendamento />} />
           <Route path="/confirmarAgendamento" element={<Secao4TelaAgendamento />} />
@@ -29,6 +30,7 @@ function App() {
           <Route path="/editar-perfil" element={<Meuperfil />} />
           <Route path="/barbe" element={<Barbe />} />
           <Route path="/gestor/home" element={<PaginaInicialGestor />} />
+          <Route path="/meus-agendamentos" element={<MeusAgendamentos />} />
         </Routes>
       </BrowserRouter>
     </>

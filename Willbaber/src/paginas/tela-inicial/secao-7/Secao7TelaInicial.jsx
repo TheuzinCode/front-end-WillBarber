@@ -93,7 +93,7 @@ const Secao7TelaInicial = () => {
 
                     </div>
 
-                    <Link to={cliente ? "/agendamento" : "/Login"} className="botao-agendar-secao7-tela-inicial">
+                    <Link to={cliente ? "/novo-agendamento" : "/Login"} className="botao-agendar-secao7-tela-inicial">
                         Agendar Meu Horário
                     </Link>
 
@@ -106,9 +106,9 @@ const Secao7TelaInicial = () => {
                         width="750"
                         height="600"
                         style={{ border: 0 }}
-                        allowfullscreen
+                        allowFullScreen
                         loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
+                        referrerPolicy="no-referrer-when-downgrade">
 
                     </iframe>
                 </div>

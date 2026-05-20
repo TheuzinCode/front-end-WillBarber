@@ -24,14 +24,14 @@ function Secao1TelaInicial({ cliente }) {
                                 <>
                                     
                                     <div className='layout-agendar-secao1'>
-                                        <Link to="/agendamento" className="botao-agendar-secao1">
+                                        <Link to="/novo-agendamento" className="botao-agendar-secao1">
                                             <CiCalendar className='icone-calendario' />
                                             Agendar horario
                                         </Link>
                                     </div>
                                     <div>
                                         <div>
-                                            <Link to="/perfil" className="botao-criar-conta-secao1">
+                                            <Link to="/meus-agendamentos" className="botao-criar-conta-secao1">
                                                 Meus agendamentos
                                             </Link>
                                         </div>

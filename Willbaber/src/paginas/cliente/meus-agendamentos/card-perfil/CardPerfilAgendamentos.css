@@ -1,0 +1,94 @@
+.card-perfil-agendamento {
+    width: 100%;
+
+    background: linear-gradient(90deg,
+            rgba(70, 30, 10, 0.9),
+            rgba(15, 10, 8, 0.95));
+
+    border: 1px solid rgba(214, 175, 71, 0.2);
+
+    border-radius: 22px;
+
+    padding: 22px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+
+    max-width: 1200px;
+    height: 140px;
+    margin: 0 auto;
+
+}
+
+.lado-esquerdo-perfil {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.avatar-perfil {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: #d6af47;
+    color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
+.nome-card-perfil-agendamento {
+    font-size: 25px;
+    color: aliceblue;
+     font-family: "Playfair Display", serif;
+    font-weight: 600;
+}
+
+.email-card-perfil-agendamento {
+    color: #8f8f8f;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ESTATISTICAS */
+
+.estatisticas-agendamento-card-perfil-agendamento {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 25px;
+    height: 100px;
+}
+
+.item-estatistica-card-perfil-agendamento {
+    text-align: center;
+    width: 100px;
+}
+
+.numeros-estatistica-card-perfil-agendamento {
+    font-size: 42px;
+    color: #d6af47;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.titulo-estatistica-card-perfil-agendamento {
+    color: #808080;
+    font-size: 20px;
+}
+
+.linha-divisoria {
+    width: 1px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+}
