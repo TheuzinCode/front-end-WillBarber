@@ -6,8 +6,22 @@ import { FaRegStar } from "react-icons/fa";//simbulo estrela
 import { FiDroplet } from "react-icons/fi";//simbulo gota de agua
 import { LuPaintRoller } from "react-icons/lu"; //simbulo rolo de pintura
 import { FaRegEye } from "react-icons/fa"; //simbulo olho
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function Secao3TelaInicial() {
+
+    const navigate = useNavigate()
+
+    const [cliente, setCliente] = useState(null);
+
+    useEffect(() => {
+        const userStorage = localStorage.getItem("clientAuth");
+        if (userStorage) {
+            setCliente(JSON.parse(userStorage));
+        }
+    }, []);
+
     return (
         <>
             <div className="container-secao3-tela-inicial">
@@ -89,11 +103,10 @@ function Secao3TelaInicial() {
                         </div>
                     </div>
                 </div>
-
-                <div className="botao-agendar-servico-secao3-tela-inicial">
+                <Link to={cliente ? "/agendamento" : "/Login"} className="botao-agendar-servico-secao3-tela-inicial">
                     Agendar Serviço
-                </div>
-                
+                </Link>
+
             </div>
         </>
     );

@@ -1,4 +1,4 @@
-.container-rodape{
+.container-rodape {
     font-family: "Poppins", sans-serif;
     background-color: #2B1B12;
     display: flex;
@@ -7,13 +7,14 @@
     padding: 20px;
     padding-left: 150px;
     padding-right: 150px;
+    height: 100px;
 }
 
-.nome-barber-rodape{
+.nome-barber-rodape {
     display: flex;
 }
 
-.texto-nome-barber-rodape{
+.texto-nome-barber-rodape {
     align-self: center;
     font-family: "Playfair Display", serif;
     color: white;
@@ -22,15 +23,15 @@
     margin-left: 10px;
 }
 
-.logo-rodape{
+.logo-rodape {
     align-items: center;
     align-content: center;
-    align-self: center;        
+    align-self: center;
     width: 35px;
     height: 35px;
 }
 
-.texto-navbar{
+.texto-navbar {
     font-family: "Poppins", sans-serif;
     color: rgb(163, 163, 163);
     font-size: 18px;
@@ -39,7 +40,7 @@
     text-decoration: none;
 }
 
-.texto-navbar-botao{
+.texto-navbar-botao {
     font-family: "Poppins", sans-serif;
     color: black;
     font-size: 17px;
@@ -49,4 +50,29 @@
     background-color: #BF9445;
     padding: 10px 20px;
     border-radius: 30px;
+}
+
+.texto-diretos-willbarber {
+    color: gray;
+}
+
+
+
+.container-icones-rede-sociais {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.icone-redes-sociais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    background-color: rgba(128, 128, 128, 0.808);
+    color: antiquewhite;
+    cursor: pointer;
 }

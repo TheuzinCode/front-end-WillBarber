@@ -1,5 +1,8 @@
 import "./Rodape.css"
 import Logo from "../../imgs/logo.png";
+import { FaInstagram } from "react-icons/fa6";//icone instagram
+import { FaWhatsapp } from "react-icons/fa"; //icone WhatsApp
+import { FaFacebook } from "react-icons/fa"; //icone facebook
 
 const rodape = () => {
     return (
@@ -14,19 +17,19 @@ const rodape = () => {
                     </div>
                 </div>
 
-                <div>
+                <div className="texto-diretos-willbarber">
                     © 2026 Will Barber. Todos os direitos reservados.
                 </div>
 
-                <div>
-                    <div>
-                        icone instagram
+                <div className="container-icones-rede-sociais">
+                    <div className="icone-redes-sociais">
+                        <FaInstagram size={25}/>
                     </div>
-                    <div>
-                        icone facebook
+                    <div className="icone-redes-sociais">
+                        <FaFacebook size={25}/>
                     </div>
-                    <div>
-                        icone whatsapp
+                    <div className="icone-redes-sociais">
+                        <FaWhatsapp size={25} />
                     </div>
                 </div>
             </div>
