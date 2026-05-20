@@ -128,7 +128,12 @@ const secao1TelaAgendamento = () => {
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                   </div>
-                  <p className="imagem-barbeiro-tela-agendamento">foto</p>
+                  <p className="imagem-barbeiro-tela-agendamento"><img
+                    src={`data:image/jpeg;base64,${barbeiro.imagem}`}
+                    alt={barbeiro.nome}
+                    width="150"
+                  />
+                  </p>
                   <div className="nome-barbeiro-tela-agendamento">
                     <h2 className="nome-baebeiro-tela-agendamento-secao01">{barbeiro.nome}</h2>
                   </div>
