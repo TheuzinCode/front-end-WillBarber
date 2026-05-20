@@ -123,19 +123,14 @@ const secao1TelaAgendamento = () => {
               />
               <label htmlFor={barbeiro.id} className="label-barbeiro-tela-agendamento" >
                 <div className="layout-card-barbeiro-tela-agendamento">
-                  <div className="check-icon-tela-agendamento">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
                   <p className="imagem-barbeiro-tela-agendamento"><img
+                    className="layout-iamgem-barbeiro-pagina-agendamento"
                     src={`data:image/jpeg;base64,${barbeiro.imagem}`}
                     alt={barbeiro.nome}
-                    width="150"
-                  />
-                  </p>
+                  /></p>
                   <div className="nome-barbeiro-tela-agendamento">
                     <h2 className="nome-baebeiro-tela-agendamento-secao01">{barbeiro.nome}</h2>
+                    <h3 className="especialidade-barbeiros-pagina-agendamento">{barbeiro.descricao}</h3>
                   </div>
                 </div>
               </label>

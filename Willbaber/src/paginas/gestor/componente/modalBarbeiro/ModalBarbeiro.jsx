@@ -9,6 +9,7 @@ const ModalBarbeiro = ({ fecharModal }) => {
     const [cpf, setCpf] = useState("");
     const [numero, setNumero] = useState("");
     const [foto, setFoto] = useState(null);
+    const [descricao, setDescricao] = useState("")
 
     const [horarios, setHorarios] = useState([
         {
@@ -62,6 +63,7 @@ const ModalBarbeiro = ({ fecharModal }) => {
                 senha,
                 cpf,
                 numero,
+                descricao,
                 tipo: "BARBEIRO",
                 horarios
             };
@@ -208,6 +210,20 @@ const ModalBarbeiro = ({ fecharModal }) => {
                                     setNumero(e.target.value)
                                 }
                                 placeholder="(11) 99999-9999"
+                            />
+                        </div>
+
+                         <div className="grupo-input-modal">
+
+                            <label>Descrição</label>
+
+                            <input
+                                type="text"
+                                value={descricao}
+                                onChange={(e) =>
+                                    setDescricao(e.target.value)
+                                }
+                                placeholder="Digite a descrição"
                             />
                         </div>
 
