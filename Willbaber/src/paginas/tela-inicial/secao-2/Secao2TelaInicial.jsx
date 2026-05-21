@@ -39,7 +39,7 @@ function Secao2TelaInicial() {
                             <FaLocationDot />
                         </div>
                         <div className="texto-topicos-secao2-tela-inicial">
-                            Av. Paulista, 1578 — São Paulo
+                            R. Comendador A. dos Santos, 1227
                         </div>
                     </div>
                 </div>

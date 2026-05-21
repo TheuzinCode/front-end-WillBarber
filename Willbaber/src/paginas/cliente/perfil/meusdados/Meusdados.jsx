@@ -10,6 +10,9 @@ const Meusdados = () => {
     const [dadosCliente, setDadosCliente] = useState({});
     const [loading, setLoading] = useState(true);
     const [abaAtiva, setAbaAtiva] = useState("historico");
+    const [todosAgendamentos, setTodosAgendamentos] = useState([]);
+    const [agendamentosPassados, setAgendamentosPassados] = useState([]);
+    const [agendamentosFuturos, setAgendamentosFuturos] = useState([]);
 
     useEffect(() => {
 
@@ -46,6 +49,75 @@ const Meusdados = () => {
         }
 
         carregarDados();
+
+        async function carregarTodosAgendamentos() {
+
+            const clienteSalvo = localStorage.getItem("clientAuth");
+            if (clienteSalvo) {
+                const clienteObj = JSON.parse(clienteSalvo);
+
+                try {
+                    const resp = await fetch(
+                        `http://localhost:8080/willbarber/agendamentos/${clienteObj.id}/todos-meus-agendamentos`
+                    );
+                    const data = await resp.json();
+                    if (!resp.ok) {
+                        console.log(data);
+                        return;
+                    }
+                    setTodosAgendamentos(data);
+                } catch (error) {
+                    console.error("ERRO AO CARREGAR OS AGENDAMENTOS", error);
+                }
+            }
+
+
+        }
+
+        carregarTodosAgendamentos();
+
+        async function carregarAgendamentosPassados() {
+            const clienteSalvo = localStorage.getItem("clientAuth");
+            if (clienteSalvo) {
+                const clienteObj = JSON.parse(clienteSalvo);
+                try {
+                    const resp = await fetch(
+                        `http://localhost:8080/willbarber/agendamentos/${clienteObj.id}/meus-agendamentos-concluidos`
+                    );
+                    const data = await resp.json();
+                    if (!resp.ok) {
+                        console.log(data);
+                        return;
+                    }
+                    setAgendamentosPassados(data);
+                } catch (error) {
+                    console.error("ERRO AO CARREGAR OS AGENDAMENTOS PASSADOS", error);
+                }
+            }
+        }
+        carregarAgendamentosPassados();
+
+        async function carregarAgendamentosFuturos() {
+            const clienteSalvo = localStorage.getItem("clientAuth");
+            if (clienteSalvo) {
+                const clienteObj = JSON.parse(clienteSalvo);
+                try {
+                    const resp = await fetch(
+                        `http://localhost:8080/willbarber/agendamentos/${clienteObj.id}/meus-agendamentos`
+                    );
+                    const data = await resp.json();
+                    if (!resp.ok) {
+                        console.log(data);
+                        return;
+                    }
+                    setAgendamentosFuturos(data);
+                } catch (error) {
+                    console.error("ERRO AO CARREGAR OS AGENDAMENTOS FUTUROS", error);
+                }
+            }
+        }
+        carregarAgendamentosFuturos();
+
 
     }, []);
 
@@ -88,15 +160,15 @@ const Meusdados = () => {
                     </div>
                     <div className="stats-meusdados">
                         <div className="stat-meusdados">
-                            <h3>4</h3>
+                            <h3>{todosAgendamentos.length}</h3>
                             <span>Atendimentos</span>
                         </div>
                         <div className="stat-meusdados">
-                            <h3>2</h3>
+                            <h3>{agendamentosFuturos.length}</h3>
                             <span>Agendados</span>
                         </div>
                         <div className="stat-meusdados">
-                            <h3>2</h3>
+                            <h3>{agendamentosPassados.length}</h3>
                             <span>Concluídos</span>
                         </div>
                         <div className="stat-meusdados">
