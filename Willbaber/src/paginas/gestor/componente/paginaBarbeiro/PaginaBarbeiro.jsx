@@ -3,7 +3,7 @@ import ModalBarbeiro from "../modalBarbeiro/ModalBarbeiro";
 import { useState } from "react";
 
 
-const PaginaBarbeiro = () => {
+const PaginaBarbeiro = ({gestor}) => {
   const [modalAberto, setModalAberto] = useState(false);
 
   return (
@@ -27,7 +27,7 @@ const PaginaBarbeiro = () => {
               Ver site
             </button>
             <div className="avatar-admin">
-              A
+             {gestor?.nomeCompleto.charAt(0)}
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import "./PaginaDashboard.css"
 
-const PaginaDashboard = () => {
+const PaginaDashboard = ({gestor}) => {
   return (
     <>
       <div className="pagina-dashboard">
@@ -18,7 +18,7 @@ const PaginaDashboard = () => {
               Ver site
             </button>
             <div className="avatar-admin">
-              A
+              {gestor?.nomeCompleto.charAt(0)}
             </div>
           </div>
         </div>

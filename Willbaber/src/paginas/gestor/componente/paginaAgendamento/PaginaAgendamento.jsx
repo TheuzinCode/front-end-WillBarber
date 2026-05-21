@@ -1,6 +1,6 @@
 import "./PaginaAgendamento.css"
 
-const PaginaAgendamento = () => {
+const PaginaAgendamento = ({gestor}) => {
   return (
     <div class="pagina-agendamentos">
 
@@ -25,7 +25,7 @@ const PaginaAgendamento = () => {
           </button>
 
           <div class="avatar-admin">
-            A
+            {gestor?.nomeCompleto.charAt(0)}
           </div>
 
         </div>

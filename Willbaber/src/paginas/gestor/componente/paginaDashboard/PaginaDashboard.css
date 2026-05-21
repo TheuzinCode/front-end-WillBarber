@@ -57,7 +57,7 @@
 .container-cards-dashboard{
     display:grid;
     grid-template-columns:repeat(5, 1fr);
-    max-width: 1150px;
+    max-width: 1200px;
     gap:30px;
     margin-bottom:30px;
 }

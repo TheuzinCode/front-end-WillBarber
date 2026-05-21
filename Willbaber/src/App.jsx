@@ -6,7 +6,6 @@ import Secao2TelaAgendamento from "./paginas/cliente/agendamento/secao2/secao2Te
 import Secao3TelaAgendamento from "./paginas/cliente/agendamento/secao3/secao3TelaAgendamento.jsx";
 import Secao4TelaAgendamento from "./paginas/cliente/agendamento/secao4/secao4TelaAgendamento.jsx";
 import TelaPerfil from "./paginas/cliente/perfil/TelaPerfil.jsx";
-import Barbe from "./paginas/gestor/cadastrarbarbeiro.jsx"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Meuperfil from "./paginas/cliente/perfil/componentes/meuperfil/Meuperfil.jsx";
@@ -32,7 +31,6 @@ function App() {
           <Route path="/confirmarAgendamento" element={<Secao4TelaAgendamento />} />
           <Route path="/perfil" element={<TelaPerfil />} />
           <Route path="/editar-perfil" element={<Meuperfil />} />
-          <Route path="/barbe" element={<Barbe />} />
           <Route path="/gestor/home" element={<PaginaInicialGestor />} />
           <Route path="/meus-agendamentos" element={<MeusAgendamentos />} />
         </Routes>

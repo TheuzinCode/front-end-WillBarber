@@ -254,3 +254,7 @@
 .botao-excluir:hover{
     background:#4a1515;
 }
+
+.botao-ver-site-pagina-servicos{
+    text-decoration: none;
+}

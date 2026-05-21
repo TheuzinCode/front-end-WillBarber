@@ -29,20 +29,9 @@
     border-bottom: 1px solid #1a1a1a;
 }
 
-.logo-icon {
-    width: 44px;
-    height: 44px;
-
-    border-radius: 12px;
-
-    background: #18140c;
-    border: 1px solid #6e5820;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #d1ab46;
+.imagem-logo-menu-lateral-adm{
+    height: 47px;
+    width: 47px;
 }
 
 .logo-info h2 {

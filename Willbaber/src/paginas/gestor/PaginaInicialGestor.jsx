@@ -5,11 +5,44 @@ import PaginaCliente from "./componente/paginaCliente/PaginaClientes.jsx"
 import PaginaDashboard from "./componente/paginaDashboard/PaginaDashboard.jsx"
 import PaginaServico from "./componente/paginaServico/PaginaServico.jsx"
 import "./PaginaInicialGestor.css"
-
 import { useEffect, useState } from "react";
 
 
 const PaginaInicialGestor = () => {
+
+  const [gestor, setGestor] = useState(null)
+
+  useEffect(() => {
+
+    async function BuscarUsuario() {
+
+      const clientoSalvo = localStorage.getItem("clientAuth")
+
+      if (clientoSalvo) {
+        const clientObj = JSON.parse(clientoSalvo)
+
+        try {
+          const resp = await fetch(
+            `http://localhost:8080/willbarber/gestor/meu-perfil/${clientObj.id}`
+          )
+          const data = await resp.json()
+          if (!resp.ok) {
+
+            console.log(data)
+            return
+          }
+
+          setGestor(data)
+
+
+        } catch (error) {
+          console.log("ERROR AO BUSCAR O USUARIO")
+        }
+      }
+    }
+
+    BuscarUsuario();
+  }, [])
 
   const [paginaAtiva, setPaginaAtiva] = useState("Dashboard");
   return (
@@ -24,19 +57,19 @@ const PaginaInicialGestor = () => {
         <div className="conteudo-pagina-gestor">
 
           {paginaAtiva === "Dashboard" && (
-            <PaginaDashboard />
+            <PaginaDashboard gestor={gestor}/>
           )}
 
           {paginaAtiva === "Barbeiros" && (
-            <PaginaBarbeiro />
+            <PaginaBarbeiro gestor={gestor}/>
           )}
 
           {paginaAtiva === "Servicos" && (
-            <PaginaServico />
+            <PaginaServico gestor={gestor}/>
           )}
 
           {paginaAtiva === "Agendamentos" && (
-            <PaginaAgendamento />
+            <PaginaAgendamento gestor={gestor}/>
           )}
 
         </div>

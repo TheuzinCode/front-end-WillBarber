@@ -1,53 +1,85 @@
 import "./PaginaServico.css"
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const PaginaServico = () => {
+const PaginaServico = ({ gestor }) => {
+
+  const [servicos, setServicos] = useState([])
+
+  useEffect(() => {
+
+    const BuscarServicos = async () => {
+
+      try {
+        const resp = await fetch(
+          `http://localhost:8080/servicos`
+        )
+
+        const data = await resp.json()
+
+        if (!resp.ok) {
+          console.log(data)
+        }
+
+        setServicos(data)
+
+      } catch (error) {
+        console.log("error", error)
+      }
+
+    }
+
+    BuscarServicos();
+  }, [])
+
   return (
     <>
-      <div class="pagina-servicos">
+      <div className="pagina-servicos">
 
         {/*<!-- TOPO -->*/}
 
-        <div class="topo-servicos">
+        <div className="topo-servicos">
 
           <div>
-            <h1 class="titulo-servicos">
+            <h1 className="titulo-servicos">
               Serviços & Preços
             </h1>
 
-            <p class="subtitulo-servicos">
+            <p className="subtitulo-servicos">
               Gerencie os serviços oferecidos e ajuste preços
             </p>
           </div>
 
-          <div class="acoes-topo-servicos">
+          <div className="acoes-topo-servicos">
 
-            <button class="botao-ver-site">
-              Ver site
-            </button>
 
-            <div class="avatar-admin">
-              A
+            <Link className="botao-ver-site-pagina-servicos"
+              to={"/"}
+            >
+              <button className="botao-ver-site">
+                Ver site
+              </button>
+            </Link>
+
+            <div className="avatar-admin">
+              {gestor?.nomeCompleto.charAt(0)}
             </div>
 
           </div>
 
         </div>
 
-         {/*<!-- BOTOES -->*/}
+        {/*<!-- BOTOES -->*/}
 
-        <div class="barra-acoes-servicos">
+        <div className="barra-acoes-servicos">
 
-          <div class="quantidade-servicos">
+          <div className="quantidade-servicos">
             6 serviços
           </div>
 
-          <div class="grupo-botoes-servicos">
+          <div className="grupo-botoes-servicos">
 
-            <button class="botao-editar-precos">
-              Editar Preços
-            </button>
-
-            <button class="botao-novo-servico">
+            <button className="botao-novo-servico">
               + Novo Serviço
             </button>
 
@@ -55,17 +87,17 @@ const PaginaServico = () => {
 
         </div>
 
-         {/*<!-- TABELA -->*/}
+        {/*<!-- TABELA -->*/}
 
-        <div class="container-tabela-servicos">
+        <div className="container-tabela-servicos">
 
-          <table class="tabela-servicos">
+          <table className="tabela-servicos">
 
             <thead>
 
               <tr>
                 <th>Serviço</th>
-                <th>Categoria</th>
+                <th>Pontos</th>
                 <th>Duração</th>
                 <th>Preço</th>
                 <th>Status</th>
@@ -76,237 +108,48 @@ const PaginaServico = () => {
 
             <tbody>
 
-                {/*<!-- ITEM -->*/}
+              {/*<!-- ITEM -->*/}
 
-              <tr>
-                <td>
-                  <div class="informacoes-servico">
-                    <div class="icone-servico">
-                      ✂
-                    </div>
-                    <div>
-                      <div class="titulo-item-servico">
-                        Corte de Cabelo
-                        <span class="tag-popular">
-                          Popular
-                        </span>
+
+              {servicos.map((servicos) => (
+                <tr key={servicos.id}>
+                  <td >
+                    <div className="informacoes-servico">
+                      <div className="icone-servico">
+                        ✂
                       </div>
-                      <p class="descricao-servico">
-                        Corte clássico ou moderno com acabamento...
-                      </p>
-                    </div>
-                  </div>
-                </td>
-                <td>Cabelo</td>
-                <td>30 min</td>
-                <td class="valor-servico">
-                  R$ 45
-                </td>
-                <td>
-                  <span class="status-ativo">
-                    Ativo
-                  </span>
-                </td>
-                <td>
-                  <div class="acoes-servico">
-                    <button class="botao-editar">
-                      ✏
-                    </button>
-                    <button class="botao-excluir">
-                      🗑
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
-            {/*<!-- ITEM -->*/}
-
-              <tr>
-
-                <td>
-
-                  <div class="informacoes-servico">
-
-                    <div class="icone-servico">
-                      ♂
-                    </div>
-
-                    <div>
-
-                      <div class="titulo-item-servico">
-                        Barba
-
-                        <span class="tag-popular">
-                          Popular
-                        </span>
-
+                      <div>
+                        <div className="titulo-item-servico">
+                          {servicos.nomeServico}
+                        </div>
+                        <p className="descricao-servico">
+                          {servicos.descricao}
+                        </p>
                       </div>
-
-                      <p class="descricao-servico">
-                        Aparo e modelagem com navalha e produtos...
-                      </p>
-
                     </div>
-
-                  </div>
-
-                </td>
-
-                <td>Barba</td>
-
-                <td>25 min</td>
-
-                <td class="valor-servico">
-                  R$ 35
-                </td>
-
-                <td>
-                  <span class="status-ativo">
-                    Ativo
-                  </span>
-                </td>
-
-                <td>
-
-                  <div class="acoes-servico">
-
-                    <button class="botao-editar">
-                      ✏
-                    </button>
-
-                    <button class="botao-excluir">
-                      🗑
-                    </button>
-
-                  </div>
-
-                </td>
-
-              </tr>
-
-            {/*<!-- ITEM -->*/}
-
-              <tr>
-
-                <td>
-
-                  <div class="informacoes-servico">
-
-                    <div class="icone-servico">
-                      ★
+                  </td>
+                  <td>{servicos.pontos}</td>
+                  <td>{servicos.tempoServico.substring(3, 5)} min</td>
+                  <td className="valor-servico">
+                    R$ {servicos.preco}
+                  </td>
+                  <td>
+                    <span className="status-ativo">
+                      Ativo
+                    </span>
+                  </td>
+                  <td>
+                    <div className="acoes-servico">
+                      <button className="botao-editar">
+                        ✏
+                      </button>
+                      <button className="botao-excluir">
+                        🗑
+                      </button>
                     </div>
-
-                    <div>
-
-                      <div class="titulo-item-servico">
-                        Corte + Barba
-
-                        <span class="tag-popular">
-                          Popular
-                        </span>
-
-                      </div>
-
-                      <p class="descricao-servico">
-                        Combo completo com desconto especial...
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                </td>
-
-                <td>Combo</td>
-
-                <td>55 min</td>
-
-                <td class="valor-servico">
-                  R$ 70
-                </td>
-
-                <td>
-                  <span class="status-ativo">
-                    Ativo
-                  </span>
-                </td>
-
-                <td>
-
-                  <div class="acoes-servico">
-
-                    <button class="botao-editar">
-                      ✏
-                    </button>
-
-                    <button class="botao-excluir">
-                      🗑
-                    </button>
-
-                  </div>
-
-                </td>
-
-              </tr>
-
-             {/*<!-- ITEM -->*/}
-
-              <tr>
-
-                <td>
-
-                  <div class="informacoes-servico">
-
-                    <div class="icone-servico">
-                      ◌
-                    </div>
-
-                    <div>
-
-                      <div class="titulo-item-servico">
-                        Hidratação Capilar
-                      </div>
-
-                      <p class="descricao-servico">
-                        Tratamento profundo para cabelos danific...
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                </td>
-
-                <td>Tratamento</td>
-
-                <td>40 min</td>
-
-                <td class="valor-servico">
-                  R$ 55
-                </td>
-
-                <td>
-                  <span class="status-ativo">
-                    Ativo
-                  </span>
-                </td>
-
-                <td>
-
-                  <div class="acoes-servico">
-
-                    <button class="botao-editar">
-                      ✏
-                    </button>
-
-                    <button class="botao-excluir">
-                      🗑
-                    </button>
-
-                  </div>
-
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
