@@ -12,11 +12,15 @@ import './App.css'
 import Meuperfil from "./paginas/cliente/perfil/componentes/meuperfil/Meuperfil.jsx";
 import PaginaInicialGestor from "./paginas/gestor/PaginaInicialGestor.jsx";
 import MeusAgendamentos from "./paginas/cliente/meus-agendamentos/MeusAgendamentos.jsx"
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
   return (
     <>
+      <ToastContainer />
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Telainicial />} />

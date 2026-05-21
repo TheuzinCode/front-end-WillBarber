@@ -153,7 +153,7 @@ const secao2TelaAgendamento = () => {
         </div>
         <div className="container-buttons-tela-agendamento-secao2">
           <div>
-            <Link to="/agendamento" className="texto-button-voltar-tela-agendamento-secao2">
+            <Link to="/novo-agendamento" className="texto-button-voltar-tela-agendamento-secao2">
               <div className="button-voltar-tela-agendamento-secao2">
                 <FaArrowLeft className="icone-seta-tela-agendamento-secao2" /> Voltar
               </div>
