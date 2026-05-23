@@ -1,10 +1,13 @@
 import "./PaginaServico.css"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ModalServico from "../modalServico/ModalServico";
 
 const PaginaServico = ({ gestor }) => {
 
+  const [modalAberto, setModalAberto] = useState(false);
   const [servicos, setServicos] = useState([])
+  const [servicoSelecionado, setServicoSelecionado] = useState(null);
 
   useEffect(() => {
 
@@ -18,7 +21,7 @@ const PaginaServico = ({ gestor }) => {
         const data = await resp.json()
 
         if (!resp.ok) {
-          console.log(data)
+          throw new Error(data.message || "Erro ao buscar serviços");
         }
 
         setServicos(data)
@@ -74,12 +77,17 @@ const PaginaServico = ({ gestor }) => {
         <div className="barra-acoes-servicos">
 
           <div className="quantidade-servicos">
-            6 serviços
+            {servicos.length} serviços
           </div>
 
           <div className="grupo-botoes-servicos">
 
-            <button className="botao-novo-servico">
+            <button className="botao-novo-servico"
+              onClick={() => {
+                setServicoSelecionado(null);
+                setModalAberto(true);}
+              }
+            >
               + Novo Serviço
             </button>
 
@@ -140,7 +148,12 @@ const PaginaServico = ({ gestor }) => {
                   </td>
                   <td>
                     <div className="acoes-servico">
-                      <button className="botao-editar">
+                      <button
+                        onClick={() =>{
+                          setServicoSelecionado(servicos);
+                          setModalAberto(true);}}
+                        className="botao-editar"
+                      >
                         ✏
                       </button>
                       <button className="botao-excluir">
@@ -155,6 +168,13 @@ const PaginaServico = ({ gestor }) => {
         </div>
       </div>
 
+
+      {modalAberto && (
+        <ModalServico 
+        fecharModal={() => setModalAberto(false)}
+          servico={servicoSelecionado}
+        />
+      )}
     </>
   )
 }
