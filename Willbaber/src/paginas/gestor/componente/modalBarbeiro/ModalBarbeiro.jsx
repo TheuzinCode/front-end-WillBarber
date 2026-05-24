@@ -1,17 +1,18 @@
 import "./ModalBarbeiro.css";
 import { useState } from "react";
 
-const ModalBarbeiro = ({ fecharModal }) => {
+const ModalBarbeiro = ({ fecharModal, barbeiro }) => {
 
-    const [nome, setNome] = useState("");
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-    const [cpf, setCpf] = useState("");
-    const [numero, setNumero] = useState("");
+    const [nome, setNome] = useState(barbeiro?.nome || "");
+    const [email, setEmail] = useState(barbeiro?.email || "");
+    const [senha, setSenha] = useState(barbeiro?.senha || "");
+    const [cpf, setCpf] = useState(barbeiro?.cpf || "");
+    const [numero, setNumero] = useState(barbeiro?.telefone || "");
     const [foto, setFoto] = useState(null);
-    const [descricao, setDescricao] = useState("")
+    const [descricao, setDescricao] = useState(barbeiro?.descricao || "")
+    const editando = !!barbeiro;
 
-    const [horarios, setHorarios] = useState([
+    const [horarios, setHorarios] = useState(barbeiro?.horarios || [
         {
             diaSemana: "",
             horaInicio: "",
@@ -53,20 +54,39 @@ const ModalBarbeiro = ({ fecharModal }) => {
 
         e.preventDefault();
 
+
+
+
+        const url = editando
+            ? `http://localhost:8080/willbarber/barbeiros/editar-barbeiros/${barbeiro.id}`
+            : `http://localhost:8080/willbarber/criarUsuario2`;
+
+        const method = editando
+            ? "PUT"
+            : "POST";
+
         try {
 
-
-
-            const body = {
-                nome,
-                email,
-                senha,
-                cpf,
-                numero,
-                descricao,
-                tipo: "BARBEIRO",
-                horarios
-            };
+            const body = editando
+                ? {
+                    nome,
+                    email,
+                    cpf,
+                    senha,
+                    telefone: numero,
+                    descricao,
+                    horarios
+                }
+                : {
+                    nome,
+                    email,
+                    senha,
+                    cpf,
+                    telefone: numero,
+                    descricao,
+                    tipo: "BARBEIRO",
+                    horarios
+                };
 
             const formData = new FormData();
 
@@ -80,12 +100,14 @@ const ModalBarbeiro = ({ fecharModal }) => {
                 )
             );
 
-            formData.append("imagem", foto);
+            if (foto) {
+                formData.append("imagem", foto);
+            }
 
             const resp = await fetch(
-                "http://localhost:8080/willbarber/criarUsuario2",
+                url,
                 {
-                    method: "POST",
+                    method,
                     body: formData
                 }
             );
@@ -127,7 +149,9 @@ const ModalBarbeiro = ({ fecharModal }) => {
                     <div className="topo-modal">
 
                         <h2>
-                            Cadastrar Barbeiro
+                            {editando
+                                ? "Editar Barbeiro"
+                                : "Cadastrar Barbeiro"}
                         </h2>
 
                         <button
@@ -171,19 +195,23 @@ const ModalBarbeiro = ({ fecharModal }) => {
                             />
                         </div>
 
-                        <div className="grupo-input-modal">
+                        {!editando && (
 
-                            <label>Senha</label>
+                            <div className="grupo-input-modal">
 
-                            <input
-                                type="password"
-                                value={senha}
-                                onChange={(e) =>
-                                    setSenha(e.target.value)
-                                }
-                                placeholder="Digite a senha"
-                            />
-                        </div>
+                                <label>Senha</label>
+
+                                <input
+                                    type="password"
+                                    value={senha}
+                                    onChange={(e) =>
+                                        setSenha(e.target.value)
+                                    }
+                                    placeholder="Digite a senha"
+                                />
+                            </div>
+
+                        )}
 
                         <div className="grupo-input-modal">
 
@@ -213,7 +241,7 @@ const ModalBarbeiro = ({ fecharModal }) => {
                             />
                         </div>
 
-                         <div className="grupo-input-modal">
+                        <div className="grupo-input-modal">
 
                             <label>Descrição</label>
 
@@ -347,7 +375,9 @@ const ModalBarbeiro = ({ fecharModal }) => {
                             type="submit"
                             className="botao-salvar-modal"
                         >
-                            Cadastrar Barbeiro
+                            {editando
+                                ? "Salvar Alterações"
+                                : "Cadastrar Barbeiro"}
                         </button>
 
                     </form>

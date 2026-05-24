@@ -55,7 +55,7 @@ const PaginaBarbeiro = ({ gestor }) => {
               Ver site
             </button>
             <div className="avatar-admin">
-              {gestor?.nomeCompleto.charAt(0)}
+              {gestor?.nomeCompleto?.charAt(0)}
             </div>
           </div>
         </div>
@@ -65,12 +65,15 @@ const PaginaBarbeiro = ({ gestor }) => {
         <div className="barra-superior-barbeiros">
           <div className="informacoes-barbeiros">
             <span className="quantidade-barbeiros">
-              4 barbeiros
+              {barbeiros.length} barbeiros
             </span>
           </div>
           <button
             className="botao-cadastrar-barbeiro"
-            onClick={() => setModalAberto(true)}
+            onClick={() => {
+              setModalAberto(true);
+              setBarbeiroSelecionado(null);
+            }}
           >
             + Cadastrar Barbeiro
           </button>
@@ -122,7 +125,12 @@ const PaginaBarbeiro = ({ gestor }) => {
                   {barbeiro.descricao}
                 </p>
                 <div className="rodape-card-barbeiro">
-                  <button className="botao-editar-barbeiro">
+                  <button className="botao-editar-barbeiro"
+                    onClick={() => {
+                      setBarbeiroSelecionado(barbeiro);
+                      setModalAberto(true)
+                    }}
+                  >
                     ✏ Editar
                   </button>
                   <button className="botao-excluir-barbeiro">
@@ -139,6 +147,8 @@ const PaginaBarbeiro = ({ gestor }) => {
       {modalAberto && (
         <ModalBarbeiro
           fecharModal={() => setModalAberto(false)}
+          barbeiro={barbeiroSelecionado}
+
         />
       )}
 
