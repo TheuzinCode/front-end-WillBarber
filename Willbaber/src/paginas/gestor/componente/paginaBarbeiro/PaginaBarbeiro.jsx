@@ -1,10 +1,38 @@
 import "./PaginaBarbeiro.css"
 import ModalBarbeiro from "../modalBarbeiro/ModalBarbeiro";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
-const PaginaBarbeiro = ({gestor}) => {
+const PaginaBarbeiro = ({ gestor }) => {
   const [modalAberto, setModalAberto] = useState(false);
+  const [barbeiroSelecionado, setBarbeiroSelecionado] = useState(null)
+  const [barbeiros, setBarbeiros] = useState([])
+
+  useEffect(() => {
+
+    async function buscarBarbeiros() {
+      try {
+        const resp = await fetch(
+          `http://localhost:8080/willbarber/gestor/listar-todos-barbeiros`
+        )
+
+        const data = await resp.json()
+
+        if (!resp.ok) {
+          console.log("error", data)
+          return
+        }
+
+        setBarbeiros(data)
+      } catch (error) {
+        console.log("error na requisição", error)
+      }
+    }
+
+    buscarBarbeiros();
+
+  }, [])
+
 
   return (
     <>
@@ -27,7 +55,7 @@ const PaginaBarbeiro = ({gestor}) => {
               Ver site
             </button>
             <div className="avatar-admin">
-             {gestor?.nomeCompleto.charAt(0)}
+              {gestor?.nomeCompleto.charAt(0)}
             </div>
           </div>
         </div>
@@ -54,60 +82,57 @@ const PaginaBarbeiro = ({gestor}) => {
 
           {/*<!-- CARD -->*/}
 
-          <div className="card-barbeiro">
-            <div className="topo-card-barbeiro">
-              <div className="informacoes-principais-barbeiro">
-                <img
-                  className="foto-barbeiro"
-                  src="https://i.pravatar.cc/150?img=12"
-                />
-                <div>
-                  <h2 className="nome-barbeiro">
-                    William Santos
-                  </h2>
-                  <p className="especialidade-barbeiro">
-                    Corte Clássico & Barba
-                  </p>
-                  <div className="detalhes-barbeiro">
-                    <span>◷ 8 anos</span>
-                    <span>☏ (11) 90000-0000</span>
+
+          {barbeiros.map((barbeiro) => {
+            return (
+              <div className="card-barbeiro" key={barbeiro.id}>
+                <div className="topo-card-barbeiro">
+                  <div className="informacoes-principais-barbeiro">
+                    <img
+                      className="foto-barbeiro"
+                      src={`data:image/jpeg;base64,${barbeiro.imagem}`}
+                      alt={barbeiro.nome}
+                    />
+                    <div>
+                      <h2 className="nome-barbeiro">
+                        {barbeiro.nome}
+                      </h2>
+                      <p className="especialidade-barbeiro">
+                        {barbeiro.descricao}
+                      </p>
+                      <div className="detalhes-barbeiro">
+                        <span>☏ {barbeiro.telefone}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="avaliacao-barbeiro">
-                ⭐ 4.9
-                <span>(312)</span>
-              </div>
-            </div>
 
-            <div className="linha-dias">
-              <div className="status-online"></div>
-              <div className="dias-trabalho">
-                <span>Seg</span>
-                <span>Ter</span>
-                <span>Qua</span>
-                <span>Qui</span>
-                <span>Sex</span>
-                <span>Sáb</span>
+                <div className="linha-dias">
+                  <div className="status-online"></div>
+                  <div className="dias-trabalho">
+                    <span>Seg</span>
+                    <span>Ter</span>
+                    <span>Qua</span>
+                    <span>Qui</span>
+                    <span>Sex</span>
+                    <span>Sáb</span>
+                  </div>
+                </div>
+                <p className="descricao-barbeiro">
+                  {barbeiro.descricao}
+                </p>
+                <div className="rodape-card-barbeiro">
+                  <button className="botao-editar-barbeiro">
+                    ✏ Editar
+                  </button>
+                  <button className="botao-excluir-barbeiro">
+                    🗑
+                  </button>
+                </div>
               </div>
-            </div>
-            <p className="descricao-barbeiro">
-              Especialista em corte clássico & barba, com 8 anos de experiência.
-            </p>
-            <div className="rodape-card-barbeiro">
-              <button className="botao-editar-barbeiro">
-                ✏ Editar
-              </button>
+            )
+          })}
 
-              <button className="botao-desativar-barbeiro">
-                ◉ Desativar
-              </button>
-
-              <button className="botao-excluir-barbeiro">
-                🗑
-              </button>
-            </div>
-          </div>
         </div>
       </div>
 
