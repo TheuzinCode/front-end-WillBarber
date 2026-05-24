@@ -1,30 +1,73 @@
 import "./PaginaAgendamento.css"
+import { useState, useEffect } from "react";
 
-const PaginaAgendamento = ({gestor}) => {
+const PaginaAgendamento = ({ gestor }) => {
+
+  const [agendamentos, setAgendamentos] = useState([])
+
+  useEffect(() => {
+
+    async function buscarTodosAgendamentos() {
+
+      try {
+        const resp = await fetch(
+          `http://localhost:8080/willbarber/gestor/listar-todos-agendamentos`
+        )
+
+        const data = await resp.json();
+
+        if (!resp.ok) {
+          console.log("error ao buscar os agendamentos")
+          return
+        }
+
+        setAgendamentos(data);
+
+      } catch (error) {
+        console.log("erro ao buscar")
+      }
+    }
+
+    buscarTodosAgendamentos();
+  }, []);
+
+  const totalAgendados = agendamentos.filter(
+    (agendamento) =>
+      agendamento.statusAgendamento === "AGENDADO"
+  ).length;
+
+  const totalFinalizado = agendamentos.filter(
+    (agendamento) =>
+      agendamento.statusAgendamento === "FINALIZADO"
+  ).length;
+
+  const totalCancelado = agendamentos.filter((agendamentos) =>
+    agendamentos.statusAgendamento === "CANCELADOS").length
+
   return (
-    <div class="pagina-agendamentos">
+    <div className="pagina-agendamentos">
 
       {/*<!-- TOPO -->*/}
 
-      <div class="topo-agendamentos">
+      <div className="topo-agendamentos">
 
         <div>
-          <h1 class="titulo-agendamentos">
+          <h1 className="titulo-agendamentos">
             Agendamentos
           </h1>
 
-          <p class="subtitulo-agendamentos">
+          <p className="subtitulo-agendamentos">
             Visão geral de todos os agendamentos
           </p>
         </div>
 
-        <div class="acoes-topo-agendamentos">
+        <div className="acoes-topo-agendamentos">
 
-          <button class="botao-ver-site">
+          <button className="botao-ver-site">
             Ver site
           </button>
 
-          <div class="avatar-admin">
+          <div className="avatar-admin">
             {gestor?.nomeCompleto.charAt(0)}
           </div>
 
@@ -34,49 +77,49 @@ const PaginaAgendamento = ({gestor}) => {
 
       {/*<!-- FILTROS -->*/}
 
-      <div class="container-filtros-agendamentos">
+      <div className="container-filtros-agendamentos">
 
         <input
           type="text"
-          class="input-pesquisa-agendamentos"
+          className="input-pesquisa-agendamentos"
           placeholder="Buscar por cliente ou serviço..."
         />
 
-        <select class="select-filtro-agendamentos">
+        <select className="select-filtro-agendamentos">
           <option>Todos os barbeiros</option>
         </select>
 
-        <select class="select-filtro-agendamentos">
+        <select className="select-filtro-agendamentos">
           <option>Todos os status</option>
         </select>
 
       </div>
 
-      <p class="texto-resultado-agendamentos">
-        10 agendamentos encontrados
+      <p className="texto-resultado-agendamentos">
+        {agendamentos.length} agendamentos encontrados
       </p>
 
       {/*<!-- CARDS -->*/}
 
-      <div class="container-cards-agendamentos">
+      <div className="container-cards-agendamentos">
 
-        <div class="card-resumo-agendamentos">
-          <h2>10</h2>
+        <div className="card-resumo-agendamentos">
+          <h2>{agendamentos.length}</h2>
           <p>Total</p>
         </div>
 
-        <div class="card-resumo-agendamentos azul">
-          <h2>2</h2>
-          <p>Confirmados</p>
+        <div className="card-resumo-agendamentos azul">
+          <h2>{totalAgendados}</h2>
+          <p>Agendados</p>
         </div>
 
-        <div class="card-resumo-agendamentos verde">
-          <h2>6</h2>
+        <div className="card-resumo-agendamentos verde">
+          <h2>{totalFinalizado}</h2>
           <p>Concluídos</p>
         </div>
 
-        <div class="card-resumo-agendamentos vermelho">
-          <h2>1</h2>
+        <div className="card-resumo-agendamentos vermelho">
+          <h2>{totalCancelado}</h2>
           <p>Cancelados</p>
         </div>
 
@@ -84,10 +127,8 @@ const PaginaAgendamento = ({gestor}) => {
 
       {/*<!-- TABELA -->*/}
 
-      <div class="container-tabela-agendamentos">
-
-        <table class="tabela-agendamentos">
-
+      <div className="container-tabela-agendamentos">
+        <table className="tabela-agendamentos">
           <thead>
 
             <tr>
@@ -95,147 +136,57 @@ const PaginaAgendamento = ({gestor}) => {
               <th>Barbeiro</th>
               <th>Serviço</th>
               <th>Data & Hora</th>
-              <th>Bônus</th>
+              <th>Pontos</th>
               <th>Status</th>
               <th>Valor</th>
             </tr>
 
           </thead>
-
           <tbody>
 
-            <tr>
+            {agendamentos.map((agendamento) => {
+              return (
+                <tr key={agendamento.id}>
+                  <td >
+                    <div className="cliente-tabela">
+                      <div className="avatar-cliente">
+                        {agendamento.nomeCliente.charAt(0)}
+                      </div>
+                      <span>
+                        {agendamento.nomeCliente}
+                      </span>
+                    </div>
+                  </td>
+                  <td>{agendamento.nomeBarbeiro}</td>
+                  <td>{agendamento.nomeServico}</td>
+                  <td>{new Date(
+                    agendamento.dataHora
+                  ).toLocaleString("pt-BR")}</td>
+                  <td>
+                    <span className="bonus-cliente">
+                      {agendamento.pontos}
+                    </span>
+                  </td>
+                  <td>
+                    <span className={agendamento.statusAgendamento === "FINALIZADO"
+                      ? "status-concluido"
+                      : agendamento.statusAgendamento === "CANCELADO"
+                        ? "status-cancelado"
+                        : "status-agendado"}>
+                      {agendamento.statusAgendamento}
+                    </span>
+                  </td>
+                  <td className="valor-tabela">
+                    R$ {agendamento.precoServico},00
+                  </td>
+                </tr>
+              )
+            })}
 
-              <td>
-
-                <div class="cliente-tabela">
-
-                  <div class="avatar-cliente">
-                    C
-                  </div>
-
-                  <span>
-                    Carlos Silva
-                  </span>
-
-                </div>
-
-              </td>
-
-              <td>William</td>
-
-              <td>Corte + Barba</td>
-
-              <td>2026-04-10 09:00</td>
-
-              <td>
-                <span class="bonus-cliente">
-                  Conta
-                </span>
-              </td>
-
-              <td>
-                <span class="status-confirmado">
-                  Confirmado
-                </span>
-              </td>
-
-              <td class="valor-tabela">
-                R$ 70
-              </td>
-
-            </tr>
-
-            <tr>
-
-              <td>
-
-                <div class="cliente-tabela">
-
-                  <div class="avatar-cliente">
-                    M
-                  </div>
-
-                  <span>
-                    Marcos Oliveira
-                  </span>
-
-                </div>
-
-              </td>
-
-              <td>Diego</td>
-
-              <td>Corte de Cabelo</td>
-
-              <td>2026-04-10 10:00</td>
-
-              <td>
-                <span class="bonus-cliente">
-                  Conta
-                </span>
-              </td>
-
-              <td>
-                <span class="status-confirmado">
-                  Confirmado
-                </span>
-              </td>
-
-              <td class="valor-tabela">
-                R$ 45
-              </td>
-
-            </tr>
-
-            <tr>
-
-              <td>
-
-                <div class="cliente-tabela">
-
-                  <div class="avatar-cliente">
-                    J
-                  </div>
-
-                  <span>
-                    João Pedro
-                  </span>
-
-                </div>
-
-              </td>
-
-              <td>William</td>
-
-              <td>Barba</td>
-
-              <td>2026-04-10 11:00</td>
-
-              <td>
-                <span class="bonus-cliente">
-                  Conta
-                </span>
-              </td>
-
-              <td>
-                <span class="status-concluido">
-                  Concluído
-                </span>
-              </td>
-
-              <td class="valor-tabela">
-                R$ 35
-              </td>
-
-            </tr>
 
           </tbody>
-
         </table>
-
       </div>
-
     </div>
   )
 }
