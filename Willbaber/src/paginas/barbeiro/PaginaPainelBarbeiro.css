@@ -1,0 +1,10 @@
+.cor-de-fundo-pagina-painel-barbeiro{
+    background-color: #050505;
+    padding-top: 100px;
+}
+
+.container-principal-pagina-painel-barbeiro{
+    max-width: 1500px;
+    margin: 0 auto;
+    min-height: 100vh;
+}

@@ -1,0 +1,75 @@
+.pagina-dashboard-barbeiro{
+    background-color: #050505;
+    max-width: 100%;
+    color: white;
+}
+
+/* TOPO */
+
+.topo-dashboard-barbeiro-pagina-dashboard-barbeiro{
+    background: linear-gradient(
+        90deg,
+        #2b1206,
+        #090909
+    );
+
+    padding: 25px 170px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.informacoes-barbeiro-pagina-dashboard-barbeiro{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.container-foto-barbeiro-pagina-dashboard-barbeiro{
+    position: relative;
+}
+
+.foto-barbeiro-pagina-dashboard-barbeiro{
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 2px solid #d4a73a;
+}
+
+.status-online-pagina-dashboard-barbeiro{
+    width: 14px;
+    height: 14px;
+
+    background-color: #33ff88;
+
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+}
+
+.texto-barbeiro-pagina-dashboard-barbeiro{
+    color: #d4a73a;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.nome-barbeiro-pagina-dashboard-barbeiro{
+    font-size: 45px;
+}
+
+.descricao-barbeiro-pagina-dashboard-barbeiro{
+    color: #9b9b9b;
+}
+
+.disponivel-dashboard-pagina-dashboard-barbeiro{
+    color: #33ff88;
+    font-weight: bold;
+}

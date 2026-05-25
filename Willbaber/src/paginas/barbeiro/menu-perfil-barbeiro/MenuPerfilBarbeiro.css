@@ -1,0 +1,70 @@
+.menu-dashboard-pagina-dashboard-barbeiro{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background-color: #090909;
+
+    width: fit-content;
+
+    padding: 8px;
+
+    border-radius: 22px;
+
+    border: 1px solid #111111;
+    margin-top: 50px;
+
+}
+
+.botao-menu-ativo-pagina-dashboard-barbeiro{
+    height: 50px;
+
+    padding: 0 24px;
+
+    border: none;
+    border-radius: 18px;
+
+    background-color: #d4af37;
+
+    color: black;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.botao-menu-pagina-dashboard-barbeiro{
+    height: 50px;
+
+    padding: 0 24px;
+
+    border: none;
+    border-radius: 18px;
+
+    background-color: transparent;
+
+    color: #b8b8b8;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.botao-menu-pagina-dashboard-barbeiro:hover{
+    background-color: #111111;
+    color: white;
+}

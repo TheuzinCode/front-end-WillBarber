@@ -14,6 +14,7 @@ import Meuperfil from "./paginas/cliente/perfil/componentes/meuperfil/Meuperfil.
 import PaginaInicialGestor from "./paginas/gestor/PaginaInicialGestor.jsx";
 import MeusAgendamentos from "./paginas/cliente/meus-agendamentos/MeusAgendamentos.jsx"
 import PaginaRecompensas from './paginas/cliente/recompensas/PaginaRecompensas.jsx';
+import PaginaPainelBarbeiro from './paginas/barbeiro/PaginaPainelBarbeiro.jsx';
 
 function App() {
 
@@ -35,6 +36,8 @@ function App() {
           <Route path="/gestor/home" element={<PaginaInicialGestor />} />
           <Route path="/meus-agendamentos" element={<MeusAgendamentos />} />
           <Route path="/recompensas" element={<PaginaRecompensas />} />
+          <Route path="/painel-barbeiro" element={<PaginaPainelBarbeiro />} />
+
         </Routes>
       </BrowserRouter>
     </>
