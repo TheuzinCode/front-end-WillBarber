@@ -78,8 +78,8 @@ function cabecalho({ estatico }) {
                             {cliente ? (
                                 <>
                                     <div>
-                                        <Link to="/bonus" className="texto-navbar">
-                                            Bônus
+                                        <Link to="/recompensas" className="texto-navbar">
+                                            Recompensas
                                         </Link>
                                     </div>
                                     <div className="icone-diamond-cabecalho">

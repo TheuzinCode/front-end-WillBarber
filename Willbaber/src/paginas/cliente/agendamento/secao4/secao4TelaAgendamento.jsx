@@ -21,6 +21,8 @@ const secao4TelaAgendamento = () => {
   const [dadosServico, setDadosServico] = useState({});
   const [dadosHorario, setDadosHorario] = useState("");
   const [dadosCliente, setDadosCliente] = useState({});
+  const [usarRecompensa, setUsarRecompensa] = useState(false);
+    
 
 
   useEffect(() => {
@@ -68,7 +70,8 @@ const secao4TelaAgendamento = () => {
       servico: {
         id: dadosServico.servicoId
       },
-      pontos: dadosServico.pontos
+      pontos: dadosServico.pontos,
+      corteGratis: usarRecompensa
 
     }
 

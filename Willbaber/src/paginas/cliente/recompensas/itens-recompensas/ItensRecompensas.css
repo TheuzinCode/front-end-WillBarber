@@ -1,0 +1,138 @@
+/* TOPO */
+
+.topo-recompensas-pagina-recompensas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 40px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+/* GRID */
+
+.grid-recompensas-pagina-recompensas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+            minmax(260px, 1fr));
+
+    gap: 25px;
+}
+
+/* CARD */
+
+.card-recompensa-pagina-recompensas {
+    background-color: #090909;
+    border: 1px solid #1b1b1b;
+
+    border-radius: 22px;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.icone-recompensa-pagina-recompensas {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 16px;
+
+    background-color: #1d1a12;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+}
+
+.topo-recompensa-pagina-recompensas {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    margin-top: 25px;
+}
+
+.icone-e-pontos-pagina-recompensas {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.topo-recompensa-pagina-recompensas h2 {
+    font-size: 25px;
+    color: white;
+}
+
+.pontos-recompensa-pagina-recompensas {
+    color: #d5a73a;
+    font-size: 27px;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.pontos-recompensa-pagina-recompensas span {
+    font-size: 12px;
+    color: #7c7c7c;
+}
+
+.descricao-recompensa-pagina-recompensas {
+    color: #858585;
+    line-height: 1.5;
+}
+
+.barra-recompensa-pagina-recompensas {
+    width: 100%;
+    height: 8px;
+
+    background-color: #1f1f1f;
+
+    border-radius: 20px;
+
+    margin-top: 25px;
+}
+
+.progresso-recompensa-pagina-recompensas {
+    width: 0%;
+    height: 100%;
+    background-color: #d4a32f;
+}
+
+.linha-progresso-recompensa-pagina-recompensas {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    color: #666;
+    font-size: 13px;
+}
+
+.rodape-card-recompensa-pagina-recompensas {
+    margin-top: auto;
+}
+
+.botao-recompensa-pagina-recompensas {
+    width: 100%;
+    height: 55px;
+
+    margin-top: auto;
+
+    border-radius: 30px;
+    border: 1px solid #2b2b2b;
+
+    background-color: #171717;
+    color: #7e7e7e;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+}

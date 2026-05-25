@@ -1,3 +1,7 @@
+import './App.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
 import Telainicial from "./paginas/tela-inicial/TelaInicial.jsx";
 import Login from "./paginas/tela-login/Login.jsx";
 import CriarConta from "./paginas/cliente/criar-conta/CriarConta.jsx";
@@ -6,13 +10,10 @@ import Secao2TelaAgendamento from "./paginas/cliente/agendamento/secao2/secao2Te
 import Secao3TelaAgendamento from "./paginas/cliente/agendamento/secao3/secao3TelaAgendamento.jsx";
 import Secao4TelaAgendamento from "./paginas/cliente/agendamento/secao4/secao4TelaAgendamento.jsx";
 import TelaPerfil from "./paginas/cliente/perfil/TelaPerfil.jsx";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css'
 import Meuperfil from "./paginas/cliente/perfil/componentes/meuperfil/Meuperfil.jsx";
 import PaginaInicialGestor from "./paginas/gestor/PaginaInicialGestor.jsx";
 import MeusAgendamentos from "./paginas/cliente/meus-agendamentos/MeusAgendamentos.jsx"
-import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import PaginaRecompensas from './paginas/cliente/recompensas/PaginaRecompensas.jsx';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/editar-perfil" element={<Meuperfil />} />
           <Route path="/gestor/home" element={<PaginaInicialGestor />} />
           <Route path="/meus-agendamentos" element={<MeusAgendamentos />} />
+          <Route path="/recompensas" element={<PaginaRecompensas />} />
         </Routes>
       </BrowserRouter>
     </>

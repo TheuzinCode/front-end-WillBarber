@@ -1,0 +1,9 @@
+.cor-de-fundo-pagina-recompensas{
+    background-color: black;
+}
+
+.container-principal-pagina-recompensas{
+    max-width: 1300px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
