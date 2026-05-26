@@ -1,6 +1,50 @@
 import "./ItensRecompensas.css"
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ItensRecompensas = () => {
+
+    const [cliente, setCliente] = useState(null);
+    const [recompensas, setRecompensas] = useState([])
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const userStorage = localStorage.getItem("clientAuth");
+        if (userStorage) {
+            setCliente(JSON.parse(userStorage));
+        }
+
+
+        async function BuscarRecompenas() {
+
+            const resp = await fetch(
+                `http://localhost:8080/willbarber/recompensas`
+            )
+
+            const data = await resp.json()
+
+            if (!resp.ok) {
+                console.log(error)
+                return;
+            }
+
+            setRecompensas(data);
+
+        }
+        BuscarRecompenas();
+    }, [])
+
+    function selecionarRecompensa(recompensa) {
+
+        localStorage.setItem(
+            "recompensaSelecionada",
+            JSON.stringify(recompensa)
+        );
+
+        navigate("/novo-agendamento");
+    }
+
     return (
         <>
             {/* TOPO */}
@@ -12,7 +56,7 @@ const ItensRecompensas = () => {
                 </h1>
 
                 <span>
-                    4 recompensas
+                    {recompensas.length} recompensas
                 </span>
 
             </div>
@@ -23,167 +67,74 @@ const ItensRecompensas = () => {
 
                 {/* CARD */}
 
-                <div className="card-recompensa-pagina-recompensas">
-                    <div className="icone-e-pontos-pagina-recompensas">
-                        <div className="icone-recompensa-pagina-recompensas">
-                            ✂
-                        </div>
-                        <div>
-                            <div className="pontos-recompensa-pagina-recompensas">
-                                150
+                {recompensas.map((recompensa) => {
+
+                    const faltam = Math.max(
+                        recompensa.pontos - cliente?.pontos,
+                        0
+                    );
+
+                    const podeResgatar = faltam === 0;
+
+                    return (
+                        <div className="card-recompensa-pagina-recompensas"
+                            key={recompensa.id}>
+                            <div className="icone-e-pontos-pagina-recompensas">
+                                <div className="icone-recompensa-pagina-recompensas">
+                                    ✂
+                                </div>
+                                <div>
+                                    <div className="pontos-recompensa-pagina-recompensas">
+                                        {recompensa.pontos}
+                                    </div>
+                                    <div className="descricao-recompensa-pagina-recompensas">
+                                        PONTOS
+                                    </div>
+                                </div>
                             </div>
-                            <div className="descricao-recompensa-pagina-recompensas">
-                                PONTOS
+                            <div className="topo-recompensa-pagina-recompensas">
+                                <h2>
+                                    {recompensa.nomeRecompensa}
+                                </h2>
                             </div>
-                        </div>
-                    </div>
-                    <div className="topo-recompensa-pagina-recompensas">
-                        <h2>
-                            Corte Grátis
-                        </h2>
-                    </div>
-                    <p className="descricao-recompensa-pagina-recompensas">
-                        Troque seus pontos por um corte completo gratuito com qualquer barbeiro.
-                    </p>
-                    <div className="rodape-card-recompensa-pagina-recompensas">
-                        <div className="barra-recompensa-pagina-recompensas">
-                            <div className="progresso-recompensa-pagina-recompensas"></div>
-                        </div>
-                        <div className="linha-progresso-recompensa-pagina-recompensas">
-                            <span>
+                            <p className="descricao-recompensa-pagina-recompensas">
+                                {recompensa.descricao}
+                            </p>
+                            <div className="rodape-card-recompensa-pagina-recompensas">
+                                <div className="barra-recompensa-pagina-recompensas">
+                                    <div className="progresso-recompensa-pagina-recompensas"></div>
+                                </div>
+                                <div className="linha-progresso-recompensa-pagina-recompensas">
+                                    <span>
 
-                            </span>
-                            <span>
-                                Faltam 150 pts
-                            </span>
-                        </div>
-                        <button className="botao-recompensa-pagina-recompensas">
-                            Faltam 150 pontos
-                        </button>
-                    </div>
-                </div>
+                                    </span>
+                                    <span>
+                                        Faltam {faltam < 0 ? 0 : faltam} pts
+                                    </span>
+                                </div>
+                                <button
+                                    className={
+                                        podeResgatar
+                                            ? "botao-recompensa-pagina-recompensas"
+                                            : "botao-recompensa-bloqueado-pagina-recompensas"
+                                    }
 
+                                    disabled={!podeResgatar}
+                                    onClick={() =>
+                                        selecionarRecompensa(recompensa)
+                                    }
+                                >
 
-                <div className="card-recompensa-pagina-recompensas">
-                    <div className="icone-e-pontos-pagina-recompensas">
-                        <div className="icone-recompensa-pagina-recompensas">
-                            ✂
-                        </div>
-                        <div>
-                            <div className="pontos-recompensa-pagina-recompensas">
-                                105
-                            </div>
-                            <div className="descricao-recompensa-pagina-recompensas">
-                                PONTOS
-                            </div>
-                        </div>
-                    </div>
-                    <div className="topo-recompensa-pagina-recompensas">
-                        <h2>
-                            Barba Grátis
-                        </h2>
-                    </div>
-                    <p className="descricao-recompensa-pagina-recompensas">
-                        Aparo e modelagem completa da barba com produtos premium..
-                    </p>
-                    <div className="rodape-card-recompensa-pagina-recompensas">
-                        <div className="barra-recompensa-pagina-recompensas">
-                            <div className="progresso-recompensa-pagina-recompensas"></div>
-                        </div>
-                        <div className="linha-progresso-recompensa-pagina-recompensas">
-                            <span>
+                                    {podeResgatar
+                                        ? "Selecionar"
+                                        : `Faltam ${faltam} pontos`
+                                    }
 
-                            </span>
-                            <span>
-                                Faltam 105 pts
-                            </span>
-                        </div>
-                        <button className="botao-recompensa-pagina-recompensas">
-                            Faltam 105 pontos
-                        </button>
-                    </div>
-                </div>
-
-
-                <div className="card-recompensa-pagina-recompensas">
-                    <div className="icone-e-pontos-pagina-recompensas">
-                        <div className="icone-recompensa-pagina-recompensas">
-                            ✂
-                        </div>
-                        <div>
-                            <div className="pontos-recompensa-pagina-recompensas">
-                                70
-                            </div>
-                            <div className="descricao-recompensa-pagina-recompensas">
-                                PONTOS
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    <div className="topo-recompensa-pagina-recompensas">
-                        <h2>
-                            Sobrancelha Grátis
-                        </h2>
-                    </div>
-                    <p className="descricao-recompensa-pagina-recompensas">
-                        Design e modelagem profissional da sobrancelha masculina.
-                    </p>
-                    <div className="rodape-card-recompensa-pagina-recompensas">
-                        <div className="barra-recompensa-pagina-recompensas">
-                            <div className="progresso-recompensa-pagina-recompensas"></div>
-                        </div>
-                        <div className="linha-progresso-recompensa-pagina-recompensas">
-                            <span>
-
-                            </span>
-                            <span>
-                                Faltam 70 pts
-                            </span>
-                        </div>
-                        <button className="botao-recompensa-pagina-recompensas">
-                            Faltam 70 pontos
-                        </button>
-                    </div>
-                </div>
-
-                <div className="card-recompensa-pagina-recompensas">
-                    <div className="icone-e-pontos-pagina-recompensas">
-                        <div className="icone-recompensa-pagina-recompensas">
-                            ✂
-                        </div>
-                        <div>
-                            <div className="pontos-recompensa-pagina-recompensas">
-                                120
-                            </div>
-                            <div className="descricao-recompensa-pagina-recompensas">
-                                PONTOS
-                            </div>
-                        </div>
-                    </div>
-                    <div className="topo-recompensa-pagina-recompensas">
-                        <h2>
-                            Hidratação Premium
-                        </h2>
-                    </div>
-                    <p className="descricao-recompensa-pagina-recompensas">
-                        Tratamento profundo para cabelos danificados e revitalização capilar.
-                    </p>
-                    <div className="rodape-card-recompensa-pagina-recompensas">
-                        <div className="barra-recompensa-pagina-recompensas">
-                            <div className="progresso-recompensa-pagina-recompensas"></div>
-                        </div>
-                        <div className="linha-progresso-recompensa-pagina-recompensas">
-                            <span>
-
-                            </span>
-                            <span>
-                                Faltam 120 pts
-                            </span>
-                        </div>
-                        <button className="botao-recompensa-pagina-recompensas">
-                            Faltam 120 pontos
-                        </button>
-                    </div>
-                </div>
+                    )
+                })}
             </div>
         </>
     )
