@@ -1,6 +1,17 @@
 import "./CardPerfilRecompensas.css"
+import { useEffect, useState } from "react";
 
 const CardPerfilRecompensas = () => {
+
+    const [cliente, setCliente] = useState(null);
+
+    useEffect(() => {
+       const userStorage = localStorage.getItem("clientAuth");
+        if (userStorage) {
+            setCliente(JSON.parse(userStorage));
+        }
+    },[])
+
     return (
         <>
 
@@ -9,12 +20,12 @@ const CardPerfilRecompensas = () => {
                 <div className="card-nivel-usuario-pagina-recompensas">
                     <div className="topo-card-nivel-pagina-recompensas">
                         <div className="avatar-usuario-pagina-recompensas">
-                            T
+                            {cliente?.nome.charAt(0)}
                         </div>
                         <div className="informacoes-usuario-pagina-recompensas">
                             <div className="linha-nome-nivel-pagina-recompensas">
                                 <h2 className="nome-usuario-pagina-recompensas">
-                                    Teste
+                                    {cliente?.nome}
                                 </h2>
                             </div>
                             <p className="texto-recompensa-pagina-recompensas">
@@ -23,7 +34,7 @@ const CardPerfilRecompensas = () => {
                             <div className="container-pontos-pagina-recompensas">
                                 <div className="bloco-pontos-pagina-recompensas">
                                     <h1 className="numero-pontos-pagina-recompensas">
-                                        0
+                                        {cliente?.pontos}
                                     </h1>
                                     <span className="texto-pontos-pagina-recompensas">
                                         PONTOS DISPONÍVEIS
