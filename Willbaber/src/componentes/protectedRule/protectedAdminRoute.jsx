@@ -14,7 +14,7 @@ const ProtectedAdminRoute = ({ children }) => {
         JSON.parse(userStorage);
 
 
-    if (usuario.tipoUsers !== "ADMIN") {
+    if (usuario.role !== "GESTOR") {
 
         return <Navigate to="/" />;
     }

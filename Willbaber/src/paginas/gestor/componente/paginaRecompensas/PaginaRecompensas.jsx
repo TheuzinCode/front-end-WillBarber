@@ -15,7 +15,7 @@ const PaginaRecompensas = ({ gestor }) => {
 
             try {
                 const resp = await fetch(
-                    `http://localhost:8080/Willbarber/recompensas`
+                    `http://localhost:8080/willbarber/recompensas`
                 )
 
                 const data = await resp.json();

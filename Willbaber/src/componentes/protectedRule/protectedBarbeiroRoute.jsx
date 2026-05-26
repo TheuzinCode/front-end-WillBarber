@@ -14,7 +14,7 @@ const protectedBarbeiroRoute = ({ children }) => {
         JSON.parse(userStorage);
 
 
-    if (usuario.tipoUsers !== "BARBEIRO") {
+    if (usuario.role !== "BARBEIRO") {
 
         return <Navigate to="/" />;
     }

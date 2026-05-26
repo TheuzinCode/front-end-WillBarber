@@ -42,7 +42,8 @@ const Secao1TelaLogin = () => {
         id: data.id,
         nome: data.nome,
         email: data.email,
-        pontos: data.pontos
+        pontos: data.pontos,
+        role: data.tipoUsers
       }
 
       localStorage.setItem("clientAuth", JSON.stringify(body));

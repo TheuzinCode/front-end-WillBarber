@@ -4,6 +4,7 @@ import Logo from "../../imgs/logo.png";
 import { IoExitOutline } from "react-icons/io5";
 import { IoDiamondOutline } from "react-icons/io5";
 import "./cabecalho.css";
+import Swal from "sweetalert2";
 
 
 function cabecalho({ estatico }) {
@@ -17,43 +18,11 @@ function cabecalho({ estatico }) {
 
         if (!userStorage) return;
         const userObj = JSON.parse(userStorage);
+        setCliente(userObj)
 
-
-        async function BuscarUsers() {
-
-            try {
-                const resp = await fetch(
-                    `http://localhost:8080/willbarber/perfil/${userObj.id}`
-                )
-
-                if (!resp.ok) {
-
-                    const erro = await resp.text();
-
-                    console.log(erro);
-
-                    Swal.fire({
-                        icon: "error",
-                        title: "Erro",
-                        text: erro
-                    });
-                }
-                
-                const data = await resp.json();
-                setCliente(data)
-                return;
-
-            } catch (error) {
-                Swal.fire({
-                    icon: "error servidor",
-                    title: "Erro servidor",
-                    text: erro
-                });
-
-            }
-        }
-        BuscarUsers();
     }, []);
+
+    console.log(cliente)
 
 
     const [ativo, setAtivo] = useState(estatico);
@@ -83,9 +52,11 @@ function cabecalho({ estatico }) {
         localStorage.removeItem("horarioSelecionado");
         setCliente(null);
         navigate("/")
-        window.location.reload();
+
 
     }
+
+
 
     return (
         <>
@@ -126,7 +97,16 @@ function cabecalho({ estatico }) {
                                         {cliente.nome.charAt(0)}
                                     </div>
                                     <div>
-                                        <Link to="/Perfil" className="texto-navbar-cliente-logado">
+                                        { }
+                                        <Link to={
+                                            cliente.role === "GESTOR"
+                                                ? "/gestor/home"
+
+                                                : cliente.tipoUsers === "BARBEIRO"
+                                                    ? "/painel-barbeiro"
+
+                                                    : "/perfil"
+                                        } className="texto-navbar-cliente-logado">
                                             Olá, {cliente.nome}
                                         </Link>
                                     </div>
