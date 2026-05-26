@@ -131,7 +131,8 @@ const secao4TelaAgendamento = () => {
         return;
       }
 
-      await atualizarCliente();
+      const clienteAtualizado =
+    await atualizarCliente();
 
       Swal.fire({
         icon: "success",

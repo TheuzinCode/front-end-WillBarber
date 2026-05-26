@@ -18,19 +18,16 @@ export async function atualizarCliente() {
 
         const data = await resp.json();
 
-        /*
-         * atualiza state
-         */
-
-        setCliente(data);
-
-        /*
-         * atualiza localStorage
-         */
+        const body ={
+            id: data.id,
+            nome: data.nome,
+            email: data.email,
+            pontos: data.pontos
+        }
 
         localStorage.setItem(
             "clientAuth",
-            JSON.stringify(data)
+            JSON.stringify(body)
         );
 
     } catch (error) {
