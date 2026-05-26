@@ -4,6 +4,7 @@ import PaginaBarbeiro from "./componente/paginaBarbeiro/PaginaBarbeiro.jsx"
 import PaginaCliente from "./componente/paginaCliente/PaginaClientes.jsx"
 import PaginaDashboard from "./componente/paginaDashboard/PaginaDashboard.jsx"
 import PaginaServico from "./componente/paginaServico/PaginaServico.jsx"
+import PaginaRecompensa from "./componente/paginaRecompensas/PaginaRecompensas.jsx"
 import "./PaginaInicialGestor.css"
 import { useEffect, useState } from "react";
 
@@ -72,6 +73,9 @@ const PaginaInicialGestor = () => {
             <PaginaAgendamento gestor={gestor}/>
           )}
 
+           {paginaAtiva === "Recompensa" && (
+            <PaginaRecompensa gestor={gestor}/>
+          )}
         </div>
 
       </div>

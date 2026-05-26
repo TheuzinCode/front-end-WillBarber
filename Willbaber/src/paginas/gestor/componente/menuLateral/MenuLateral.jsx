@@ -11,6 +11,7 @@ import "./MenuLateral.css"
 import logoBarbearia from "../../../../imgs/logo.png"
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { GiPresent } from "react-icons/gi";
 
 const MenuLateral = ({ paginaAtiva, setPaginaAtiva }) => {
 
@@ -100,6 +101,15 @@ const MenuLateral = ({ paginaAtiva, setPaginaAtiva }) => {
               <CalendarDays size={18} />
               Agendamentos
             </button>
+
+             <button
+              className={paginaAtiva === "Recompensa" ? "menu-item active" : "menu-item"}
+              onClick={() => setPaginaAtiva("Recompensa")}>
+              <GiPresent size={18} />
+              Recompensas
+            </button>
+
+            
           </nav>
         </div>
         {/* FOOTER */}
