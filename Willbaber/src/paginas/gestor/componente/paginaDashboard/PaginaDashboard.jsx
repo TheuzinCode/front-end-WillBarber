@@ -1,6 +1,127 @@
 import "./PaginaDashboard.css"
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { FaRegCalendarCheck } from "react-icons/fa6";//calendario
+import { GoPeople } from "react-icons/go"; //people
+import { BsScissors } from "react-icons/bs"; //tesoura
+import { ImPriceTag } from "react-icons/im"; //price
+import { LiaMedalSolid } from "react-icons/lia"; //medalhas
+import { MdOutlineAttachMoney } from "react-icons/md"; //icone $
 
-const PaginaDashboard = ({gestor}) => {
+
+
+
+const PaginaDashboard = ({ gestor }) => {
+
+  const [agendamentos, setAgendamentos] = useState([])
+  const [clientes, setClientes] = useState([])
+  const [barbeiros, setBarbeiros] = useState([])
+  const [servicos, setServicos] = useState([])
+  const [recompensas, setRecompensas] = useState([])
+  const [ranking, setRanking] = useState([])
+
+  useEffect(() => {
+
+    async function BuscarAgendamentos() {
+      const resp = await fetch(
+        `http://localhost:8080/willbarber/gestor/listar-todos-agendamentos`
+      )
+
+      const agendamentosOpt = await resp.json();
+
+      if (!resp.ok) {
+        console.log(resp)
+        return;
+      }
+
+      setAgendamentos(agendamentosOpt)
+    }
+
+    BuscarAgendamentos();
+
+    async function BuscarClientes() {
+      const resp = await fetch(
+        `http://localhost:8080/willbarber/listar-todos-Clientes`
+      )
+
+      const clientesOpt = await resp.json();
+
+      if (!resp.ok) {
+        console.log(resp)
+        return;
+      }
+
+      setClientes(clientesOpt)
+    }
+    BuscarClientes();
+
+    async function BuscarBarbeiros() {
+      const resp = await fetch(
+        `http://localhost:8080/willbarber/gestor/listar-todos-barbeiros`
+      )
+
+      const barbeirosOpt = await resp.json();
+
+
+      if (!resp.ok) {
+        console.log(resp)
+        return;
+      }
+
+      setBarbeiros(barbeirosOpt)
+    }
+    BuscarBarbeiros();
+
+    async function BuscarServicos() {
+      const resp = await fetch(
+        `http://localhost:8080/willbarber/gestor/listar-todos-servicos`
+      )
+      const servicosOpt = await resp.json();
+
+      if (!resp.ok) {
+        console.log(resp)
+        return;
+      }
+      setServicos(servicosOpt)
+    }
+    BuscarServicos()
+
+    async function BuscarRecompensas() {
+      const resp = await fetch(
+        `http://localhost:8080/willbarber/recompensas`
+      )
+
+      const recompensasOpt = await resp.json()
+
+      if (!resp.ok) {
+        console.log(resp)
+        return;
+      }
+      setRecompensas(recompensasOpt)
+    }
+
+    BuscarRecompensas();
+
+    async function RankingClientes() {
+      const resp = await fetch(
+        `http://localhost:8080/willbarber/ranking-clientes`
+      )
+
+      const rankingOpt = await resp.json()
+
+      if (!resp.ok) {
+        console.log(resp)
+        return;
+      }
+      console.log(rankingOpt)
+      setRanking(rankingOpt)
+    }
+    RankingClientes();
+
+  }, [])
+
+
+
   return (
     <>
       <div className="pagina-dashboard">
@@ -25,33 +146,46 @@ const PaginaDashboard = ({gestor}) => {
 
         <div className="container-cards-dashboard">
           <div className="card-dashboard">
-            <div className="icone-card amarelo"></div>
-            <h2>10</h2>
+            <div className="icone-card amarelo"><FaRegCalendarCheck color="#fdab07" size={20} /></div>
+            <h2>{agendamentos.length}</h2>
             <h3>Agendamentos</h3>
-            <p>+94 este mês</p>
+            <p> este mês</p>
           </div>
           <div className="card-dashboard">
-            <div className="icone-card azul"></div>
-            <h2>312</h2>
+            <div className="icone-card azul"><GoPeople color="#0755fd" size={20} /></div>
+            <h2>{clientes.length}</h2>
             <h3>Clientes</h3>
             <p>cadastrados</p>
           </div>
           <div className="card-dashboard">
-            <div className="icone-card verde"></div>
-            <h2>3</h2>
+            <div className="icone-card verde"><BsScissors color="#07fd30" size={20} /></div>
+            <h2>{barbeiros.length}</h2>
             <h3>Barbeiros</h3>
             <p>ativos</p>
           </div>
           <div className="card-dashboard">
-            <div className="icone-card roxo"></div>
-            <h2>6</h2>
+            <div className="icone-card roxo"><ImPriceTag color="#9b07fd" size={20} /></div>
+            <h2>{servicos.length}</h2>
             <h3>Serviços</h3>
             <p>disponíveis</p>
+          </div>
+          <div className="card-dashboard">
+            <div className="icone-card vermelho"><LiaMedalSolid color="#fd2c07" size={24} /></div>
+            <h2>{recompensas.length}</h2>
+            <h3>Recompensas</h3>
+            <p>ativas</p>
+          </div>
+          <div className="card-dashboard">
+            <div className="icone-card verde"><MdOutlineAttachMoney color="#0ffd07" size={24} /></div>
+            <h2>{servicos.length}</h2>
+            <h3>Faturamento</h3>
+            <p>total</p>
           </div>
         </div>
 
         <div className="layout-inferior-dashboard">
           <div className="lado-esquerdo-dashboard">
+
             <div className="card-grande-dashboard">
               <h2 className="titulo-secao-dashboard">
                 Ações Rápidas
@@ -67,7 +201,7 @@ const PaginaDashboard = ({gestor}) => {
                   Alterar Preços
                 </button>
                 <button className="botao-acao-dashboard">
-                  Bônus Clientes
+                  Recompensas
                 </button>
                 <button className="botao-acao-dashboard">
                   Agendamentos
@@ -123,6 +257,58 @@ const PaginaDashboard = ({gestor}) => {
               </table>
             </div>
           </div>
+
+          <div className="lado-direito-dashboard">
+            <div className="card-melhores-clientes-dashboard">
+              <div className="topo-melhores-clientes-dashboard">
+                <h2 className="titulo-secao-dashboard">
+                  Melhores Clientes
+                </h2>
+                <span className="subtitulo-melhores-clientes-dashboard">
+                  Top clientes
+                </span>
+              </div>
+              <div className="lista-melhores-clientes-dashboard">
+                {/* ITEM */}
+
+                {ranking
+                .slice(0, 10)
+                .map((cliente) => (
+                  <div
+                    className="item-melhor-cliente-dashboard"
+                    key={cliente.clienteId}
+                  >
+                    <div className="informacoes-melhor-cliente-dashboard">
+                      <div className="avatar-melhor-cliente-dashboard">
+                        {cliente.nomeCliente.charAt(0)}
+                      </div>
+                      <div>
+                        <h3>
+                          {cliente.nomeCliente}
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="quantidade-agendamentos-dashboard">
+                      <strong>
+                        {cliente.quantidadeCortes}
+                      </strong>
+                      <span>
+                        agendamentos
+                      </span>
+
+                    </div>
+                  </div>
+                ))}
+
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+
         </div>
       </div>
     </>
