@@ -15,6 +15,8 @@ import PaginaInicialGestor from "./paginas/gestor/PaginaInicialGestor.jsx";
 import MeusAgendamentos from "./paginas/cliente/meus-agendamentos/MeusAgendamentos.jsx"
 import PaginaRecompensas from './paginas/cliente/recompensas/PaginaRecompensas.jsx';
 import PaginaPainelBarbeiro from './paginas/barbeiro/PaginaPainelBarbeiro.jsx';
+import ProtectedAdminRoute from './componentes/protectedRule/protectedAdminRoute.jsx';
+import ProtectedBarbeiroRoute from './componentes/protectedRule/protectedBarbeiroRoute.jsx';
 
 function App() {
 
@@ -33,10 +35,21 @@ function App() {
           <Route path="/confirmarAgendamento" element={<Secao4TelaAgendamento />} />
           <Route path="/perfil" element={<TelaPerfil />} />
           <Route path="/editar-perfil" element={<Meuperfil />} />
-          <Route path="/gestor/home" element={<PaginaInicialGestor />} />
+
+          <Route path="/gestor/home" element={
+            <ProtectedAdminRoute>
+              <PaginaInicialGestor />
+            </ProtectedAdminRoute>
+          } />
+
           <Route path="/meus-agendamentos" element={<MeusAgendamentos />} />
           <Route path="/recompensas" element={<PaginaRecompensas />} />
-          <Route path="/painel-barbeiro" element={<PaginaPainelBarbeiro />} />
+
+          <Route path="/painel-barbeiro" element={
+            <ProtectedBarbeiroRoute>
+              <PaginaPainelBarbeiro />
+            </ProtectedBarbeiroRoute>
+          } />
 
         </Routes>
       </BrowserRouter>

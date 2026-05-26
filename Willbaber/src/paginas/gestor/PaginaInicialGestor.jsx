@@ -7,10 +7,13 @@ import PaginaServico from "./componente/paginaServico/PaginaServico.jsx"
 import PaginaRecompensa from "./componente/paginaRecompensas/PaginaRecompensas.jsx"
 import "./PaginaInicialGestor.css"
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const PaginaInicialGestor = () => {
 
+
+  const navigate = useNavigate()
   const [gestor, setGestor] = useState(null)
 
   useEffect(() => {
@@ -58,23 +61,23 @@ const PaginaInicialGestor = () => {
         <div className="conteudo-pagina-gestor">
 
           {paginaAtiva === "Dashboard" && (
-            <PaginaDashboard gestor={gestor}/>
+            <PaginaDashboard gestor={gestor} />
           )}
 
           {paginaAtiva === "Barbeiros" && (
-            <PaginaBarbeiro gestor={gestor}/>
+            <PaginaBarbeiro gestor={gestor} />
           )}
 
           {paginaAtiva === "Servicos" && (
-            <PaginaServico gestor={gestor}/>
+            <PaginaServico gestor={gestor} />
           )}
 
           {paginaAtiva === "Agendamentos" && (
-            <PaginaAgendamento gestor={gestor}/>
+            <PaginaAgendamento gestor={gestor} />
           )}
 
-           {paginaAtiva === "Recompensa" && (
-            <PaginaRecompensa gestor={gestor}/>
+          {paginaAtiva === "Recompensa" && (
+            <PaginaRecompensa gestor={gestor} />
           )}
         </div>
 
