@@ -14,9 +14,45 @@ function cabecalho({ estatico }) {
 
     useEffect(() => {
         const userStorage = localStorage.getItem("clientAuth");
-        if (userStorage) {
-            setCliente(JSON.parse(userStorage));
+
+        if (!userStorage) return;
+        const userObj = JSON.parse(userStorage);
+
+
+        async function BuscarUsers() {
+
+            try {
+                const resp = await fetch(
+                    `http://localhost:8080/willbarber/perfil/${userObj.id}`
+                )
+
+                if (!resp.ok) {
+
+                    const erro = await resp.text();
+
+                    console.log(erro);
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro",
+                        text: erro
+                    });
+                }
+                
+                const data = await resp.json();
+                setCliente(data)
+                return;
+
+            } catch (error) {
+                Swal.fire({
+                    icon: "error servidor",
+                    title: "Erro servidor",
+                    text: erro
+                });
+
+            }
         }
+        BuscarUsers();
     }, []);
 
 
@@ -48,7 +84,7 @@ function cabecalho({ estatico }) {
         setCliente(null);
         navigate("/")
         window.location.reload();
-        
+
     }
 
     return (

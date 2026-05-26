@@ -26,7 +26,7 @@ const FiltroMeusAgendamentos = ({ abaAtiva, SetAbaAtiva }) => {
                     </button>
 
                 </div>
-                <Link to="/agendamento" className="texto-novo-agendamento">
+                <Link to="/novo-agendamento" className="texto-novo-agendamento">
                     <button className="botao-novo-agendamento">
                         <div className="texto-novo-agendamento"> + Novo Agendamento
                         </div>

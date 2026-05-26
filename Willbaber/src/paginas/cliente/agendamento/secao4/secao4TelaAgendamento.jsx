@@ -10,6 +10,7 @@ import { RiScissors2Fill } from "react-icons/ri" //Ícone de tesoura;
 import { CiClock2 } from "react-icons/ci"; //Ícone de relógio;
 import { CiCalendar } from "react-icons/ci"; //Ícone de calendário;
 import { LuAlarmClock } from "react-icons/lu"; //Ícone de relógio de alarme;
+import { atualizarCliente } from "../../../../utils/atualizarCliente";
 import Swal from "sweetalert2";
 import "./secao4TelaAgendamento.css"
 
@@ -130,6 +131,7 @@ const secao4TelaAgendamento = () => {
         return;
       }
 
+      await atualizarCliente();
 
       Swal.fire({
         icon: "success",
