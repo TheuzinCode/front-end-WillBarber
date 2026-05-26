@@ -38,13 +38,18 @@ const Secao1TelaLogin = () => {
 
       const data = await response.json();
 
-      console.log("Login sucesso:", data)
+      const body = {
+        id: data.id,
+        nome: data.nome,
+        email: data.email,
+        pontos: data.pontos
+      }
 
-      localStorage.setItem("clientAuth", JSON.stringify(data));
+      localStorage.setItem("clientAuth", JSON.stringify(body));
 
       navigate("/");
 
-    } catch(error) {
+    } catch (error) {
       console.error("Erro:", error);
       alert("Email ou senha inválidos");
     }
