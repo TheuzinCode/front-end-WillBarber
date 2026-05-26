@@ -11,6 +11,14 @@ const secao3TelaAgendamento = () => {
   const [dataSelecionada, setDataSelecionada] = useState(new Date());
   const [horarioSelecionado, setHorarioSelecionado] = useState("");
   const [horariosDisponiveis, setHorariosDisponiveis] = useState([]);
+  const [recompensa, setRecompensa] = useState(null)
+
+  useEffect(() => {
+    const recompensaSalva = localStorage.getItem("recompensaSelecionada")
+    if (recompensaSalva) {
+      setRecompensa(JSON.parse(recompensaSalva))
+    }
+  }, [])
 
 
   const selecionarData = async (data) => {
@@ -35,6 +43,8 @@ const secao3TelaAgendamento = () => {
 
       const data = await response.json();
       setHorariosDisponiveis(data);
+
+
 
     } catch (error) {
       console.error("Erro ao buscar horários disponíveis:", error);
@@ -167,11 +177,19 @@ const secao3TelaAgendamento = () => {
 
         <div className="container-buttons-tela-agendamento-secao2">
           <div>
-            <Link to="/selecionarServico" className="texto-button-voltar-tela-agendamento-secao2">
-              <div className="button-voltar-tela-agendamento-secao2">
-                <FaArrowLeft className="icone-seta-tela-agendamento-secao2" /> Voltar
-              </div>
-            </Link>
+            {recompensa === null
+              ? <Link to="/selecionarServico" className="texto-button-voltar-tela-agendamento-secao2">
+                <div className="button-voltar-tela-agendamento-secao2">
+                  <FaArrowLeft className="icone-seta-tela-agendamento-secao2" /> Voltar
+                </div>
+              </Link>
+              : <Link to="/novo-agendamento" className="texto-button-voltar-tela-agendamento-secao2">
+                <div className="button-voltar-tela-agendamento-secao2">
+                  <FaArrowLeft className="icone-seta-tela-agendamento-secao2" /> Voltar
+                </div>
+              </Link>
+            }
+
           </div>
 
           <div>

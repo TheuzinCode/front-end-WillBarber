@@ -11,13 +11,18 @@ import Rodape from "../../componentes/rodape/Rodape.jsx";
 
 function Telainicial() {
 
-      const [cliente, setCliente] = useState(null);
+    const [cliente, setCliente] = useState(null);
 
     useEffect(() => {
         const userStorage = localStorage.getItem("clientAuth");
         if (userStorage) {
             setCliente(JSON.parse(userStorage));
         }
+        
+        localStorage.removeItem(
+            "recompensaSelecionada"
+        );
+
     }, []);
 
     return (

@@ -21,8 +21,8 @@ const secao4TelaAgendamento = () => {
   const [dadosServico, setDadosServico] = useState({});
   const [dadosHorario, setDadosHorario] = useState("");
   const [dadosCliente, setDadosCliente] = useState({});
-  const [usarRecompensa, setUsarRecompensa] = useState(false);
-    
+  const [recompensa, setRecompensa] = useState(null)
+
 
 
   useEffect(() => {
@@ -51,6 +51,11 @@ const secao4TelaAgendamento = () => {
       setDadosCliente(JSON.parse(clienteSalvo));
     }
 
+    const recompensaSalva = localStorage.getItem("recompensaSelecionada")
+    if (recompensaSalva) {
+      setRecompensa(JSON.parse(recompensaSalva))
+    }
+
 
   }, []);
 
@@ -58,27 +63,50 @@ const secao4TelaAgendamento = () => {
 
 
 
-    const order = {
-      dataHora: dadosHorario,
-      preco: dadosServico.preco,
-      cliente: {
-        id: dadosCliente.id
-      },
-      barbeiro: {
-        id: dadosBarbeiro.idBarbeiro
-      },
-      servico: {
-        id: dadosServico.servicoId
-      },
-      pontos: dadosServico.pontos,
-      corteGratis: usarRecompensa
+    const order = recompensa
+      ? {
 
-    }
+        // AGENDAMENTO RECOMPENSA
+
+        dataHora: dadosHorario,
+
+        cliente: {
+          id: dadosCliente.id
+        },
+
+        barbeiro: {
+          id: dadosBarbeiro.idBarbeiro
+        },
+
+        recompensa: {
+          id: recompensa.id
+        }
+
+      }
+      : {
+        dataHora: dadosHorario,
+        preco: dadosServico.preco,
+        cliente: {
+          id: dadosCliente.id
+        },
+        barbeiro: {
+          id: dadosBarbeiro.idBarbeiro
+        },
+        servico: {
+          id: dadosServico.servicoId,
+        },
+        pontos: dadosServico.pontos,
+      }
+
+
+    const url = recompensa
+      ? `http://localhost:8080/willbarber/agendamento/novoagendamento-recompensa`
+      : `http://localhost:8080/willbarber/agendamento/novoagendamento`
 
     console.log(order)
 
     try {
-      const resp = await fetch("http://localhost:8080/willbarber/agendamento/novoagendamento", {
+      const resp = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -86,6 +114,21 @@ const secao4TelaAgendamento = () => {
         body: JSON.stringify(order)
       }
       );
+
+      if (!resp.ok) {
+
+        const erro = await resp.text();
+
+        console.log(erro);
+
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: erro
+        });
+
+        return;
+      }
 
 
       Swal.fire({
@@ -101,14 +144,13 @@ const secao4TelaAgendamento = () => {
       localStorage.removeItem("dadosBarbeiro");
       localStorage.removeItem("dadosServico");
       localStorage.removeItem("horarioSelecionado");
+      localStorage.removeItem("recompensaSelecionada");
 
       navigate("/");
-
 
     } catch (error) {
       console.error("Erro ao criar agendamento:", error);
     }
-
 
   }
   return (
@@ -198,23 +240,33 @@ const secao4TelaAgendamento = () => {
               </div>
             </div>
             <div className="lado-direito-tela-agendamento-secao4">
-              {dadosServico.nomeServico}
+              {
+                recompensa
+                  ? recompensa.nomeRecompensa
+                  : dadosServico.nomeServico
+              }
             </div>
           </div>
 
-          <div className="layout-informacoes-tela-agendamento-secao4">
-            <div className="lado-esquerdo-tela-agendamento-secao4">
-              <div className="icone-tela-agendamento-secao4">
-                <CiClock2 color="#BF9445" size={25} />
+          {
+            recompensa
+              ? ""
+              : <div className="layout-informacoes-tela-agendamento-secao4">
+                <div className="lado-esquerdo-tela-agendamento-secao4">
+                  <div className="icone-tela-agendamento-secao4">
+                    <CiClock2 color="#BF9445" size={25} />
+                  </div>
+                  <div className="texto-informacoes-tela-agendamento-secao4">
+                    Duração
+                  </div>
+                </div>
+                <div className="lado-direito-tela-agendamento-secao4">
+                  {dadosServico?.temposervico?.substring(3, 5)} min
+                </div>
               </div>
-              <div className="texto-informacoes-tela-agendamento-secao4">
-                Duração
-              </div>
-            </div>
-            <div className="lado-direito-tela-agendamento-secao4">
-              {dadosServico?.temposervico?.substring(3, 5)} min
-            </div>
-          </div>
+          }
+
+
 
           <div className="layout-informacoes-tela-agendamento-secao4">
             <div className="lado-esquerdo-tela-agendamento-secao4">
@@ -248,22 +300,19 @@ const secao4TelaAgendamento = () => {
             </div>
           </div>
 
-
           <div className="layout-total-valor-informacoes-tela-agendamento-secao4">
             <div className="texto-total-informacoes-tela-agendamento-secao4">
               Total
             </div>
             <div className="valor-total-informacoes-tela-agendamento-secao4">
-              R$ {dadosServico.preco},00 
+              {
+                recompensa
+                  ? "R$ 0,00"
+                  : `R$ ${dadosServico.preco},00`
+              }
             </div>
           </div>
-
         </div>
-
-
-
-
-
 
         <div className="container-buttons-tela-agendamento-secao4">
           <div>

@@ -9,6 +9,7 @@ const secao1TelaAgendamento = () => {
   const [nomeBarbeiro, setNomeBarbeiro] = useState("")
   const [idBarbeiro, setIdBarbeiro] = useState("")
   const [barbeiros, setBarbeiros] = useState([])
+  const [recompensa, setRecompensa] = useState(null)
 
   useEffect(() => {
     const buscarBabeiros = async () => {
@@ -24,6 +25,11 @@ const secao1TelaAgendamento = () => {
         if (barbeiroSalvo) {
           setIdBarbeiro(barbeiroSalvo.idBarbeiro)
           setNomeBarbeiro(barbeiroSalvo.nomeBarbeiro)
+        }
+
+        const recompensaSalva = localStorage.getItem("recompensaSelecionada")
+        if (recompensaSalva) {
+          setRecompensa(JSON.parse(recompensaSalva))
         }
 
       }
@@ -44,6 +50,8 @@ const secao1TelaAgendamento = () => {
 
     localStorage.setItem("dadosBarbeiro", JSON.stringify(dadosBarbeiro))
   }
+
+
 
   return (
     <>
@@ -139,11 +147,18 @@ const secao1TelaAgendamento = () => {
         </div>
 
         <div className="layout-button-continuar-tela-agendamento-secao1">
-          <Link to="/selecionarServico" className="texto-button-continuar-tela-agendamento-secao1" onClick={salvarBarbeiro}>
-            <div className="button-continuar-tela-agendamento-secao1">
-              Continuar <FaArrowRight />
-            </div>
-          </Link>
+          {recompensa === null
+            ? <Link to="/selecionarServico" className="texto-button-continuar-tela-agendamento-secao1" onClick={salvarBarbeiro}>
+              <div className="button-continuar-tela-agendamento-secao1">
+                Continuar <FaArrowRight />
+              </div>
+            </Link>
+
+            : <Link to="/selecionarHorario" className="texto-button-continuar-tela-agendamento-secao1" onClick={salvarBarbeiro}>
+              <div className="button-continuar-tela-agendamento-secao1">
+                Continuar <FaArrowRight />
+              </div>
+            </Link>}
         </div>
 
 
