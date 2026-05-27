@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Menuperfil from "../menuperfil/menuperfil.jsx"
 import MeusAgendamentos from "../componentes/agendamentos/Agendamentos.jsx"
 import MeuPerfil from "../componentes/meuperfil/Meuperfil.jsx"
+import MinhasRecompensas from "../componentes/recompensas/MinhasRecompensas.jsx";
 
 const Meusdados = () => {
 
@@ -185,6 +186,10 @@ const Meusdados = () => {
 
                 {abaAtiva === "historico" && (
                     <MeusAgendamentos id={dadosCliente.id} />
+                )}
+
+                {abaAtiva === "recompensas" && (
+                    <MinhasRecompensas id={dadosCliente.id} />
                 )}
 
                 {abaAtiva === "perfil" && (

@@ -12,6 +12,13 @@ const menuperfil = ({ abaAtiva, setAbaAtiva }) => {
             </button>
 
             <button
+                className={abaAtiva === "recompensas" ? "ativo" : ""}
+                onClick={() => setAbaAtiva("recompensas")}
+            >
+                Recompensas
+            </button>
+
+            <button
                 className={abaAtiva === "perfil" ? "ativo" : ""}
                 onClick={() => setAbaAtiva("perfil")}
             >
