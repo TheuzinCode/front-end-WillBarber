@@ -6,24 +6,36 @@ const PaginaDashboardBarbeiro = () => {
 
   const [agendamentosDia, setAgendamentosDia] = useState([])
 
-  const hoje =
-    new Date().toISOString().split("T")[0];
+  const hojeAgora =
+    new Date().toLocaleDateString("sv-SE");
 
-    const pendentesHoje =
+  const dataFormatada =
+    new Date(
+      hojeAgora + "T00:00:00"
+    ).toLocaleDateString(
+      "pt-BR",
+      {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      }
+    );
+
+  const pendentesHoje =
     agendamentosDia.filter(
-        a => a.status === "AGENDADO"
+      a => a.status === "AGENDADO"
     ).length;
 
-    const receitaHoje =
+  const receitaHoje =
     agendamentosDia.reduce(
-        (total, agendamentosDia) =>
-            total + agendamentosDia.preco,
-        0
+      (total, agendamento) =>
+        total + Number(agendamento.preco),
+      0
     );
   useEffect(() => {
 
     const hoje =
-      new Date().toISOString().split("T")[0];
+      new Date().toLocaleDateString("sv-SE");
 
     async function buscarAgendamentoDia() {
 
@@ -105,14 +117,15 @@ const PaginaDashboardBarbeiro = () => {
 
         <div>
           <h1 className="titulo-agenda-pagina-dashboard-barbeiro">
-            Agenda de Hoje — {new Date(hoje).toLocaleDateString("pt-BR")}
+            Agenda de Hoje — {dataFormatada}
           </h1>
 
           {/* CARD */}
 
           {agendamentosDia.map((agendamentoDia) => {
             return (
-              <div className="card-agendamento-pagina-dashboard-barbeiro">
+              <div className="card-agendamento-pagina-dashboard-barbeiro"
+                key={agendamentoDia.id}>
                 <div className="horario-agendamento-pagina-dashboard-barbeiro">
                   {new Date(
                     agendamentoDia.dataHora

@@ -112,10 +112,12 @@
     justify-content: center;
 
     font-weight: bold;
+    color: white;
 }
 
 .informacoes-agendamento-pagina-dashboard-barbeiro {
     flex: 1;
+    color: white;
 }
 
 .informacoes-agendamento-pagina-dashboard-barbeiro p {
