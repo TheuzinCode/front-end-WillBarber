@@ -11,7 +11,7 @@ const secao1CriarConta = () => {
     const [telefone, setTelefone] = useState("")
     const [cpf, setCpf] = useState("")
     const [senha, setSenha] = useState("")
-
+    const [aceitouTermos, setAceitouTermos] = useState(false)
 
     const criarConta = async (e) => {
         e.preventDefault();
@@ -33,6 +33,10 @@ const secao1CriarConta = () => {
 
         if (!email.includes("@")) {
             alert("Digite um email válido");
+            return;
+        }
+        if (!aceitouTermos) {
+            alert("Você precisa aceitar os Termos de Uso");
             return;
         }
 
@@ -68,8 +72,6 @@ const secao1CriarConta = () => {
             }
 
             const data = await response.json();
-
-            console.log("cadastrado sucesso:", data)
 
             navigate("/login");
 
@@ -178,7 +180,48 @@ const secao1CriarConta = () => {
                                 />
                             </div>
 
-                            <button className="botao-entrar-secao1-criar-conta" type="submit">Cadastrar</button>
+                            <div className="container-termos-criar-conta">
+
+                                <label className="checkbox-termos-criar-conta">
+
+                                    <input
+                                        type="checkbox"
+
+                                        checked={aceitouTermos}
+
+                                        onChange={(e) =>
+                                            setAceitouTermos(
+                                                e.target.checked
+                                            )
+                                        }
+                                    />
+
+                                    <span className="checkmark-termos-criar-conta">
+                                    </span>
+
+                                </label>
+
+                                <p className="texto-termos-criar-conta">
+
+                                    Eu li e aceito os
+
+                                    <a
+                                        href="/termos-de-uso.pdf"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Termos de Uso
+                                    </a>
+
+                                </p>
+
+                            </div>
+
+                            <button
+                                className="botao-entrar-secao1-criar-conta"
+                                type="submit"
+                                disabled={!aceitouTermos}
+                            >Cadastrar</button>
                         </form>
                     </div>
                 </div>
