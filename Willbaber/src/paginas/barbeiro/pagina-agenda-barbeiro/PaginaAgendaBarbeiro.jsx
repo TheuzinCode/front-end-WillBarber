@@ -1,6 +1,73 @@
 import "./PaginaAgendaBarbeiro.css"
+import { useState, useEffect } from "react";
+
 
 const PaginaAgendaBarbeiro = () => {
+
+  const [diaSelecionado, setDiaSelecionado] =
+    useState(new Date());
+
+  const [agendamentosDia, setAgendamentosDia] = useState([])
+
+  const diasSemana = [];
+
+  for (let i = -3; i <= 3; i++) {
+
+    const data = new Date();
+
+    data.setDate(
+      data.getDate() + i
+    );
+
+    diasSemana.push(data);
+  }
+
+  function formatarDataBackend(data) {
+
+    return data
+      .toLocaleDateString("sv-SE");
+  }
+
+  async function buscarDataAgenda(dataEscolhida) {
+
+    const usersObj =
+      localStorage.getItem(
+        "clientAuth"
+      );
+
+    if (!usersObj) return;
+
+    const usersOpt =
+      JSON.parse(usersObj);
+
+    const dataFormatada =
+      formatarDataBackend(
+        dataEscolhida
+      );
+
+    const resp = await fetch(
+      `http://localhost:8080/willbarber/barbeiro/${usersOpt.id}/listarAgedamentosDoDia?data=${dataFormatada}`
+    );
+
+    const data = await resp.json();
+
+    if (!resp.ok) {
+
+      console.log(resp);
+      return;
+    }
+
+    setAgendamentosDia(data);
+  }
+
+  useEffect(() => {
+
+    buscarDataAgenda(
+      new Date()
+    );
+
+  }, []);
+
   return (
     <>
       <div className="pagina-agenda-barbeiro">
@@ -13,36 +80,44 @@ const PaginaAgendaBarbeiro = () => {
 
         <div className="container-dias-pagina-agenda-barbeiro">
 
-          <div className="card-dia-pagina-agenda-barbeiro">
-            <span>Seg</span>
-            <h2>30</h2>
-          </div>
+          {diasSemana.map((dia, index) => {
+            const selecionado =
+              dia.toDateString() ===
+              diaSelecionado.toDateString();
 
-          <div className="card-dia-pagina-agenda-barbeiro">
-            <span>Ter</span>
-            <h2>31</h2>
-          </div>
+            return (
+              <button
+                key={index}
+                className={
+                  selecionado
+                    ? "card-dia-ativo-pagina-agenda-barbeiro"
+                    : "card-dia-pagina-agenda-barbeiro"
+                }
 
-          <div className="card-dia-pagina-agenda-barbeiro">
-            <span>Qua</span>
-            <h2>01</h2>
-          </div>
-
-          <div className="card-dia-ativo-pagina-agenda-barbeiro">
-            <span>Qui</span>
-            <h2>02</h2>
-          </div>
-
-          <div className="card-dia-pagina-agenda-barbeiro">
-            <span>Sex</span>
-            <h2>03</h2>
-          </div>
-
-          <div className="card-dia-pagina-agenda-barbeiro">
-            <span>Sáb</span>
-            <h2>04</h2>
-          </div>
-
+                onClick={() => {
+                  setDiaSelecionado(dia);
+                  buscarDataAgenda(dia);
+                }}
+              >
+                <span>
+                  {dia.toLocaleDateString(
+                    "pt-BR",
+                    {
+                      weekday: "short"
+                    }
+                  )}
+                </span>
+                <h2>
+                  {dia.toLocaleDateString(
+                    "pt-BR",
+                    {
+                      day: "2-digit"
+                    }
+                  )}
+                </h2>
+              </button>
+            )
+          })}
         </div>
 
         {/* GRID */}
@@ -51,190 +126,42 @@ const PaginaAgendaBarbeiro = () => {
 
           {/* CARD */}
 
-          <div className="card-agendamento-pagina-agenda-barbeiro">
-
-            <div className="topo-card-agendamento-pagina-agenda-barbeiro">
-
-              <div className="informacoes-cliente-pagina-agenda-barbeiro">
-
-                <div className="avatar-cliente-pagina-agenda-barbeiro">
-                  M
+          {agendamentosDia.map((agedamentoDoDia) => {
+            return (
+              <div className="card-agendamento-pagina-agenda-barbeiro">
+                <div className="topo-card-agendamento-pagina-agenda-barbeiro">
+                  <div className="informacoes-cliente-pagina-agenda-barbeiro">
+                    <div className="avatar-cliente-pagina-agenda-barbeiro">
+                     {agedamentoDoDia.nomeCliente.charAt(0)}
+                    </div>
+                    <div>
+                      <h2 className="nome-cliente-pagina-agenda-barbeiro">
+                         {agedamentoDoDia.nomeCliente}
+                      </h2>
+                      <p className="servico-cliente-pagina-agenda-barbeiro">
+                        {agedamentoDoDia.nomeServico}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="status-confirmado-pagina-agenda-barbeiro">
+                   {agedamentoDoDia.statusAgendamento}
+                  </div>
                 </div>
 
-                <div>
-
-                  <h2 className="nome-cliente-pagina-agenda-barbeiro">
-                    Marcos Oliveira
-                  </h2>
-
-                  <p className="servico-cliente-pagina-agenda-barbeiro">
-                    Corte + Barba
-                  </p>
-
+                <div className="rodape-card-agendamento-pagina-agenda-barbeiro">
+                  <span>
+                    🕒  {agedamentoDoDia.dataHora.substring(11, 16)}
+                  </span>
+                  <span>
+                    ✂ {agedamentoDoDia.duracao.substring(3, 5)} min
+                  </span>
                 </div>
-
               </div>
+            )
+          })}
 
-              <div className="status-confirmado-pagina-agenda-barbeiro">
-                Confirmado
-              </div>
-
-            </div>
-
-            <div className="rodape-card-agendamento-pagina-agenda-barbeiro">
-
-              <span>
-                🕒 09:00
-              </span>
-
-              <span>
-                ✂ 55 min
-              </span>
-
-            </div>
-
-          </div>
-
-          {/* CARD */}
-
-          <div className="card-agendamento-pagina-agenda-barbeiro">
-
-            <div className="topo-card-agendamento-pagina-agenda-barbeiro">
-
-              <div className="informacoes-cliente-pagina-agenda-barbeiro">
-
-                <div className="avatar-cliente-pagina-agenda-barbeiro">
-                  J
-                </div>
-
-                <div>
-
-                  <h2 className="nome-cliente-pagina-agenda-barbeiro">
-                    João Pedro
-                  </h2>
-
-                  <p className="servico-cliente-pagina-agenda-barbeiro">
-                    Corte de Cabelo
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="status-confirmado-pagina-agenda-barbeiro">
-                Confirmado
-              </div>
-
-            </div>
-
-            <div className="rodape-card-agendamento-pagina-agenda-barbeiro">
-
-              <span>
-                🕒 10:00
-              </span>
-
-              <span>
-                ✂ 30 min
-              </span>
-
-            </div>
-
-          </div>
-
-          {/* CARD */}
-
-          <div className="card-agendamento-pagina-agenda-barbeiro">
-
-            <div className="topo-card-agendamento-pagina-agenda-barbeiro">
-
-              <div className="informacoes-cliente-pagina-agenda-barbeiro">
-
-                <div className="avatar-cliente-pagina-agenda-barbeiro">
-                  A
-                </div>
-
-                <div>
-
-                  <h2 className="nome-cliente-pagina-agenda-barbeiro">
-                    André Costa
-                  </h2>
-
-                  <p className="servico-cliente-pagina-agenda-barbeiro">
-                    Barba
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="status-confirmado-pagina-agenda-barbeiro">
-                Confirmado
-              </div>
-
-            </div>
-
-            <div className="rodape-card-agendamento-pagina-agenda-barbeiro">
-
-              <span>
-                🕒 11:00
-              </span>
-
-              <span>
-                ✂ 25 min
-              </span>
-
-            </div>
-
-          </div>
-
-          {/* CARD */}
-
-          <div className="card-agendamento-pagina-agenda-barbeiro">
-
-            <div className="topo-card-agendamento-pagina-agenda-barbeiro">
-
-              <div className="informacoes-cliente-pagina-agenda-barbeiro">
-
-                <div className="avatar-cliente-pagina-agenda-barbeiro">
-                  R
-                </div>
-
-                <div>
-
-                  <h2 className="nome-cliente-pagina-agenda-barbeiro">
-                    Rodrigo Lima
-                  </h2>
-
-                  <p className="servico-cliente-pagina-agenda-barbeiro">
-                    Corte + Barba
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="status-pendente-pagina-agenda-barbeiro">
-                Pendente
-              </div>
-
-            </div>
-
-            <div className="rodape-card-agendamento-pagina-agenda-barbeiro">
-
-              <span>
-                🕒 14:00
-              </span>
-
-              <span>
-                ✂ 55 min
-              </span>
-
-            </div>
-
-          </div>
 
         </div>
-
       </div>
     </>
   )
