@@ -1,6 +1,163 @@
 import "./PaginaPerfilBarbeiro.css"
+import Swal from "sweetalert2";
+import { useState, useEffect } from "react";
 
 const PaginaPerfilBarbeiro = () => {
+
+  const [nome, setNome] = useState("")
+  const [email, setEmail] = useState("")
+  const [senha, setSenha] = useState("")
+  const [cpf, setCpf] = useState("")
+  const [numero, setNumero] = useState("")
+  const [foto, setFoto] = useState(null);
+  const [descricao, setDescricao] = useState("")
+  const [horarios, setHorarios] = useState([{
+    diaSemana: "",
+    horaInicio: "",
+    horaFim: ""
+  }])
+
+  const [barbeiro, setBarbeiro] = useState(null)
+
+  function alterarHorario(index, campo, valor) {
+
+    const novosHorarios = [...horarios];
+
+    novosHorarios[index][campo] = valor;
+
+    setHorarios(novosHorarios);
+  }
+
+  function adicionarHorario() {
+
+    setHorarios([
+      ...horarios,
+      {
+        diaSemana: "",
+        horaInicio: "",
+        horaFim: ""
+      }
+    ]);
+  }
+
+  function removerHorario(index) {
+
+    const novosHorarios = horarios.filter(
+      (_, i) => i !== index
+    );
+
+    setHorarios(novosHorarios);
+  }
+
+
+  useEffect(() => {
+    async function BuscarBarbeiro() {
+
+      const usersObj =
+        localStorage.getItem(
+          "clientAuth"
+        );
+      if (!usersObj) return;
+      const usersOpt =
+        JSON.parse(usersObj);
+
+      const resp = await fetch(
+        `http://localhost:8080/willbarber/barbeiro/${usersOpt.id}/meu-perfil`
+      )
+
+      const data = await resp.json()
+      if (!resp.ok) {
+        console.log(resp)
+        return
+      }
+      setBarbeiro(data)
+
+      setNome(data.nome)
+      setEmail(data.email)
+      setCpf(data.cpf)
+      setNumero(data.telefone)
+      setFoto(data.imagem)
+      setDescricao(data.descricao)
+      setHorarios(data.horarios)
+
+    }
+    BuscarBarbeiro()
+  }, [])
+
+
+  async function atualizarBarbeiro(e) {
+    e.preventDefault();
+
+    try {
+      const body = {
+        nome,
+        email,
+        cpf,
+        senha,
+        telefone: numero,
+        descricao,
+        horarios
+      }
+
+      const formData = new FormData();
+
+      formData.append(
+        "users",
+        new Blob(
+          [JSON.stringify(body)],
+          {
+            type: "application/json"
+          }
+        )
+      );
+
+      if (foto) {
+        formData.append("imagem", foto);
+      }
+
+      const resp = await fetch(
+        `http://localhost:8080/willbarber/barbeiros/editar-barbeiros/${barbeiro.id}`,
+        {
+          method: "PUT",
+          body: formData
+        }
+      )
+
+      if (!resp.ok) {
+        console.log("Erro ao cadastrar");
+        const erro = await resp.text();
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: erro
+        });
+
+        return;
+      }
+
+      Swal.fire({
+        icon: "success",
+        title: "Perfil atualizado!",
+        text: "As informações foram salvas com sucesso.",
+        confirmButtonColor: "#C9A646"
+      });
+
+      const data = await resp.json();
+      
+      window.location.reload();
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  if (!barbeiro) {
+    return (
+      <div className="loading">
+        Carregando...
+      </div>
+    )
+  }
   return (
     <>
 
@@ -23,33 +180,24 @@ const PaginaPerfilBarbeiro = () => {
               <div className="container-foto-pagina-perfil-barbeiro">
 
                 <img
-                  src="/barbeiro.jpg"
-                  alt="Barbeiro"
+                  src={`data:image/jpeg;base64,${barbeiro.imagem}`}
+                  alt={barbeiro.nome}
                   className="foto-barbeiro-pagina-perfil-barbeiro"
                 />
 
                 <button className="botao-camera-pagina-perfil-barbeiro">
                   📷
                 </button>
-
               </div>
 
               <div>
-
                 <h2 className="nome-barbeiro-pagina-perfil-barbeiro">
-                  William Santos
+                  {barbeiro.nome}
                 </h2>
-
                 <p className="especialidade-pagina-perfil-barbeiro">
-                  Corte Clássico & Barba
+                  {barbeiro.descricao}
                 </p>
-
-                <span className="experiencia-pagina-perfil-barbeiro">
-                  8 anos de experiência
-                </span>
-
               </div>
-
             </div>
 
             {/* CAMPOS */}
@@ -72,8 +220,9 @@ const PaginaPerfilBarbeiro = () => {
 
                   <input
                     type="text"
-                    value="William Santos"
-                    readOnly
+                    value={nome}
+                    onChange={(e) => setNome(e.target.value)}
+                    placeholder="Digite o nome"
                   />
 
                 </div>
@@ -96,32 +245,9 @@ const PaginaPerfilBarbeiro = () => {
 
                   <input
                     type="text"
-                    value="Corte Clássico & Barba"
-                    readOnly
-                  />
-
-                </div>
-
-              </div>
-
-              {/* EMAIL */}
-
-              <div className="grupo-input-pagina-perfil-barbeiro">
-
-                <label>
-                  Email
-                </label>
-
-                <div className="input-perfil-pagina-perfil-barbeiro">
-
-                  <span>
-                    ✉
-                  </span>
-
-                  <input
-                    type="email"
-                    value="william@willbarber.com"
-                    readOnly
+                    value={descricao}
+                    onChange={(e) => setDescricao(e.target.value)}
+                    placeholder="Digite a especialidade"
                   />
 
                 </div>
@@ -144,8 +270,57 @@ const PaginaPerfilBarbeiro = () => {
 
                   <input
                     type="text"
-                    value="(11) 9 9876-5432"
-                    readOnly
+                    value={numero}
+                    onChange={(e) => setNumero(e.target.value)}
+                    placeholder="Digite o telefone"
+                  />
+
+                </div>
+
+              </div>
+
+              {/* EMAIL */}
+
+              <div className="grupo-input-pagina-perfil-barbeiro">
+
+                <label>
+                  Email
+                </label>
+
+                <div className="input-perfil-pagina-perfil-barbeiro">
+
+                  <span>
+                    ✉
+                  </span>
+
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Digite o email"
+                  />
+
+                </div>
+
+              </div>
+
+              <div className="grupo-input-pagina-perfil-barbeiro">
+
+                <label>
+                  Senha
+                </label>
+
+                <div className="input-perfil-pagina-perfil-barbeiro">
+
+                  <span>
+                    ✉
+                  </span>
+
+                  <input
+                    type="password"
+                    value={senha}
+                    onChange={(e) => setSenha(e.target.value)}
+                    placeholder="Digite a senha"
                   />
 
                 </div>
@@ -156,7 +331,10 @@ const PaginaPerfilBarbeiro = () => {
 
             {/* BOTAO */}
 
-            <button className="botao-editar-pagina-perfil-barbeiro">
+            <button
+              type="submit"
+              onClick={atualizarBarbeiro}
+              className="botao-editar-pagina-perfil-barbeiro">
               ✎ Editar Perfil
             </button>
 
@@ -172,92 +350,104 @@ const PaginaPerfilBarbeiro = () => {
 
             {/* ITEM */}
 
-            <div className="linha-horario-pagina-perfil-barbeiro">
 
-              <select className="select-dia-pagina-perfil-barbeiro">
-                <option>Segunda</option>
-              </select>
+            {horarios.map((horario, index) => (
 
-              <input
-                type="text"
-                value="08:00:00"
-                className="input-horario-pagina-perfil-barbeiro"
-                readOnly
-              />
+              <div
+                className="linha-horario"
+                key={index}
+              >
 
-              <input
-                type="text"
-                value="16:00:00"
-                className="input-horario-pagina-perfil-barbeiro"
-                readOnly
-              />
+                <select
+                  value={horario.diaSemana}
+                  onChange={(e) =>
+                    alterarHorario(
+                      index,
+                      "diaSemana",
+                      e.target.value
+                    )
+                  }
+                >
+                  <option value="">
+                    Dia
+                  </option>
 
-              <button className="botao-remover-horario-pagina-perfil-barbeiro">
-                X
-              </button>
+                  <option value="MONDAY">
+                    Segunda
+                  </option>
 
-            </div>
+                  <option value="TUESDAY">
+                    Terça
+                  </option>
 
-            {/* ITEM */}
+                  <option value="WEDNESDAY">
+                    Quarta
+                  </option>
 
-            <div className="linha-horario-pagina-perfil-barbeiro">
+                  <option value="THURSDAY">
+                    Quinta
+                  </option>
 
-              <select className="select-dia-pagina-perfil-barbeiro">
-                <option>Terça</option>
-              </select>
+                  <option value="FRIDAY">
+                    Sexta
+                  </option>
 
-              <input
-                type="text"
-                value="09:00:00"
-                className="input-horario-pagina-perfil-barbeiro"
-                readOnly
-              />
+                  <option value="SATURDAY">
+                    Sábado
+                  </option>
 
-              <input
-                type="text"
-                value="18:00:00"
-                className="input-horario-pagina-perfil-barbeiro"
-                readOnly
-              />
+                  <option value="SUNDAY">
+                    Domingo
+                  </option>
 
-              <button className="botao-remover-horario-pagina-perfil-barbeiro">
-                X
-              </button>
+                </select>
 
-            </div>
+                <input
+                  type="time"
+                  value={horario.horaInicio}
+                  onChange={(e) =>
+                    alterarHorario(
+                      index,
+                      "horaInicio",
+                      e.target.value
+                    )
+                  }
+                />
 
-            {/* ITEM */}
+                <input
+                  type="time"
+                  value={horario.horaFim}
+                  onChange={(e) =>
+                    alterarHorario(
+                      index,
+                      "horaFim",
+                      e.target.value
+                    )
+                  }
+                />
 
-            <div className="linha-horario-pagina-perfil-barbeiro">
+                <button
+                  type="button"
+                  className="botao-remover-horario"
+                  onClick={() =>
+                    removerHorario(index)
+                  }
+                >
+                  X
+                </button>
 
-              <select className="select-dia-pagina-perfil-barbeiro">
-                <option>Quarta</option>
-              </select>
+              </div>
+            ))}
 
-              <input
-                type="text"
-                value="10:00:00"
-                className="input-horario-pagina-perfil-barbeiro"
-                readOnly
-              />
-
-              <input
-                type="text"
-                value="20:00:00"
-                className="input-horario-pagina-perfil-barbeiro"
-                readOnly
-              />
-
-              <button className="botao-remover-horario-pagina-perfil-barbeiro">
-                X
-              </button>
-
-            </div>
-
+            <button
+              type="button"
+              className="botao-adicionar-horario"
+              onClick={adicionarHorario}
+            >
+              + Adicionar Horário
+            </button>
           </div>
-
         </div>
-
       </div>
     </>
   )
