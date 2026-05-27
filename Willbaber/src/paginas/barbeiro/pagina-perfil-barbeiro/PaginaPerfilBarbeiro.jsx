@@ -135,18 +135,29 @@ const PaginaPerfilBarbeiro = () => {
         return;
       }
 
-      Swal.fire({
+      await Swal.fire({
         icon: "success",
         title: "Perfil atualizado!",
         text: "As informações foram salvas com sucesso.",
-        confirmButtonColor: "#C9A646"
+        confirmButtonColor: "#C9A646",
+        background: "#111111",
+        color: "#FFFFFF"
       });
 
       const data = await resp.json();
-      
+
+
       window.location.reload();
 
     } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Erro",
+        text: "Ocorreu um erro ao atualizar o perfil.",
+        confirmButtonColor: "#C9A646",
+        background: "#111111",
+        color: "#FFFFFF"
+      });
       console.log(error)
     }
   }
