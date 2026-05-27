@@ -1,15 +1,12 @@
 import "./CardPerfilBarbeiro.css"
 import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
 const CardPerfilBarbeiro = () => {
 
     const [barbeiro, setBarbeiro] = useState(null)
 
     useEffect(() => {
-
-
-
-
 
         async function BuscarBarbeiro() {
 
