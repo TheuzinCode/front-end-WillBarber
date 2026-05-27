@@ -47,8 +47,8 @@ const ModalRecompensa = ({
         };
 
         const url = editando
-            ? `http://localhost:8080/Willbarber/recompensa/editar-recompensa/${recompensa.id}`
-            : `http://localhost:8080/Willbarber/recompensa/nova-recompensa`;
+            ? `http://localhost:8080/willbarber/recompensa/editar-recompensa/${recompensa.id}`
+            : `http://localhost:8080/willbarber/recompensa/nova-recompensa`;
 
         const method = editando
             ? "PUT"
