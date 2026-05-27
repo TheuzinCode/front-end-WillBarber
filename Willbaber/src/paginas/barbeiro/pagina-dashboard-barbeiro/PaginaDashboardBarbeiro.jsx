@@ -1,9 +1,12 @@
 import "./PaginaDashboardBarbeiro.css"
 import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
+import ModalAgendamentos from "../modal-agendamentos-barbeiro/ModalAgendamentos";
 
 const PaginaDashboardBarbeiro = () => {
 
+  const [modalAberto, setModalAberto] = useState(false);
+  const [agendamentoSelecionado, setAgendamentoSelecionado] = useState(null);
   const [agendamentosDia, setAgendamentosDia] = useState([])
 
   const hojeAgora =
@@ -125,7 +128,12 @@ const PaginaDashboardBarbeiro = () => {
           {agendamentosDia.map((agendamentoDia) => {
             return (
               <div className="card-agendamento-pagina-dashboard-barbeiro"
-                key={agendamentoDia.id}>
+                key={agendamentoDia.id}
+                onClick={() => {
+                  setAgendamentoSelecionado(agendamentoDia);
+                  setModalAberto(true);
+                }}
+              >
                 <div className="horario-agendamento-pagina-dashboard-barbeiro">
                   {new Date(
                     agendamentoDia.dataHora
@@ -158,10 +166,17 @@ const PaginaDashboardBarbeiro = () => {
               </div>
             )
           })}
-
         </div>
-
       </div>
+
+      {/* MODAL */}
+
+      {modalAberto && (
+        <ModalAgendamentos
+          fecharModal={() => setModalAberto(false)}
+          agendamento={agendamentoSelecionado}
+        />
+      )}
     </>
   )
 }
