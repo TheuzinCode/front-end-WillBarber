@@ -19,6 +19,7 @@ const PaginaDashboard = ({ gestor }) => {
   const [servicos, setServicos] = useState([])
   const [recompensas, setRecompensas] = useState([])
   const [ranking, setRanking] = useState([])
+  const [recente, setRecente] = useState([])
 
   useEffect(() => {
 
@@ -113,10 +114,22 @@ const PaginaDashboard = ({ gestor }) => {
         console.log(resp)
         return;
       }
-      console.log(rankingOpt)
       setRanking(rankingOpt)
     }
     RankingClientes();
+
+    async function ListarAgendamentosRecentes() {
+      const resp = await fetch(
+        `http://localhost:8080/willbarber/gestor/listar-todos-agendamentos`
+      )
+      const recentesOpt = await resp.json();
+      if (!resp.ok) {
+        console.log(resp)
+        return;
+      }
+      setRecente(recentesOpt);
+    }
+    ListarAgendamentosRecentes();
 
   }, [])
 
@@ -231,28 +244,23 @@ const PaginaDashboard = ({ gestor }) => {
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <td>Carlos Silva</td>
-                    <td>William</td>
-                    <td>Corte + Barba</td>
-                    <td>2026-04-10 09:00</td>
-                    <td>
-                      <span className="status-confirmado">
-                        Confirmado
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Marcos Oliveira</td>
-                    <td>Diego</td>
-                    <td>Corte de Cabelo</td>
-                    <td>2026-04-10 10:00</td>
-                    <td>
-                      <span className="status-confirmado">
-                        Confirmado
-                      </span>
-                    </td>
-                  </tr>
+                  {recente.slice(0, 10).map((agendamento) => {
+                    return (
+                      <tr key={agendamento.id}>
+                        <td>{agendamento.nomeCliente}</td>
+                        <td>{agendamento.nomeBarbeiro}</td>
+                        <td>{agendamento.nomeServico}</td>
+                        <td>{new Date(
+                          agendamento.dataHora
+                        ).toLocaleString("pt-BR")}</td>
+                        <td>
+                          <span className="status-confirmado">
+                            {agendamento.statusAgendamento}
+                          </span>
+                        </td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>
@@ -272,33 +280,33 @@ const PaginaDashboard = ({ gestor }) => {
                 {/* ITEM */}
 
                 {ranking
-                .slice(0, 10)
-                .map((cliente) => (
-                  <div
-                    className="item-melhor-cliente-dashboard"
-                    key={cliente.clienteId}
-                  >
-                    <div className="informacoes-melhor-cliente-dashboard">
-                      <div className="avatar-melhor-cliente-dashboard">
-                        {cliente.nomeCliente.charAt(0)}
+                  .slice(0, 10)
+                  .map((cliente) => (
+                    <div
+                      className="item-melhor-cliente-dashboard"
+                      key={cliente.clienteId}
+                    >
+                      <div className="informacoes-melhor-cliente-dashboard">
+                        <div className="avatar-melhor-cliente-dashboard">
+                          {cliente.nomeCliente.charAt(0)}
+                        </div>
+                        <div>
+                          <h3>
+                            {cliente.nomeCliente}
+                          </h3>
+                        </div>
                       </div>
-                      <div>
-                        <h3>
-                          {cliente.nomeCliente}
-                        </h3>
-                      </div>
-                    </div>
-                    <div className="quantidade-agendamentos-dashboard">
-                      <strong>
-                        {cliente.quantidadeCortes}
-                      </strong>
-                      <span>
-                        agendamentos
-                      </span>
+                      <div className="quantidade-agendamentos-dashboard">
+                        <strong>
+                          {cliente.quantidadeCortes}
+                        </strong>
+                        <span>
+                          agendamentos
+                        </span>
 
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
 
 
               </div>

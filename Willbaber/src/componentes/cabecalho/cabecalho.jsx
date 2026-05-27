@@ -102,7 +102,7 @@ function cabecalho({ estatico }) {
                                             cliente.role === "GESTOR"
                                                 ? "/gestor/home"
 
-                                                : cliente.tipoUsers === "BARBEIRO"
+                                                : cliente.role === "BARBEIRO"
                                                     ? "/painel-barbeiro"
 
                                                     : "/perfil"
