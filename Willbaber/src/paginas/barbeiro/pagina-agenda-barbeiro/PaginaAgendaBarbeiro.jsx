@@ -1,5 +1,6 @@
 import "./PaginaAgendaBarbeiro.css"
 import { useState, useEffect } from "react";
+import ModalAgendamentos from "../modal-agendamentos-barbeiro/ModalAgendamentos";
 
 
 const PaginaAgendaBarbeiro = () => {
@@ -7,6 +8,8 @@ const PaginaAgendaBarbeiro = () => {
   const [diaSelecionado, setDiaSelecionado] =
     useState(new Date());
 
+  const [agendamentoSelecionado, setAgendamentoSelecionado] = useState(null);
+  const [modalAberto, setModalAberto] = useState(false);
   const [agendamentosDia, setAgendamentosDia] = useState([])
 
   const diasSemana = [];
@@ -128,15 +131,21 @@ const PaginaAgendaBarbeiro = () => {
 
           {agendamentosDia.map((agedamentoDoDia) => {
             return (
-              <div className="card-agendamento-pagina-agenda-barbeiro">
+              <div className="card-agendamento-pagina-agenda-barbeiro"
+                key={agedamentoDoDia.id}
+                onClick={() => {
+                  setAgendamentoSelecionado(agedamentoDoDia);
+                  setModalAberto(true);
+                }}
+              >
                 <div className="topo-card-agendamento-pagina-agenda-barbeiro">
                   <div className="informacoes-cliente-pagina-agenda-barbeiro">
                     <div className="avatar-cliente-pagina-agenda-barbeiro">
-                     {agedamentoDoDia.nomeCliente.charAt(0)}
+                      {agedamentoDoDia.nomeCliente.charAt(0)}
                     </div>
                     <div>
                       <h2 className="nome-cliente-pagina-agenda-barbeiro">
-                         {agedamentoDoDia.nomeCliente}
+                        {agedamentoDoDia.nomeCliente}
                       </h2>
                       <p className="servico-cliente-pagina-agenda-barbeiro">
                         {agedamentoDoDia.nomeServico}
@@ -144,7 +153,7 @@ const PaginaAgendaBarbeiro = () => {
                     </div>
                   </div>
                   <div className="status-confirmado-pagina-agenda-barbeiro">
-                   {agedamentoDoDia.statusAgendamento}
+                    {agedamentoDoDia.statusAgendamento}
                   </div>
                 </div>
 
@@ -163,6 +172,13 @@ const PaginaAgendaBarbeiro = () => {
 
         </div>
       </div>
+
+      {modalAberto && (
+        <ModalAgendamentos
+          fecharModal={() => setModalAberto(false)}
+          agendamento={agendamentoSelecionado}
+        />
+      )}
     </>
   )
 }
