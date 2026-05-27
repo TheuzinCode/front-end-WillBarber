@@ -1,9 +1,20 @@
 import "./TodosMeusAgendamentos.css"
 
 const TodosMeusAgendamentos = ({todosAgendamentos}) => {
+  
+  async function CancelarAgendamento(agendamentoId) {
+
+    try {
+        const resp = await fetch(
+          ``
+        )
+    } catch (error) {
+      console.error("Erro ao cancelar agendamento:", error);
+    }
+  }
+  
   return (
     <>
-
       <div className="lista-agendamentos">
 
         {/* CARD */}
@@ -23,7 +34,13 @@ const TodosMeusAgendamentos = ({todosAgendamentos}) => {
                       agendamento.dataHora
                     ).toLocaleString("pt-BR")}
                   </span>
-                  <span className={agendamento.statusAgendamento === "AGENDADO" ? "status-pendente-todos" : "status-confirmado-todos"}>
+                  <span className={
+                    agendamento.statusAgendamento === "AGENDADO" 
+                    ? "status-pendente-todos" 
+                    : agendamento.statusAgendamento === "CANCELADO"
+                      ? "status-cancelado-todos"
+                      : "status-confirmado-todos"
+                  }>
                     {agendamento.statusAgendamento}
                   </span>
                 </div>
@@ -32,10 +49,8 @@ const TodosMeusAgendamentos = ({todosAgendamentos}) => {
             <div className="lado-direito-agendamento-todos">
               <h1>R$ {agendamento.valorServico},00</h1>
               <div className="acoes-agendamento-todos">
-                <button className="botao-reagendar-todos">
-                  Reagendar
-                </button>
-                <button className="botao-cancelar-todos">
+                <button className="botao-cancelar-todos" 
+                onClick={() => CancelarAgendamento(agendamento.id)}>
                   Cancelar
                 </button>
               </div>
