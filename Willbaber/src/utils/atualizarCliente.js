@@ -22,7 +22,8 @@ export async function atualizarCliente() {
             id: data.id,
             nome: data.nome,
             email: data.email,
-            pontos: data.pontos
+            pontos: data.pontos,
+            role: data.tipoUsers
         }
 
         localStorage.setItem(
