@@ -155,3 +155,144 @@
 
     margin-top: 10px;
 }
+
+/* ================================= */
+/* NOTEBOOK */
+/* ================================= */
+
+@media (max-width: 992px) {
+
+    .overlay-modal {
+        padding: 20px;
+        margin-top: 80px;
+    }
+
+    .container-modal {
+        max-width: 100%;
+    }
+}
+
+/* ================================= */
+/* TABLET */
+/* ================================= */
+
+@media (max-width: 768px) {
+
+    .overlay-modal {
+        padding: 15px;
+    }
+
+    .container-modal {
+        padding: 22px;
+        border-radius: 20px;
+    }
+
+    .topo-modal {
+        margin-bottom: 24px;
+    }
+
+    .topo-modal h2 {
+        font-size: 24px;
+    }
+
+    .linha-horario {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .botao-remover-horario {
+        width: 100%;
+        min-height: 45px;
+    }
+}
+
+/* ================================= */
+/* CELULAR */
+/* ================================= */
+
+@media (max-width: 480px) {
+
+    .overlay-modal {
+        margin-top: 100px;
+        padding: 10px;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .container-modal {
+        width: 100%;
+        padding: 16px;
+        border-radius: 16px;
+        margin-top: 10px;
+        max-height: calc(100vh - 20px);
+    }
+
+    .topo-modal {
+        margin-bottom: 20px;
+    }
+
+    .topo-modal h2 {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    .botao-fechar-modal {
+        width: 36px;
+        height: 36px;
+    }
+
+    .grupo-input-modal label {
+        font-size: 14px;
+    }
+
+    .grupo-input-modal input,
+    .linha-horario select,
+    .linha-horario input {
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .container-horarios h3 {
+        font-size: 18px;
+    }
+
+    .botao-adicionar-horario {
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .botao-salvar-modal {
+        height: 50px;
+        font-size: 15px;
+    }
+}
+
+/* ================================= */
+/* AJUSTES GERAIS */
+/* ================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.container-modal {
+    width: min(700px, 100%);
+}
+
+.linha-horario {
+    flex-wrap: wrap;
+}
+
+.container-modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.container-modal::-webkit-scrollbar-thumb {
+    background: #2f2f2f;
+    border-radius: 999px;
+}
