@@ -94,11 +94,11 @@
     margin-bottom: 30px;
 }
 
-.input-radio-tela-agendamento{
+.input-radio-tela-agendamento {
     display: none;
 }
 
-.label-barbeiro-tela-agendamento{
+.label-barbeiro-tela-agendamento {
     cursor: pointer;
     display: block;
 }
@@ -138,18 +138,19 @@
     height: 24px;
     background-color: #C9A646;
     border-radius: 50%;
-    display: none; /* Escondido por padrão */
+    display: none;
+    /* Escondido por padrão */
     align-items: center;
     justify-content: center;
     color: #000;
 }
 
-.barbeiro-tela-agendamento input[type="radio"]:checked + label .layout-card-barbeiro-tela-agendamento {
+.barbeiro-tela-agendamento input[type="radio"]:checked+label .layout-card-barbeiro-tela-agendamento {
     border-color: #C9A646;
     background-color: rgba(212, 175, 55, 0.05);
 }
 
-.nome-baebeiro-tela-agendamento-secao01{
+.nome-baebeiro-tela-agendamento-secao01 {
     font-family: "Playfair Display", serif;
     font-size: 18px;
     color: #FFFFFF;
@@ -164,7 +165,7 @@
     margin-bottom: 50px;
 }
 
-.button-continuar-tela-agendamento-secao1{
+.button-continuar-tela-agendamento-secao1 {
     background-color: #C9A646;
     color: #000;
     border: none;
@@ -185,9 +186,9 @@
 }
 
 .texto-button-continuar-tela-agendamento-secao1 {
-    display: flex;         
-    align-items: center;   
-    gap: 8px;        
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 600;
@@ -195,7 +196,7 @@
     text-decoration: none;
 }
 
-.layout-iamgem-barbeiro-pagina-agendamento{
+.layout-iamgem-barbeiro-pagina-agendamento {
     align-self: center;
     text-align: center;
     width: 60px;
@@ -203,8 +204,136 @@
     border-radius: 10px;
 }
 
-.especialidade-barbeiros-pagina-agendamento{
+.especialidade-barbeiros-pagina-agendamento {
     color: #bfa032;
     font-size: 15px;
     padding-top: 4px;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .grid-barbeiros-tela-agendamento {
+        grid-template-columns: 1fr;
+    }
+
+    .layout-card-barbeiro-tela-agendamento {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .layout-button-continuar-tela-agendamento-secao1 {
+        justify-content: center;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .container-secao1-tela-agendamento {
+        padding: 20px;
+    }
+
+    .titulo-principal-tela-agendamento {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .subtitulo-tela-agendamento {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .layout-etapas-tela-agendamento {
+        transform: scale(0.8);
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .grid-barbeiros-tela-agendamento {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .layout-card-barbeiro-tela-agendamento {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 100px;
+    }
+
+    .imagem-barbeiro-tela-agendamento,
+    .layout-iamgem-barbeiro-pagina-agendamento {
+        width: 55px;
+        height: 55px;
+    }
+
+    .nome-baebeiro-tela-agendamento-secao01 {
+        font-size: 16px;
+    }
+
+    .especialidade-barbeiros-pagina-agendamento {
+        font-size: 13px;
+    }
+
+    .layout-button-continuar-tela-agendamento-secao1 {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .button-continuar-tela-agendamento-secao1 {
+        width: 100%;
+        max-width: 400px;
+        justify-content: center;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .titulo-principal-tela-agendamento {
+        font-size: 24px;
+    }
+
+    .subtitulo-tela-agendamento {
+        font-size: 14px;
+    }
+
+    .layout-etapas-tela-agendamento {
+        transform: scale(0.7);
+        transform-origin: center;
+    }
+
+    .numeros-etapas-tela-agendamento-laranja,
+    .numeros-etapas-tela-agendamento-cinza {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        margin: 0 8px;
+    }
+
+    .linha-etapas-tela-agendamento-laranja,
+    .linha-etapas-tela-agendamento-cinza {
+        width: 50px;
+    }
+
+    .texto-etapas-tela-agendamento {
+        font-size: 12px;
+    }
+
+    .layout-card-barbeiro-tela-agendamento {
+        padding: 15px;
+    }
+
+    .check-icon-tela-agendamento {
+        width: 20px;
+        height: 20px;
+    }
+
+    .button-continuar-tela-agendamento-secao1 {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
 }

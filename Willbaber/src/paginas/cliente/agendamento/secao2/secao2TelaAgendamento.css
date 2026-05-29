@@ -196,7 +196,7 @@
     margin-top: 20px;
     width: 100%;
     margin-bottom: 50px;
-    
+
 }
 
 
@@ -215,7 +215,7 @@
     align-items: center;
     gap: 10px;
     transition: background-color 0.3s;
-    
+
 }
 
 .button-continuar-tela-agendamento-secao2:hover {
@@ -261,4 +261,151 @@
     font-weight: 600;
     color: #4a4a4a;
     text-decoration: none;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .grid-servicos-tela-agendamento-secao2 {
+        grid-template-columns: 1fr;
+    }
+
+    .layout-card-servicos-tela-agendamento {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .container-buttons-tela-agendamento-secao2 {
+        max-width: 500px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .container-secao2-tela-agendamento {
+        padding: 100px 20px 30px;
+    }
+
+    .titulo-principal-tela-agendamento {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .subtitulo-tela-agendamento {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .layout-etapas-tela-agendamento {
+        transform: scale(0.8);
+        overflow-x: auto;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .grid-servicos-tela-agendamento-secao2 {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .layout-card-servicos-tela-agendamento {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 180px;
+    }
+
+    .titulo-servico-tela-agendamento-secao2 {
+        font-size: 22px;
+    }
+
+    .descricao-servico-tela-agendamento-secao2 {
+        font-size: 14px;
+    }
+
+    .preco-servico-tela-agendamento-secao2 {
+        font-size: 18px;
+    }
+
+    .tempo-servico-tela-agendamento-secao2 {
+        font-size: 15px;
+    }
+
+    .informacoes-servico-tela-agendamento-secao2 {
+        width: 100%;
+    }
+
+    .container-buttons-tela-agendamento-secao2 {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .button-voltar-tela-agendamento-secao2,
+    .button-continuar-tela-agendamento-secao2 {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .titulo-principal-tela-agendamento {
+        font-size: 24px;
+    }
+
+    .subtitulo-tela-agendamento {
+        font-size: 14px;
+    }
+
+    .layout-etapas-tela-agendamento {
+        transform: scale(0.7);
+        transform-origin: center;
+    }
+
+    .numeros-etapas-tela-agendamento-laranja,
+    .numeros-etapas-tela-agendamento-cinza {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        margin: 0 8px;
+    }
+
+    .linha-etapas-tela-agendamento-laranja,
+    .linha-etapas-tela-agendamento-cinza {
+        width: 50px;
+    }
+
+    .texto-etapas-tela-agendamento {
+        font-size: 12px;
+    }
+
+    .layout-card-servicos-tela-agendamento {
+        padding: 15px;
+    }
+
+    .titulo-servico-tela-agendamento-secao2 {
+        font-size: 20px;
+    }
+
+    .descricao-servico-tela-agendamento-secao2 {
+        font-size: 13px;
+    }
+
+    .preco-servico-tela-agendamento-secao2 {
+        font-size: 17px;
+    }
+
+    .tempo-servico-tela-agendamento-secao2 {
+        font-size: 14px;
+    }
+
+    .button-voltar-tela-agendamento-secao2,
+    .button-continuar-tela-agendamento-secao2 {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
 }

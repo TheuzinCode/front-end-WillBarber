@@ -133,14 +133,14 @@
 
     .campo-login-e-senha-tela-login {
         width: 100%;
-        max-width: 400px;
+        max-width: 380px;
         padding: 30px 20px;
         height: auto;
     }
 
     .input-secao1-tela-login,
     .botao-entrar-secao1-tela-login {
-        width: 100%;
+        width: 280px;
     }
 
     .label-secao1-tela-login {

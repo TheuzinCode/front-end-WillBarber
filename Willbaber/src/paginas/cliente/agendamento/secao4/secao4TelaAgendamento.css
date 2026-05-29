@@ -247,3 +247,149 @@
     color: #4a4a4a;
     text-decoration: none;
 }
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .container-confirmar-tela-agendamento-secao4 {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .container-buttons-tela-agendamento-secao4 {
+        width: 90%;
+        max-width: 600px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .container-secao3-tela-agendamento {
+        padding: 100px 20px 30px;
+    }
+
+    .titulo-principal-tela-agendamento {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .subtitulo-tela-agendamento {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .layout-etapas-tela-agendamento {
+        transform: scale(0.8);
+        overflow-x: auto;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .container-confirmar-tela-agendamento-secao4 {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .layout-informacoes-tela-agendamento-secao4 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .lado-esquerdo-tela-agendamento-secao4 {
+        width: 100%;
+    }
+
+    .lado-direito-tela-agendamento-secao4 {
+        margin-left: 55px;
+        font-size: 16px;
+    }
+
+    .texto-informacoes-tela-agendamento-secao4 {
+        font-size: 16px;
+    }
+
+    .icone-tela-agendamento-secao4 {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .layout-total-valor-informacoes-tela-agendamento-secao4 {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .texto-total-informacoes-tela-agendamento-secao4,
+    .valor-total-informacoes-tela-agendamento-secao4 {
+        font-size: 20px;
+    }
+
+    .container-buttons-tela-agendamento-secao4 {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .button-voltar-tela-agendamento-secao2,
+    .button-continuar-tela-agendamento-secao2 {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .titulo-principal-tela-agendamento {
+        font-size: 24px;
+    }
+
+    .subtitulo-tela-agendamento {
+        font-size: 14px;
+    }
+
+    .layout-etapas-tela-agendamento {
+        transform: scale(0.7);
+        transform-origin: center;
+    }
+
+    .numeros-etapas-tela-agendamento-laranja,
+    .numeros-etapas-tela-agendamento-cinza {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        margin: 0 8px;
+    }
+
+    .linha-etapas-tela-agendamento-laranja,
+    .linha-etapas-tela-agendamento-cinza {
+        width: 50px;
+    }
+
+    .texto-etapas-tela-agendamento {
+        font-size: 12px;
+    }
+
+    .texto-informacoes-tela-agendamento-secao4 {
+        font-size: 14px;
+    }
+
+    .lado-direito-tela-agendamento-secao4 {
+        font-size: 14px;
+    }
+
+    .texto-total-informacoes-tela-agendamento-secao4,
+    .valor-total-informacoes-tela-agendamento-secao4 {
+        font-size: 18px;
+    }
+
+    .button-voltar-tela-agendamento-secao2,
+    .button-continuar-tela-agendamento-secao2 {
+        padding: 12px 20px;
+        font-size: 14px;
+        
+    }
+}
