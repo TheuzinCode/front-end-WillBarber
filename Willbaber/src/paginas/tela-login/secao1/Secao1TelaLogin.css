@@ -92,3 +92,106 @@
     text-decoration: none;
     color: #BF9445;
 }
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .titulo-secao1-tela-login {
+        font-size: 35px;
+    }
+
+    .campo-login-e-senha-tela-login {
+        max-width: 450px;
+    }
+
+    .input-secao1-tela-login,
+    .botao-entrar-secao1-tela-login {
+        width: 320px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .container-secao1-tela-login {
+        padding: 20px;
+    }
+
+    .logo-secao1-tela-login {
+        width: 60px;
+        margin-bottom: 20px;
+    }
+
+    .titulo-secao1-tela-login {
+        font-size: 30px;
+    }
+
+    .subtitulo-secao1-tela-login {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+
+    .campo-login-e-senha-tela-login {
+        width: 100%;
+        max-width: 400px;
+        padding: 30px 20px;
+        height: auto;
+    }
+
+    .input-secao1-tela-login,
+    .botao-entrar-secao1-tela-login {
+        width: 100%;
+    }
+
+    .label-secao1-tela-login {
+        font-size: 15px;
+    }
+
+    .botao-entrar-secao1-tela-login {
+        font-size: 18px;
+    }
+
+    .texto-cadastrar-secao1-tela-login {
+        text-align: center;
+        font-size: 14px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .container-secao1-tela-login {
+        padding: 15px;
+    }
+
+    .logo-secao1-tela-login {
+        width: 50px;
+    }
+
+    .titulo-secao1-tela-login {
+        font-size: 24px;
+    }
+
+    .subtitulo-secao1-tela-login {
+        font-size: 13px;
+    }
+
+    .campo-login-e-senha-tela-login {
+        padding: 25px 15px;
+        border-radius: 15px;
+    }
+
+    .input-secao1-tela-login {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .botao-entrar-secao1-tela-login {
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .texto-cadastrar-secao1-tela-login {
+        font-size: 13px;
+    }
+}
