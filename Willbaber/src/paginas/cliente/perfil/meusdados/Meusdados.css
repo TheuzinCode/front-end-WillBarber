@@ -122,3 +122,139 @@
     text-decoration: none;
     color: #d3ae45;
 }
+
+/* ========================= */
+/* RESPONSIVIDADE MEUS DADOS */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .container-meusdados {
+        width: 95%;
+        padding-top: 170px;
+    }
+
+    .titulo-meusdados {
+        font-size: 42px;
+    }
+
+    .stats-meusdados {
+        gap: 30px;
+    }
+
+    .stat-meusdados h3 {
+        font-size: 32px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .container-meusdados {
+        width: 95%;
+        padding-top: 130px;
+    }
+
+    .topo-meusdados {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .titulo-meusdados {
+        font-size: 34px;
+    }
+
+    .btn-agendamentos-meusdados {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .card-perfil-meusdados {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .perfil-esquerda-meusdados {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .perfil-info-meusdados h2 {
+        font-size: 24px;
+    }
+
+    .perfil-info-meusdados p {
+        font-size: 14px;
+    }
+
+    .stats-meusdados {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .stat-meusdados {
+        min-width: 100px;
+    }
+
+    .stat-meusdados:not(:last-child)::after {
+        display: none;
+    }
+
+    .stat-meusdados h3 {
+        font-size: 28px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .container-meusdados {
+        padding-top: 110px;
+    }
+
+    .titulo-meusdados {
+        font-size: 28px;
+    }
+
+    .card-perfil-meusdados {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .avatar-meusdados {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+    .perfil-info-meusdados h2 {
+        font-size: 20px;
+    }
+
+    .perfil-info-meusdados p {
+        font-size: 13px;
+    }
+
+    .stats-meusdados {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .stat-meusdados h3 {
+        font-size: 24px;
+    }
+
+    .stat-meusdados span {
+        font-size: 12px;
+    }
+
+    .btn-agendamentos-meusdados {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+}

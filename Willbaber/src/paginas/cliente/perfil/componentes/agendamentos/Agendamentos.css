@@ -100,3 +100,127 @@
       background: #cfa943;
       color: #000;
   }
+
+  /* Tablet */
+  @media (max-width: 992px) {
+
+      .item {
+          padding: 24px;
+      }
+
+      .servico h3 {
+          font-size: 28px;
+      }
+
+      .servico p {
+          font-size: 18px;
+      }
+
+      .preco {
+          font-size: 34px;
+      }
+
+      .btn-avaliar {
+          font-size: 16px;
+          padding: 12px 20px;
+      }
+  }
+
+  /* Celular */
+  @media (max-width: 768px) {
+
+      .item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+      }
+
+      .item-esquerda {
+          width: 100%;
+      }
+
+      .item-direita {
+          width: 100%;
+          justify-content: space-between;
+      }
+
+      .icone {
+          width: 55px;
+          height: 55px;
+          font-size: 20px;
+      }
+
+      .servico h3 {
+          font-size: 24px;
+          flex-wrap: wrap;
+      }
+
+      .servico p {
+          font-size: 16px;
+      }
+
+      .infos {
+          flex-wrap: wrap;
+          gap: 10px;
+          font-size: 14px;
+      }
+
+      .preco {
+          font-size: 28px;
+      }
+
+      .btn-avaliar {
+          padding: 12px 18px;
+          font-size: 15px;
+      }
+  }
+
+  /* Celulares pequenos */
+  @media (max-width: 480px) {
+
+      .item {
+          padding: 18px;
+      }
+
+      .item-esquerda {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 15px;
+      }
+
+      .item-direita {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 15px;
+      }
+
+      .servico h3 {
+          font-size: 20px;
+      }
+
+      .servico p {
+          font-size: 14px;
+      }
+
+      .infos {
+          font-size: 13px;
+      }
+
+      .preco {
+          font-size: 24px;
+          text-align: center;
+      }
+
+      .btn-avaliar {
+          width: 100%;
+          text-align: center;
+          font-size: 14px;
+          padding: 12px;
+      }
+
+      .status,
+      .fidelidade {
+          font-size: 12px;
+          padding: 5px 10px;
+      }
+  }

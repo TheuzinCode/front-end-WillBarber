@@ -138,3 +138,134 @@
      display: flex;
      justify-content: space-between;
  }
+
+ /* Tablet */
+@media (max-width: 992px) {
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .titulo {
+        font-size: 36px;
+    }
+
+    .input-box {
+        width: 100%;
+    }
+
+    .btn-editar {
+        width: 250px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .container-pagina-meu-perfil {
+        padding: 100px 15px 30px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .titulo {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .perfil-topo {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+    .perfil-info h2 {
+        font-size: 24px;
+    }
+
+    .perfil-info p {
+        font-size: 14px;
+    }
+
+    .layout-input-informacoes-meu-perfil {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .input-box {
+        width: 100%;
+    }
+
+    .grupo-input label {
+        font-size: 16px;
+    }
+
+    .input-box input {
+        font-size: 16px;
+    }
+
+    .btn-editar {
+        width: 100%;
+        font-size: 18px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .container-pagina-meu-perfil {
+        padding: 90px 10px 20px;
+    }
+
+    .titulo {
+        font-size: 26px;
+    }
+
+    .card {
+        padding: 15px;
+        border-radius: 18px;
+    }
+
+    .avatar {
+        width: 55px;
+        height: 55px;
+        font-size: 24px;
+    }
+
+    .perfil-info h2 {
+        font-size: 20px;
+    }
+
+    .perfil-info p {
+        font-size: 13px;
+    }
+
+    .grupo-input label {
+        font-size: 14px;
+    }
+
+    .input-box {
+        height: 50px;
+    }
+
+    .input-box input {
+        font-size: 14px;
+    }
+
+    .btn-editar {
+        height: 42px;
+        font-size: 16px;
+    }
+}
