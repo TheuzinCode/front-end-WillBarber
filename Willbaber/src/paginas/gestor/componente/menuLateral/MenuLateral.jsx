@@ -116,7 +116,7 @@ const MenuLateral = ({ paginaAtiva, setPaginaAtiva }) => {
         <div className="sidebar-footer">
           <div className="sidebar-user">
             <div className="user-avatar">
-              A
+              {gestor?.nomeCompleto.charAt(0)}
             </div>
             <div className="user-info">
               <h3>{gestor?.nomeCompleto}</h3>

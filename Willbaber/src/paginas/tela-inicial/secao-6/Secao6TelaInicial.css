@@ -81,3 +81,112 @@
     font-size: 16px;
     font-weight: 600;
 }
+
+/* Notebook */
+@media (max-width: 1200px) {
+
+    .titulo-secao6-tela-inicial {
+        font-size: 50px;
+    }
+
+    .grid-depoimentos-secao6-tela-inicial {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .titulo-secao6-tela-inicial {
+        font-size: 45px;
+    }
+
+    .grid-depoimentos-secao6-tela-inicial {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .layout-depoimento-secao6-tela-inicial {
+        padding: 30px;
+    }
+
+    .texto-depoimento-secao6-tela-inicial {
+        font-size: 17px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .container-secao6-tela-inicial {
+        padding: 30px 15px;
+    }
+
+    .titulo-secao6-tela-inicial {
+        font-size: 38px;
+        text-align: center;
+    }
+
+    .subtitulo-secao6-tela-inicial {
+        padding-top: 35px;
+        font-size: 14px;
+        letter-spacing: 4px;
+    }
+
+    .grid-depoimentos-secao6-tela-inicial {
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 20px;
+        margin-top: 35px;
+    }
+
+    .layout-depoimento-secao6-tela-inicial {
+        padding: 25px;
+    }
+
+    .texto-depoimento-secao6-tela-inicial {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .foto-usuario-depoimento-secao6-tela-inicial {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+
+    .nome-usuario-depoimento-secao6-tela-inicial {
+        font-size: 15px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .titulo-secao6-tela-inicial {
+        font-size: 30px;
+    }
+
+    .subtitulo-secao6-tela-inicial {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .layout-depoimento-secao6-tela-inicial {
+        padding: 20px;
+    }
+
+    .texto-depoimento-secao6-tela-inicial {
+        font-size: 15px;
+    }
+
+    .foto-usuario-depoimento-secao6-tela-inicial {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .nome-usuario-depoimento-secao6-tela-inicial {
+        font-size: 14px;
+    }
+}

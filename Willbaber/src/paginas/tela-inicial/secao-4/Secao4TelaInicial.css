@@ -45,7 +45,7 @@
 
 
 .barbeiro-secao4-tela-inicial {
-     background-color: #111111;
+    background-color: #111111;
     border: 1px solid #1d1d1d;
     border-radius: 20px;
     max-width: 450px;
@@ -140,4 +140,140 @@
     border-color: #C3A144;
     box-shadow: 0 0 1px #C3A144;
     transition: all 0.1s ease;
+}
+
+/* Notebook e tablets grandes */
+@media (max-width: 1200px) {
+
+    .grid-barbeiros-secao4-tela-inicial {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .titulo-secao4-tela-inicial {
+        font-size: 50px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+
+    .grid-barbeiros-secao4-tela-inicial {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .titulo-secao4-tela-inicial {
+        font-size: 45px;
+    }
+
+    .config-img-barbeiro-secao4-tela-inicial {
+        height: 350px;
+    }
+
+    .nome-barbeiro-secao4-tela-inicial {
+        font-size: 22px;
+    }
+
+    .servicos-barbeiro-secao4-tela-inicial {
+        font-size: 17px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+
+    .container-secao4-tela-inicial {
+        padding: 30px 15px;
+    }
+
+    .titulo-secao4-tela-inicial {
+        font-size: 38px;
+        text-align: center;
+    }
+
+    .subtitulo-secao4-tela-inicial {
+        font-size: 14px;
+        letter-spacing: 4px;
+        padding-top: 35px;
+    }
+
+    .grid-barbeiros-secao4-tela-inicial {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-top: 35px;
+    }
+
+    .barbeiro-secao4-tela-inicial {
+        max-width: 100%;
+    }
+
+    .config-img-barbeiro-secao4-tela-inicial {
+        height: 320px;
+    }
+
+    .nome-barbeiro-secao4-tela-inicial {
+        font-size: 24px;
+    }
+
+    .servicos-barbeiro-secao4-tela-inicial {
+        font-size: 16px;
+    }
+
+    .numero-avaliacao-barbeiro-secao4-tela-inicial {
+        font-size: 18px;
+    }
+
+    .anos-de-experiencia-barbeiro-secao4-tela-inicial {
+        font-size: 14px;
+    }
+
+    .botao-selecionar-barbeiro-secao4-tela-inicial {
+        width: 100%;
+        max-width: 350px;
+        font-size: 16px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .titulo-secao4-tela-inicial {
+        font-size: 30px;
+    }
+
+    .subtitulo-secao4-tela-inicial {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .config-img-barbeiro-secao4-tela-inicial {
+        height: 260px;
+    }
+
+    .nome-barbeiro-secao4-tela-inicial {
+        font-size: 20px;
+    }
+
+    .servicos-barbeiro-secao4-tela-inicial {
+        font-size: 15px;
+    }
+
+    .layout-caracteristca-barbeiro-secao4-tela-inicial {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .avalicao-babeiro-secao4-tela-inicial {
+        margin-top: 10px;
+    }
+
+    .campo-botao-selecionar-barbeiro-secao4-tela-inicial {
+        margin: 20px;
+    }
+
+    .botao-selecionar-barbeiro-secao4-tela-inicial {
+        width: 100%;
+        height: 45px;
+        font-size: 15px;
+    }
 }

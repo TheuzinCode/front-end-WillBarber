@@ -1,5 +1,6 @@
 import "./ModalBarbeiro.css";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const ModalBarbeiro = ({ fecharModal, barbeiro }) => {
 
@@ -82,7 +83,7 @@ const ModalBarbeiro = ({ fecharModal, barbeiro }) => {
                     email,
                     senha,
                     cpf,
-                    telefone: numero,
+                    numero: numero,
                     descricao,
                     tipo: "BARBEIRO",
                     horarios
@@ -113,7 +114,15 @@ const ModalBarbeiro = ({ fecharModal, barbeiro }) => {
             );
 
             if (!resp.ok) {
-                console.log("Erro ao cadastrar");
+                Swal.fire({
+                    icon: "error",
+                    title: editando
+                        ? "Erro ao editar barbeiro"
+                        : "Erro ao cadastrar barbeiro",
+                    confirmButtonColor: "#b81717",
+                    background: "#111111",
+                    color: "#FFFFFF"
+                });
                 const erro = await resp.text();
                 console.log(erro);
                 return;
@@ -121,7 +130,15 @@ const ModalBarbeiro = ({ fecharModal, barbeiro }) => {
 
             const data = await resp.json();
 
-            console.log(data);
+            Swal.fire({
+                icon: "success",
+                title: editando
+                    ? "Barbeiro editado com sucesso"
+                    : "Barbeiro cadastrado com sucesso",
+                confirmButtonColor: "#C9A646",
+                background: "#111111",
+                color: "#FFFFFF"
+            });
 
             fecharModal();
 

@@ -36,3 +36,84 @@
     font-weight: 400;
 }
 
+/* Tablets */
+@media (max-width: 1024px) {
+
+    .campo-topicos-secao2-tela-inicial {
+        gap: 50px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .texto-topicos-secao2-tela-inicial {
+        font-size: 17px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+
+    .container-secao2-tela-inicial {
+        padding: 25px 15px;
+    }
+
+    .campo-topicos-secao2-tela-inicial {
+        flex-direction: column;
+        gap: 25px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .layout-secao2-tela-inicial {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .icones-secao2-tela-inicial {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .texto-topicos-secao2-tela-inicial {
+        font-size: 16px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .container-secao2-tela-inicial {
+        padding: 20px 10px;
+    }
+
+    .layout-secao2-tela-inicial {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .icones-secao2-tela-inicial {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .texto-topicos-secao2-tela-inicial {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .campo-topicos-secao2-tela-inicial {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .campo-topicos-secao2-tela-inicial {
+        grid-template-columns: 1fr;
+    }
+}

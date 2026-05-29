@@ -47,7 +47,7 @@
     color: #C3A144;
     font-size: 20px;
     margin-right: 10px;
-    background-color:#2B1B12;
+    background-color: #2B1B12;
     border-radius: 15px;
     margin-right: 25px;
 }
@@ -88,4 +88,165 @@
     border-radius: 50px;
     cursor: pointer;
     text-decoration: none;
+}
+
+/* Notebook */
+@media (max-width: 1200px) {
+
+    .container-secao7-tela-inicial {
+        padding: 80px 20px;
+    }
+
+    .titulo-secao7-tela-inicial {
+        font-size: 45px;
+    }
+
+    .campo-local-secao7-tela-inicial {
+        margin-right: 80px;
+    }
+
+    .maps-secao7-tela-inicial {
+        width: 450px;
+        height: 450px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .container-secao7-tela-inicial {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .titulo-secao7-tela-inicial {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .subtitulo-secao7-tela-inicial {
+        text-align: center;
+        letter-spacing: 5px;
+    }
+
+    .linha-separadora-secao7-tela-inicial {
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .campo-local-secao7-tela-inicial {
+        margin-right: 0;
+    }
+
+    .maps-secao7-tela-inicial {
+        width: 100%;
+        max-width: 600px;
+        height: 400px;
+        margin-left: 0;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .container-secao7-tela-inicial {
+        padding: 50px 15px;
+    }
+
+    .titulo-secao7-tela-inicial {
+        font-size: 34px;
+        text-align: center;
+    }
+
+    .subtitulo-secao7-tela-inicial {
+        font-size: 14px;
+        letter-spacing: 3px;
+        text-align: center;
+        padding-top: 30px;
+    }
+
+    .linha-separadora-secao7-tela-inicial {
+        width: 180px;
+        margin-bottom: 35px;
+    }
+
+    .campo-local-secao7-tela-inicial {
+        width: 100%;
+        align-items: flex-start;
+        margin-top: 20px;
+    }
+
+    .icone-local-secao7-tela-inicial {
+        width: 55px;
+        height: 55px;
+        font-size: 18px;
+        margin-right: 15px;
+    }
+
+    .titulo-local-secao7-tela-inicial {
+        font-size: 18px;
+    }
+
+    .subtitulo-local-secao7-tela-inicial {
+        font-size: 13px;
+    }
+
+    .maps-secao7-tela-inicial {
+        width: 100%;
+        height: 300px;
+        margin-left: 0;
+        border-radius: 15px;
+    }
+
+    .botao-agendar-secao7-tela-inicial {
+        width: 100%;
+        max-width: 350px;
+        height: 60px;
+        font-size: 18px;
+        margin-top: 40px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .titulo-secao7-tela-inicial {
+        font-size: 28px;
+    }
+
+    .subtitulo-secao7-tela-inicial {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .icone-local-secao7-tela-inicial {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .titulo-local-secao7-tela-inicial {
+        font-size: 16px;
+    }
+
+    .subtitulo-local-secao7-tela-inicial {
+        font-size: 12px;
+    }
+
+    .maps-secao7-tela-inicial {
+        height: 250px;
+    }
+
+    .botao-agendar-secao7-tela-inicial {
+        height: 55px;
+        font-size: 16px;
+    }
+}
+
+.maps-secao7-tela-inicial iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: inherit;
 }

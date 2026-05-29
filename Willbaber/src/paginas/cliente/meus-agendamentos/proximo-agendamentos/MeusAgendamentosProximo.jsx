@@ -32,9 +32,6 @@ const MeusAgendamentosProximo = ({ agendamentosFuturos }) => {
                         <div className="lado-direito-agendamento-futuros">
                             <h1>R$ {agendamento.valorServico},00</h1>
                             <div className="acoes-agendamento-futuros">
-                                <button className="botao-reagendar-futuros">
-                                    Reagendar
-                                </button>
                                 <button className="botao-cancelar-futuros">
                                     Cancelar
                                 </button>

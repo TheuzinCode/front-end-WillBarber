@@ -6,7 +6,7 @@
     margin: 0 auto;
     background-image: url("../../../imgs/fundo-barbearia.png");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center center;
     background-size: cover;
 }
 
@@ -136,4 +136,99 @@
     font-size: 20px;
     color: rgb(163, 163, 163);
 
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+
+    .container-secao1 {
+        min-height: auto;
+        padding-bottom: 50px;
+        padding-top: 50px;
+    }
+
+    .logo-barber-secao1 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .texto-subtitulo-secao1 {
+        font-size: 16px;
+        letter-spacing: 4px;
+    }
+
+    .texto-titulo-secao1 {
+        font-size: 55px;
+        line-height: 1.1;
+    }
+
+    .texto-descricao-secao1 {
+        font-size: 18px;
+        padding: 20px;
+    }
+
+    .campo-agendar-e-criar-conta-secao1 {
+        flex-direction: column;
+        width: 90%;
+        margin: 30px auto 0;
+    }
+
+    .botao-agendar-secao1,
+    .botao-criar-conta-secao1 {
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 18px;
+    }
+
+    .layout-caracteristicas-secao1 {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .titulo-caracterisitcas-secao1 {
+        font-size: 32px;
+    }
+
+    .subtitulo-caracterisitcas-secao1 {
+        font-size: 16px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .texto-subtitulo-secao1 {
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+
+    .texto-titulo-secao1 {
+        font-size: 42px;
+    }
+
+    .texto-descricao-secao1 {
+        font-size: 16px;
+    }
+
+    .botao-agendar-secao1,
+    .botao-criar-conta-secao1 {
+        padding: 18px;
+        font-size: 16px;
+    }
+
+    .titulo-caracterisitcas-secao1 {
+        font-size: 28px;
+    }
+
+    .subtitulo-caracterisitcas-secao1 {
+        font-size: 14px;
+    }
+
+    .icone-calendario {
+        width: 24px;
+        height: 24px;
+    }
 }

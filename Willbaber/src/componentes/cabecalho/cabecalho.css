@@ -1,40 +1,42 @@
-
+/* =========================================
+   RESET PADRÃO
+========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.container-cabecalho{
+/* =========================================
+   ESTILOS PADRÃO (DESKTOP)
+========================================= */
+.container-cabecalho {
     font-family: "Poppins", sans-serif;
-    background-color: black;
+    background-color: transparent; /* Removido o black duplicado */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 150px;
-    padding-left: 150px;
-    padding-right: 150px;
+    /* Unifiquei o padding. 30px em cima/baixo, 150px nas laterais */
+    padding: 30px 150px; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: transparent; 
     transition: all 0.5s ease;
 }
 
 .container-cabecalho.cabecalho-ativo {
-    background-color: rgba(0, 0, 0, 0.95); 
-    padding: 45px 150px; 
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 25px 150px; /* Reduzi levemente o padding ao rolar a página para ficar mais elegante */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-
-.nome-barber{
+.nome-barber {
     display: flex;
 }
 
-.texto-nome-barber{
+.texto-nome-barber {
     align-self: center;
     font-family: "Playfair Display", serif;
     color: white;
@@ -43,15 +45,15 @@
     margin-left: 10px;
 }
 
-.logo-cabecalho{
+.logo-cabecalho {
     align-items: center;
     align-content: center;
-    align-self: center;        
+    align-self: center;
     width: 35px;
     height: 35px;
 }
 
-.texto-navbar{
+.texto-navbar {
     font-family: "Poppins", sans-serif;
     color: rgb(163, 163, 163);
     font-size: 18px;
@@ -60,7 +62,7 @@
     text-decoration: none;
 }
 
-.texto-navbar-botao{
+.texto-navbar-botao {
     font-family: "Poppins", sans-serif;
     color: black;
     font-size: 17px;
@@ -71,7 +73,8 @@
     padding: 10px 20px;
     border-radius: 30px;
 }
-.texto-navbar-cliente-logado{
+
+.texto-navbar-cliente-logado {
     font-family: "Poppins", sans-serif;
     color: rgb(255, 255, 255);
     font-size: 17px;
@@ -80,7 +83,7 @@
     text-decoration: none;
 }
 
-.inicial-cliente-cabecalho{
+.inicial-cliente-cabecalho {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,12 +99,12 @@
     border-radius: 30px;
 }
 
-.container-navbar-cabecalho{
+.container-navbar-cabecalho {
     display: flex;
     align-items: center;
 }
 
-.icone-sair-cabecalho{
+.icone-sair-cabecalho {
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -109,11 +112,150 @@
     cursor: pointer;
 }
 
-.icone-diamond-cabecalho{
+.icone-diamond-cabecalho {
     display: flex;
     align-items: center;
     margin-right: 30px;
     gap: 10px;
     color: #C9A646;
     font-weight: 600;
+}
+
+.menu-mobile {
+    display: none; /* Escondido no desktop */
+}
+
+/* =========================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+========================================= */
+
+/* Notebook */
+@media (max-width: 1200px) {
+    .container-cabecalho {
+        padding: 25px 60px;
+    }
+
+    .container-cabecalho.cabecalho-ativo {
+        padding: 25px 60px;
+    }
+
+    .texto-navbar {
+        font-size: 16px;
+        margin-right: 15px;
+    }
+
+    .texto-navbar-botao {
+        font-size: 15px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .container-cabecalho {
+        padding: 20px 30px;
+    }
+
+    .container-cabecalho.cabecalho-ativo {
+        padding: 20px 30px;
+    }
+
+    .texto-nome-barber {
+        font-size: 22px;
+    }
+
+    .texto-navbar {
+        font-size: 15px;
+        margin-right: 10px;
+    }
+
+    .texto-navbar-botao {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .icone-diamond-cabecalho {
+        margin-right: 15px;
+        gap: 5px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+    /* Exibe o botão hamburguer */
+    .menu-mobile {
+        display: flex;
+        background: none;
+        border: none;
+        color: #BF9445;
+        font-size: 35px;
+        cursor: pointer;
+        z-index: 1001; /* Mantém acima do menu lateral */
+    }
+
+    .container-cabecalho {
+        /* Ajustei de 0px para 15px para o cabeçalho não ficar "esmagado" */
+        padding: 15px 20px; 
+        background: rgba(0, 0, 0, 0.95);
+    }
+
+    .container-cabecalho.cabecalho-ativo {
+        padding: 15px 20px;
+    }
+
+    .texto-nome-barber {
+        font-size: 18px;
+    }
+
+    /* Menu lateral (Navbar off-canvas) */
+    .container-navbar-cabecalho {
+        position: fixed;
+        /* top ajustado para a altura aproximada do cabeçalho no mobile */
+        top: 65px; 
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 65px); /* Preenche a tela tirando a altura do cabeçalho */
+        background-color: #111;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+        gap: 25px;
+        transition: right 0.3s ease; /* Animação suave no eixo right */
+    }
+
+    /* Classe que o JavaScript deve adicionar para abrir o menu */
+    .container-navbar-cabecalho.ativo {
+        right: 0;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5); /* Sombra para destacar o menu lateral */
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+    .container-cabecalho {
+        padding: 12px 15px;
+    }
+
+    .container-cabecalho.cabecalho-ativo {
+        padding: 12px 15px;
+    }
+
+    .logo-cabecalho {
+        width: 30px;
+        height: 30px;
+    }
+
+    .texto-nome-barber {
+        font-size: 18px;
+    }
+
+    .texto-navbar,
+    .texto-navbar-botao {
+        font-size: 15px; /* Tamanho levemente maior dentro do menu lateral para facilitar o toque */
+    }
+
+    .inicial-cliente-cabecalho {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
 }
