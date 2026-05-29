@@ -1,4 +1,4 @@
-.pagina-agenda-barbeiro{
+.pagina-agenda-barbeiro {
     background-color: #050505;
     min-height: 100vh;
     padding: 25px;
@@ -7,20 +7,20 @@
 
 /* TITULO */
 
-.titulo-agenda-pagina-agenda-barbeiro{
+.titulo-agenda-pagina-agenda-barbeiro {
     font-size: 42px;
     margin-bottom: 30px;
 }
 
 /* DIAS */
 
-.container-dias-pagina-agenda-barbeiro{
+.container-dias-pagina-agenda-barbeiro {
     display: flex;
     gap: 12px;
     margin-bottom: 40px;
 }
 
-.card-dia-pagina-agenda-barbeiro{
+.card-dia-pagina-agenda-barbeiro {
     width: 70px;
     height: 90px;
 
@@ -40,18 +40,18 @@
     transition: 0.3s;
 }
 
-.card-dia-pagina-agenda-barbeiro span{
+.card-dia-pagina-agenda-barbeiro span {
     color: #9f9f9f;
     font-size: 14px;
 }
 
-.card-dia-pagina-agenda-barbeiro h2{
+.card-dia-pagina-agenda-barbeiro h2 {
     margin-top: 10px;
     font-size: 34px;
     color: white;
 }
 
-.card-dia-ativo-pagina-agenda-barbeiro{
+.card-dia-ativo-pagina-agenda-barbeiro {
     width: 70px;
     height: 90px;
 
@@ -69,32 +69,30 @@
     cursor: pointer;
 }
 
-.card-dia-ativo-pagina-agenda-barbeiro span{
+.card-dia-ativo-pagina-agenda-barbeiro span {
     font-size: 14px;
     font-weight: 600;
 }
 
-.card-dia-ativo-pagina-agenda-barbeiro h2{
+.card-dia-ativo-pagina-agenda-barbeiro h2 {
     margin-top: 10px;
     font-size: 34px;
 }
 
 /* GRID */
 
-.grid-agendamentos-pagina-agenda-barbeiro{
+.grid-agendamentos-pagina-agenda-barbeiro {
     display: grid;
 
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(500px, 1fr)
-    );
+    grid-template-columns: repeat(auto-fit,
+            minmax(500px, 1fr));
 
     gap: 22px;
 }
 
 /* CARD */
 
-.card-agendamento-pagina-agenda-barbeiro{
+.card-agendamento-pagina-agenda-barbeiro {
     background-color: #090909;
 
     border: 1px solid #1a1a1a;
@@ -105,18 +103,18 @@
     cursor: pointer;
 }
 
-.topo-card-agendamento-pagina-agenda-barbeiro{
+.topo-card-agendamento-pagina-agenda-barbeiro {
     display: flex;
     justify-content: space-between;
     align-items: start;
 }
 
-.informacoes-cliente-pagina-agenda-barbeiro{
+.informacoes-cliente-pagina-agenda-barbeiro {
     display: flex;
     gap: 18px;
 }
 
-.avatar-cliente-pagina-agenda-barbeiro{
+.avatar-cliente-pagina-agenda-barbeiro {
     width: 56px;
     height: 56px;
 
@@ -134,16 +132,16 @@
     font-weight: bold;
 }
 
-.nome-cliente-pagina-agenda-barbeiro{
+.nome-cliente-pagina-agenda-barbeiro {
     font-size: 32px;
 }
 
-.servico-cliente-pagina-agenda-barbeiro{
+.servico-cliente-pagina-agenda-barbeiro {
     color: #9c9c9c;
     margin-top: 6px;
 }
 
-.status-confirmado-pagina-agenda-barbeiro{
+.status-confirmado-pagina-agenda-barbeiro {
     background-color: #103820;
 
     color: #33ff88;
@@ -156,7 +154,7 @@
     font-weight: bold;
 }
 
-.status-pendente-pagina-agenda-barbeiro{
+.status-pendente-pagina-agenda-barbeiro {
     background-color: #3b2d08;
 
     color: #ffd000;
@@ -171,7 +169,7 @@
 
 /* RODAPE */
 
-.rodape-card-agendamento-pagina-agenda-barbeiro{
+.rodape-card-agendamento-pagina-agenda-barbeiro {
     display: flex;
     gap: 25px;
 
@@ -180,10 +178,146 @@
     color: #d4af37;
 }
 
-.rodape-card-agendamento-pagina-agenda-barbeiro span{
+.rodape-card-agendamento-pagina-agenda-barbeiro span {
     display: flex;
     align-items: center;
     gap: 8px;
 
     font-size: 15px;
+}
+
+/* ========================= */
+/* RESPONSIVIDADE AGENDA */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .titulo-agenda-pagina-agenda-barbeiro {
+        font-size: 34px;
+    }
+
+    .grid-agendamentos-pagina-agenda-barbeiro {
+        grid-template-columns: 1fr;
+    }
+
+    .nome-cliente-pagina-agenda-barbeiro {
+        font-size: 26px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .pagina-agenda-barbeiro {
+        padding: 15px;
+    }
+
+    .titulo-agenda-pagina-agenda-barbeiro {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .container-dias-pagina-agenda-barbeiro {
+        overflow-x: auto;
+        padding-bottom: 10px;
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .container-dias-pagina-agenda-barbeiro::-webkit-scrollbar {
+        display: none;
+    }
+
+    .card-dia-pagina-agenda-barbeiro,
+    .card-dia-ativo-pagina-agenda-barbeiro {
+        flex-shrink: 0;
+    }
+
+    .grid-agendamentos-pagina-agenda-barbeiro {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .topo-card-agendamento-pagina-agenda-barbeiro {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .informacoes-cliente-pagina-agenda-barbeiro {
+        width: 100%;
+    }
+
+    .nome-cliente-pagina-agenda-barbeiro {
+        font-size: 24px;
+    }
+
+    .servico-cliente-pagina-agenda-barbeiro {
+        font-size: 14px;
+    }
+
+    .status-confirmado-pagina-agenda-barbeiro,
+    .status-pendente-pagina-agenda-barbeiro {
+        width: fit-content;
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    .rodape-card-agendamento-pagina-agenda-barbeiro {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .rodape-card-agendamento-pagina-agenda-barbeiro span {
+        font-size: 13px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .titulo-agenda-pagina-agenda-barbeiro {
+        font-size: 24px;
+    }
+
+    .card-agendamento-pagina-agenda-barbeiro {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .avatar-cliente-pagina-agenda-barbeiro {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+        border-radius: 14px;
+    }
+
+    .nome-cliente-pagina-agenda-barbeiro {
+        font-size: 20px;
+    }
+
+    .servico-cliente-pagina-agenda-barbeiro {
+        font-size: 13px;
+    }
+
+    .card-dia-pagina-agenda-barbeiro,
+    .card-dia-ativo-pagina-agenda-barbeiro {
+        width: 60px;
+        height: 80px;
+    }
+
+    .card-dia-pagina-agenda-barbeiro h2,
+    .card-dia-ativo-pagina-agenda-barbeiro h2 {
+        font-size: 28px;
+    }
+
+    .rodape-card-agendamento-pagina-agenda-barbeiro {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .rodape-card-agendamento-pagina-agenda-barbeiro span {
+        font-size: 12px;
+    }
 }

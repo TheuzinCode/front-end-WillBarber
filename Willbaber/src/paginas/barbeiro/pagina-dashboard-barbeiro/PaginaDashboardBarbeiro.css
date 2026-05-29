@@ -8,7 +8,7 @@
     gap: 20px;
 
     padding-top: 40px;
-    
+
 }
 
 .card-dashboard-pagina-dashboard-barbeiro {
@@ -61,7 +61,7 @@
 
     gap: 25px;
 
-  padding-top: 40px;
+    padding-top: 40px;
 }
 
 .titulo-agenda-pagina-dashboard-barbeiro {
@@ -143,3 +143,124 @@
     font-size: 28px;
 }
 
+/* ========================= */
+/* RESPONSIVIDADE DASHBOARD */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .grid-cards-dashboard-pagina-dashboard-barbeiro {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .layout-conteudo-dashboard-pagina-dashboard-barbeiro {
+        grid-template-columns: 1fr;
+    }
+
+    .numero-card-pagina-dashboard-barbeiro,
+    .numero-card-verde-pagina-dashboard-barbeiro,
+    .numero-card-amarelo-pagina-dashboard-barbeiro {
+        font-size: 36px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .grid-cards-dashboard-pagina-dashboard-barbeiro {
+        justify-content: center;
+        grid-template-columns: 350px;
+    }
+
+    .card-dashboard-pagina-dashboard-barbeiro {
+        padding: 20px;
+    }
+
+    .layout-conteudo-dashboard-pagina-dashboard-barbeiro {
+        justify-content: center;
+        grid-template-columns: 350px;
+        gap: 20px;
+    }
+
+    .titulo-agenda-pagina-dashboard-barbeiro {
+        font-size: 24px;
+    }
+
+    .card-agendamento-pagina-dashboard-barbeiro {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 16px;
+    }
+
+    .horario-agendamento-pagina-dashboard-barbeiro {
+        font-size: 30px;
+    }
+
+    .linha-agendamento-pagina-dashboard-barbeiro {
+        display: none;
+    }
+
+    .avatar-agendamento-pagina-dashboard-barbeiro {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .informacoes-agendamento-pagina-dashboard-barbeiro h3 {
+        font-size: 18px;
+    }
+
+    .informacoes-agendamento-pagina-dashboard-barbeiro p {
+        font-size: 14px;
+    }
+
+    .status-confirmado-pagina-dashboard-barbeiro {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .seta-agendamento-pagina-dashboard-barbeiro {
+        display: none;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .grid-cards-dashboard-pagina-dashboard-barbeiro {
+        gap: 15px;
+    }
+
+    .card-dashboard-pagina-dashboard-barbeiro {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .numero-card-pagina-dashboard-barbeiro,
+    .numero-card-verde-pagina-dashboard-barbeiro,
+    .numero-card-amarelo-pagina-dashboard-barbeiro {
+        font-size: 30px;
+    }
+
+    .texto-card-pagina-dashboard-barbeiro {
+        font-size: 14px;
+    }
+
+    .card-agendamento-pagina-dashboard-barbeiro {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .horario-agendamento-pagina-dashboard-barbeiro {
+        font-size: 26px;
+    }
+
+    .informacoes-agendamento-pagina-dashboard-barbeiro {
+        width: 100%;
+    }
+
+    .status-confirmado-pagina-dashboard-barbeiro {
+        width: fit-content;
+    }
+}

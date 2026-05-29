@@ -73,3 +73,86 @@
     color: #33ff88;
     font-weight: bold;
 }
+
+/* ========================= */
+/* RESPONSIVIDADE DASHBOARD */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .topo-dashboard-barbeiro-pagina-dashboard-barbeiro {
+        padding: 25px 40px;
+    }
+
+    .nome-barbeiro-pagina-dashboard-barbeiro {
+        font-size: 36px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .topo-dashboard-barbeiro-pagina-dashboard-barbeiro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        padding: 25px 20px;
+    }
+
+    .informacoes-barbeiro-pagina-dashboard-barbeiro {
+        width: 100%;
+    }
+
+    .foto-barbeiro-pagina-dashboard-barbeiro {
+        width: 65px;
+        height: 65px;
+    }
+
+    .nome-barbeiro-pagina-dashboard-barbeiro {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .descricao-barbeiro-pagina-dashboard-barbeiro {
+        font-size: 14px;
+    }
+
+    .texto-barbeiro-pagina-dashboard-barbeiro {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .topo-dashboard-barbeiro-pagina-dashboard-barbeiro {
+        padding: 20px 15px;
+    }
+
+    .informacoes-barbeiro-pagina-dashboard-barbeiro {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .foto-barbeiro-pagina-dashboard-barbeiro {
+        width: 60px;
+        height: 60px;
+    }
+
+    .nome-barbeiro-pagina-dashboard-barbeiro {
+        font-size: 24px;
+    }
+
+    .descricao-barbeiro-pagina-dashboard-barbeiro {
+        font-size: 13px;
+    }
+
+    .status-online-pagina-dashboard-barbeiro {
+        width: 12px;
+        height: 12px;
+    }
+}

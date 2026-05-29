@@ -1,4 +1,4 @@
-.pagina-perfil-barbeiro{
+.pagina-perfil-barbeiro {
     background-color: #050505;
     min-height: 100vh;
     padding: 30px;
@@ -7,7 +7,7 @@
 
 /* LAYOUT */
 
-.layout-perfil-pagina-perfil-barbeiro{
+.layout-perfil-pagina-perfil-barbeiro {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
 
@@ -18,14 +18,14 @@
 
 /* TITULO */
 
-.titulo-perfil-pagina-perfil-barbeiro{
+.titulo-perfil-pagina-perfil-barbeiro {
     font-size: 44px;
     margin-bottom: 30px;
 }
 
 /* CARD PERFIL */
 
-.card-perfil-pagina-perfil-barbeiro{
+.card-perfil-pagina-perfil-barbeiro {
     background-color: #090909;
 
     border: 1px solid #1a1a1a;
@@ -37,7 +37,7 @@
 
 /* TOPO */
 
-.topo-perfil-pagina-perfil-barbeiro{
+.topo-perfil-pagina-perfil-barbeiro {
     display: flex;
     align-items: center;
     gap: 25px;
@@ -45,11 +45,11 @@
     margin-bottom: 35px;
 }
 
-.container-foto-pagina-perfil-barbeiro{
+.container-foto-pagina-perfil-barbeiro {
     position: relative;
 }
 
-.foto-barbeiro-pagina-perfil-barbeiro{
+.foto-barbeiro-pagina-perfil-barbeiro {
     width: 95px;
     height: 95px;
 
@@ -59,7 +59,7 @@
     border: 2px solid #d4af37;
 }
 
-.botao-camera-pagina-perfil-barbeiro{
+.botao-camera-pagina-perfil-barbeiro {
     width: 38px;
     height: 38px;
 
@@ -75,11 +75,11 @@
     cursor: pointer;
 }
 
-.nome-barbeiro-pagina-perfil-barbeiro{
+.nome-barbeiro-pagina-perfil-barbeiro {
     font-size: 42px;
 }
 
-.especialidade-pagina-perfil-barbeiro{
+.especialidade-pagina-perfil-barbeiro {
     color: #d4af37;
 
     font-size: 18px;
@@ -87,7 +87,7 @@
     margin-top: 5px;
 }
 
-.experiencia-pagina-perfil-barbeiro{
+.experiencia-pagina-perfil-barbeiro {
     display: block;
 
     color: #8e8e8e;
@@ -97,13 +97,13 @@
 
 /* CAMPOS */
 
-.container-campos-pagina-perfil-barbeiro{
+.container-campos-pagina-perfil-barbeiro {
     display: flex;
     flex-direction: column;
     gap: 22px;
 }
 
-.grupo-input-pagina-perfil-barbeiro label{
+.grupo-input-pagina-perfil-barbeiro label {
     display: block;
 
     margin-bottom: 10px;
@@ -113,7 +113,7 @@
     font-size: 15px;
 }
 
-.input-perfil-pagina-perfil-barbeiro{
+.input-perfil-pagina-perfil-barbeiro {
     height: 62px;
 
     border-radius: 16px;
@@ -129,12 +129,12 @@
     gap: 14px;
 }
 
-.input-perfil-pagina-perfil-barbeiro span{
+.input-perfil-pagina-perfil-barbeiro span {
     color: #6d86ad;
     font-size: 18px;
 }
 
-.input-perfil-pagina-perfil-barbeiro input{
+.input-perfil-pagina-perfil-barbeiro input {
     flex: 1;
 
     background: transparent;
@@ -149,7 +149,7 @@
 
 /* BOTAO */
 
-.botao-editar-pagina-perfil-barbeiro{
+.botao-editar-pagina-perfil-barbeiro {
     width: 100%;
     height: 65px;
 
@@ -171,13 +171,13 @@
     transition: 0.3s;
 }
 
-.botao-editar-pagina-perfil-barbeiro:hover{
+.botao-editar-pagina-perfil-barbeiro:hover {
     background-color: #30250d;
 }
 
 /* CARD HORARIOS */
 
-.card-horarios-pagina-perfil-barbeiro{
+.card-horarios-pagina-perfil-barbeiro {
     background-color: #090909;
 
     border: 1px solid #1a1a1a;
@@ -187,7 +187,7 @@
     padding: 30px;
 }
 
-.titulo-horarios-pagina-perfil-barbeiro{
+.titulo-horarios-pagina-perfil-barbeiro {
     font-size: 32px;
 
     margin-bottom: 25px;
@@ -195,7 +195,7 @@
 
 /* LINHA */
 
-.linha-horario-pagina-perfil-barbeiro{
+.linha-horario-pagina-perfil-barbeiro {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 60px;
 
@@ -206,7 +206,7 @@
 
 /* SELECT */
 
-.select-dia-pagina-perfil-barbeiro{
+.select-dia-pagina-perfil-barbeiro {
     height: 58px;
 
     border-radius: 16px;
@@ -226,7 +226,7 @@
 
 /* INPUT */
 
-.input-horario-pagina-perfil-barbeiro{
+.input-horario-pagina-perfil-barbeiro {
     height: 58px;
 
     border-radius: 16px;
@@ -246,7 +246,7 @@
 
 /* BOTAO */
 
-.botao-remover-horario-pagina-perfil-barbeiro{
+.botao-remover-horario-pagina-perfil-barbeiro {
     height: 58px;
 
     border-radius: 16px;
@@ -264,6 +264,161 @@
     transition: 0.3s;
 }
 
-.botao-remover-horario-pagina-perfil-barbeiro:hover{
+.botao-remover-horario-pagina-perfil-barbeiro:hover {
     background-color: #521515;
+}
+
+/* ========================= */
+/* RESPONSIVIDADE */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .pagina-perfil-barbeiro {
+        padding: 20px;
+    }
+
+    .layout-perfil-pagina-perfil-barbeiro {
+        grid-template-columns: 1fr;
+    }
+
+    .nome-barbeiro-pagina-perfil-barbeiro {
+        font-size: 34px;
+    }
+
+    .titulo-perfil-pagina-perfil-barbeiro {
+        font-size: 38px;
+    }
+
+    .titulo-horarios-pagina-perfil-barbeiro {
+        font-size: 28px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .pagina-perfil-barbeiro {
+        padding: 15px;
+    }
+
+    .titulo-perfil-pagina-perfil-barbeiro {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .card-perfil-pagina-perfil-barbeiro,
+    .card-horarios-pagina-perfil-barbeiro {
+        padding: 20px;
+    }
+
+    .topo-perfil-pagina-perfil-barbeiro {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .foto-barbeiro-pagina-perfil-barbeiro {
+        width: 80px;
+        height: 80px;
+    }
+
+    .nome-barbeiro-pagina-perfil-barbeiro {
+        font-size: 28px;
+    }
+
+    .especialidade-pagina-perfil-barbeiro {
+        font-size: 16px;
+    }
+
+    .experiencia-pagina-perfil-barbeiro {
+        font-size: 14px;
+    }
+
+    .input-perfil-pagina-perfil-barbeiro {
+        height: 55px;
+    }
+
+    .input-perfil-pagina-perfil-barbeiro input {
+        font-size: 15px;
+    }
+
+    .botao-editar-pagina-perfil-barbeiro {
+        height: 55px;
+        font-size: 18px;
+    }
+
+    .linha-horario-pagina-perfil-barbeiro {
+        grid-template-columns: 1fr;
+    }
+
+    .select-dia-pagina-perfil-barbeiro,
+    .input-horario-pagina-perfil-barbeiro,
+    .botao-remover-horario-pagina-perfil-barbeiro {
+        width: 100%;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .pagina-perfil-barbeiro {
+        padding: 10px;
+    }
+
+    .titulo-perfil-pagina-perfil-barbeiro {
+        font-size: 26px;
+    }
+
+    .card-perfil-pagina-perfil-barbeiro,
+    .card-horarios-pagina-perfil-barbeiro {
+        padding: 15px;
+        border-radius: 18px;
+    }
+
+    .foto-barbeiro-pagina-perfil-barbeiro {
+        width: 70px;
+        height: 70px;
+    }
+
+    .nome-barbeiro-pagina-perfil-barbeiro {
+        font-size: 24px;
+    }
+
+    .especialidade-pagina-perfil-barbeiro {
+        font-size: 14px;
+    }
+
+    .titulo-horarios-pagina-perfil-barbeiro {
+        font-size: 22px;
+    }
+
+    .grupo-input-pagina-perfil-barbeiro label {
+        font-size: 14px;
+    }
+
+    .input-perfil-pagina-perfil-barbeiro {
+        height: 50px;
+        padding: 0 12px;
+    }
+
+    .input-perfil-pagina-perfil-barbeiro input {
+        font-size: 14px;
+    }
+
+    .select-dia-pagina-perfil-barbeiro,
+    .input-horario-pagina-perfil-barbeiro {
+        height: 50px;
+        font-size: 14px;
+    }
+
+    .botao-remover-horario-pagina-perfil-barbeiro {
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .botao-editar-pagina-perfil-barbeiro {
+        height: 50px;
+        font-size: 16px;
+    }
 }

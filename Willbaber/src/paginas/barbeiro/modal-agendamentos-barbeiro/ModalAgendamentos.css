@@ -1,12 +1,12 @@
 /* OVERLAY */
 
-.overlay-modal-agendamento{
+.overlay-modal-agendamento {
 
     position: fixed;
 
     inset: 0;
 
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
 
     backdrop-filter: blur(4px);
 
@@ -21,7 +21,7 @@
 
 /* MODAL */
 
-.container-modal-agendamento{
+.container-modal-agendamento {
 
     width: 420px;
 
@@ -38,7 +38,7 @@
 
 /* TOPO */
 
-.topo-modal-agendamento{
+.topo-modal-agendamento {
 
     display: flex;
 
@@ -49,14 +49,14 @@
     margin-bottom: 30px;
 }
 
-.topo-modal-agendamento h1{
+.topo-modal-agendamento h1 {
 
     font-size: 38px;
 
     font-weight: 700;
 }
 
-.botao-fechar-modal-agendamento{
+.botao-fechar-modal-agendamento {
 
     background: transparent;
 
@@ -71,7 +71,7 @@
 
 /* CLIENTE */
 
-.cliente-modal-agendamento{
+.cliente-modal-agendamento {
 
     display: flex;
 
@@ -82,7 +82,7 @@
     margin-bottom: 35px;
 }
 
-.avatar-modal-agendamento{
+.avatar-modal-agendamento {
 
     width: 60px;
 
@@ -105,14 +105,14 @@
     font-weight: bold;
 }
 
-.cliente-modal-agendamento h2{
+.cliente-modal-agendamento h2 {
 
     font-size: 22px;
 
     margin-bottom: 8px;
 }
 
-.status-modal-agendamento{
+.status-modal-agendamento {
 
     background: #0E4429;
 
@@ -129,7 +129,7 @@
 
 /* INFORMACOES */
 
-.informacoes-modal-agendamento{
+.informacoes-modal-agendamento {
 
     display: flex;
 
@@ -140,7 +140,7 @@
     margin-bottom: 30px;
 }
 
-.item-informacao-modal-agendamento{
+.item-informacao-modal-agendamento {
 
     display: flex;
 
@@ -149,7 +149,7 @@
     gap: 16px;
 }
 
-.icone-informacao-modal-agendamento{
+.icone-informacao-modal-agendamento {
 
     width: 38px;
 
@@ -170,14 +170,14 @@
     font-size: 20px;
 }
 
-.item-informacao-modal-agendamento span{
+.item-informacao-modal-agendamento span {
 
     color: #9A9A9A;
 
     font-size: 14px;
 }
 
-.item-informacao-modal-agendamento h3{
+.item-informacao-modal-agendamento h3 {
 
     font-size: 26px;
 
@@ -186,7 +186,7 @@
 
 /* OBSERVACOES */
 
-.observacoes-modal-agendamento{
+.observacoes-modal-agendamento {
 
     background: #161616;
 
@@ -197,14 +197,14 @@
     margin-bottom: 28px;
 }
 
-.observacoes-modal-agendamento span{
+.observacoes-modal-agendamento span {
 
     color: #9A9A9A;
 
     font-size: 14px;
 }
 
-.observacoes-modal-agendamento p{
+.observacoes-modal-agendamento p {
 
     margin-top: 10px;
 
@@ -217,7 +217,7 @@
 
 /* BOTAO */
 
-.botao-fechar-principal-modal-agendamento{
+.botao-fechar-principal-modal-agendamento {
 
     width: 100%;
 
@@ -240,14 +240,14 @@
     transition: 0.3s;
 }
 
-.botao-fechar-principal-modal-agendamento:hover{
+.botao-fechar-principal-modal-agendamento:hover {
 
     opacity: 0.9;
 }
 
 /* STATUS */
 
-.grupo-status-modal-agendamento{
+.grupo-status-modal-agendamento {
 
     display: flex;
 
@@ -258,14 +258,14 @@
     margin-bottom: 20px;
 }
 
-.grupo-status-modal-agendamento label{
+.grupo-status-modal-agendamento label {
 
     color: #9A9A9A;
 
     font-size: 14px;
 }
 
-.grupo-status-modal-agendamento select{
+.grupo-status-modal-agendamento select {
 
     width: 100%;
 
@@ -288,7 +288,7 @@
 
 /* BOTAO */
 
-.botao-salvar-status-modal-agendamento{
+.botao-salvar-status-modal-agendamento {
 
     width: 100%;
 
@@ -313,7 +313,158 @@
     transition: 0.3s;
 }
 
-.botao-salvar-status-modal-agendamento:hover{
+.botao-salvar-status-modal-agendamento:hover {
 
     opacity: 0.9;
+}
+
+/* ========================= */
+/* RESPONSIVIDADE MODAL */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .container-modal-agendamento {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    .topo-modal-agendamento h1 {
+        font-size: 32px;
+    }
+
+    .item-informacao-modal-agendamento h3 {
+        font-size: 22px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .overlay-modal-agendamento {
+        padding: 15px;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .container-modal-agendamento {
+        width: 100%;
+        max-width: 100%;
+        padding: 22px;
+        border-radius: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .topo-modal-agendamento {
+        margin-bottom: 20px;
+    }
+
+    .topo-modal-agendamento h1 {
+        font-size: 28px;
+    }
+
+    .botao-fechar-modal-agendamento {
+        font-size: 24px;
+    }
+
+    .cliente-modal-agendamento {
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .avatar-modal-agendamento {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+        border-radius: 14px;
+    }
+
+    .cliente-modal-agendamento h2 {
+        font-size: 18px;
+    }
+
+    .status-modal-agendamento {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+
+    .item-informacao-modal-agendamento {
+        gap: 12px;
+    }
+
+    .icone-informacao-modal-agendamento {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+    }
+
+    .item-informacao-modal-agendamento h3 {
+        font-size: 18px;
+    }
+
+    .observacoes-modal-agendamento {
+        padding: 15px;
+    }
+
+    .observacoes-modal-agendamento p {
+        font-size: 14px;
+    }
+
+    .botao-fechar-principal-modal-agendamento,
+    .botao-salvar-status-modal-agendamento {
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .container-modal-agendamento {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .topo-modal-agendamento h1 {
+        font-size: 24px;
+    }
+
+    .cliente-modal-agendamento {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .avatar-modal-agendamento {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+
+    .cliente-modal-agendamento h2 {
+        font-size: 16px;
+    }
+
+    .item-informacao-modal-agendamento h3 {
+        font-size: 16px;
+    }
+
+    .item-informacao-modal-agendamento span {
+        font-size: 12px;
+    }
+
+    .observacoes-modal-agendamento p {
+        font-size: 13px;
+    }
+
+    .grupo-status-modal-agendamento select {
+        font-size: 14px;
+    }
+
+    .botao-fechar-principal-modal-agendamento,
+    .botao-salvar-status-modal-agendamento {
+        height: 46px;
+        font-size: 15px;
+    }
 }
