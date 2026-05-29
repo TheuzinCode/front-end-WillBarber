@@ -106,3 +106,139 @@
     height: 55px;
     background-color: #3b2415;
 }
+
+/* ========================= */
+/* RESPONSIVIDADE RECOMPENSAS */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .container-principal-card-perfil-recompensas {
+        padding-top: 140px;
+    }
+
+    .card-nivel-usuario-pagina-recompensas {
+        padding: 25px;
+    }
+
+    .nome-usuario-pagina-recompensas {
+        font-size: 32px;
+    }
+
+    .numero-pontos-pagina-recompensas {
+        font-size: 48px;
+    }
+
+    .numero-total-pagina-recompensas {
+        font-size: 28px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .pagina-recompensas-pagina-recompensas {
+        padding: 15px;
+    }
+
+    .container-principal-card-perfil-recompensas {
+        padding-top: 120px;
+    }
+
+    .topo-card-nivel-pagina-recompensas {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .avatar-usuario-pagina-recompensas {
+        width: 75px;
+        height: 75px;
+        font-size: 36px;
+    }
+
+    .linha-nome-nivel-pagina-recompensas {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nome-usuario-pagina-recompensas {
+        font-size: 28px;
+    }
+
+    .badge-nivel-pagina-recompensas {
+        font-size: 13px;
+    }
+
+    .texto-recompensa-pagina-recompensas {
+        font-size: 14px;
+    }
+
+    .container-pontos-pagina-recompensas {
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .numero-pontos-pagina-recompensas {
+        font-size: 40px;
+    }
+
+    .numero-total-pagina-recompensas {
+        font-size: 24px;
+    }
+
+    .divisor-pontos-pagina-recompensas {
+        display: none;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .card-nivel-usuario-pagina-recompensas {
+        justify-self: center;
+        padding: 20px;
+        border-radius: 18px;
+        width: 350px;
+    }
+
+    .avatar-usuario-pagina-recompensas {
+        width: 65px;
+        height: 65px;
+        font-size: 30px;
+    }
+
+    .nome-usuario-pagina-recompensas {
+        font-size: 22px;
+    }
+
+    .badge-nivel-pagina-recompensas {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+
+    .texto-recompensa-pagina-recompensas {
+        font-size: 13px;
+    }
+
+    .container-pontos-pagina-recompensas {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .numero-pontos-pagina-recompensas {
+        font-size: 34px;
+    }
+
+    .numero-total-pagina-recompensas {
+        font-size: 20px;
+    }
+
+    .texto-pontos-pagina-recompensas {
+        font-size: 11px;
+    }
+}
