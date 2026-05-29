@@ -151,3 +151,120 @@
     cursor: pointer;
     font-weight: bold;
 }
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .card-agendamento-meus-agendamentos-futuros {
+        height: auto;
+        padding: 20px;
+    }
+
+    .titulo-servico-meus-agendamentos-futuros {
+        font-size: 20px;
+    }
+
+    .lado-direito-agendamento-futuros h1 {
+        font-size: 22px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .card-agendamento-meus-agendamentos-futuros {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+
+        height: auto;
+
+        padding: 20px;
+    }
+
+    .lado-esquerdo-agendamento-meus-agendamento-futuros {
+        width: 100%;
+    }
+
+    .icone-servico-meus-agendamentos-futuros {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .titulo-servico-meus-agendamentos-futuros {
+        font-size: 18px;
+    }
+
+    .barbeiro-servico-meus-agendamentos-futuros {
+        font-size: 14px;
+    }
+
+    .informacoes-agendamento-futuros {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .lado-direito-agendamento-futuros {
+        width: 100%;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .lado-direito-agendamento-futuros h1 {
+        font-size: 20px;
+    }
+
+    .acoes-agendamento-futuros {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .card-agendamento-meus-agendamentos-futuros {
+        padding: 15px;
+    }
+
+    .lado-esquerdo-agendamento-meus-agendamento-futuros {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .titulo-servico-meus-agendamentos-futuros {
+        font-size: 16px;
+    }
+
+    .barbeiro-servico-meus-agendamentos-futuros {
+        font-size: 13px;
+    }
+
+    .data-agendamento-futuros-futuros {
+        font-size: 12px;
+    }
+
+    .lado-direito-agendamento-futuros {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .lado-direito-agendamento-futuros h1 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .acoes-agendamento-futuros {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .botao-reagendar-futuros,
+    .botao-cancelar-futuros {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+}

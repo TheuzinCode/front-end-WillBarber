@@ -92,3 +92,132 @@
     height: 50px;
     background: rgba(255, 255, 255, 0.1);
 }
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .card-perfil-agendamento {
+        padding: 20px;
+        height: auto;
+    }
+
+    .nome-card-perfil-agendamento {
+        font-size: 22px;
+    }
+
+    .email-card-perfil-agendamento {
+        font-size: 16px;
+    }
+
+    .numeros-estatistica-card-perfil-agendamento {
+        font-size: 35px;
+    }
+
+    .titulo-estatistica-card-perfil-agendamento {
+        font-size: 18px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .card-perfil-agendamento {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        height: auto;
+
+        padding: 25px 20px;
+
+        gap: 25px;
+    }
+
+    .lado-esquerdo-perfil {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .avatar-perfil {
+        width: 65px;
+        height: 65px;
+        font-size: 28px;
+    }
+
+    .nome-card-perfil-agendamento {
+        font-size: 22px;
+    }
+
+    .email-card-perfil-agendamento {
+        font-size: 15px;
+    }
+
+    .estatisticas-agendamento-card-perfil-agendamento {
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px 0;
+        height: auto;
+    }
+
+    .item-estatistica-card-perfil-agendamento {
+        width: auto;
+        min-width: 80px;
+    }
+
+    .numeros-estatistica-card-perfil-agendamento {
+        font-size: 30px;
+    }
+
+    .titulo-estatistica-card-perfil-agendamento {
+        font-size: 14px;
+    }
+
+    .linha-divisoria {
+        height: 40px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .card-perfil-agendamento {
+        padding: 20px 15px;
+    }
+
+    .avatar-perfil {
+        width: 55px;
+        height: 55px;
+        font-size: 24px;
+    }
+
+    .nome-card-perfil-agendamento {
+        font-size: 20px;
+    }
+
+    .email-card-perfil-agendamento {
+        font-size: 13px;
+    }
+
+    .estatisticas-agendamento-card-perfil-agendamento {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .item-estatistica-card-perfil-agendamento {
+        min-width: 70px;
+    }
+
+    .numeros-estatistica-card-perfil-agendamento {
+        font-size: 24px;
+    }
+
+    .titulo-estatistica-card-perfil-agendamento {
+        font-size: 12px;
+    }
+
+    .linha-divisoria {
+        display: none;
+    }
+}

@@ -151,3 +151,120 @@
     cursor: pointer;
     font-weight: bold;
 }
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .card-agendamento-meus-agendamentos-passados {
+        height: auto;
+        padding: 20px;
+    }
+
+    .titulo-servico-meus-agendamentos-passados {
+        font-size: 20px;
+    }
+
+    .lado-direito-agendamento-passados h1 {
+        font-size: 22px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .card-agendamento-meus-agendamentos-passados {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+
+        height: auto;
+
+        padding: 20px;
+    }
+
+    .lado-esquerdo-agendamento-meus-agendamentos-passados {
+        width: 100%;
+    }
+
+    .icone-servico-meus-agendamentos-passados {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .titulo-servico-meus-agendamentos-passados {
+        font-size: 18px;
+    }
+
+    .barbeiro-servico-meus-agendamentos-passados {
+        font-size: 14px;
+    }
+
+    .informacoes-agendamento-passados {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .lado-direito-agendamento-passados {
+        width: 100%;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .lado-direito-agendamento-passados h1 {
+        font-size: 20px;
+    }
+
+    .acoes-agendamento-passados {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .card-agendamento-meus-agendamentos-passados {
+        padding: 15px;
+    }
+
+    .lado-esquerdo-agendamento-meus-agendamentos-passados {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .titulo-servico-meus-agendamentos-passados {
+        font-size: 16px;
+    }
+
+    .barbeiro-servico-meus-agendamentos-passados {
+        font-size: 13px;
+    }
+
+    .data-agendamento-passados {
+        font-size: 12px;
+    }
+
+    .lado-direito-agendamento-passados {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .lado-direito-agendamento-passados h1 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .acoes-agendamento-passados {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .botao-reagendar-passados,
+    .botao-cancelar-passados {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+}
