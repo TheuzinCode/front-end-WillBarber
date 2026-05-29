@@ -56,9 +56,8 @@
 
 .container-cards-dashboard {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    max-width: 1500px;
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
     margin-bottom: 30px;
 }
 
@@ -123,14 +122,14 @@
 
 .layout-inferior-dashboard {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 22px;
+    grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+    gap: 25px;
 }
 
-.lado-esquerdo-dashboard {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
+.lado-direito-dashboard {
+    width: 100%;
+    max-width: 470px;
+    margin-left: 0;
 }
 
 .card-grande-dashboard,
@@ -139,6 +138,7 @@
     border: 1px solid #2a2a2a;
     border-radius: 24px;
     padding: 24px;
+    overflow-x: auto;
 }
 
 .titulo-secao-dashboard {
@@ -150,7 +150,7 @@
 
 .grid-acoes-dashboard {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 18px;
 }
 
@@ -187,6 +187,7 @@
 .tabela-dashboard {
     width: 100%;
     border-collapse: collapse;
+    min-width: 700px;
 }
 
 .tabela-dashboard th {
@@ -209,20 +210,16 @@
     font-size: 14px;
 }
 
-
-
-
-
 /* LADO DIREITO */
 
-.lado-direito-dashboard{
+.lado-direito-dashboard {
     margin-left: 15px;
     width: 470px;
 }
 
 /* CARD */
 
-.card-melhores-clientes-dashboard{
+.card-melhores-clientes-dashboard {
     background-color: #0b0b0b;
 
     border: 1px solid #232323;
@@ -234,13 +231,13 @@
 
 /* TOPO */
 
-.topo-melhores-clientes-dashboard{
+.topo-melhores-clientes-dashboard {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.subtitulo-melhores-clientes-dashboard{
+.subtitulo-melhores-clientes-dashboard {
     color: #C9A646;
 
     font-size: 14px;
@@ -248,7 +245,7 @@
 
 /* LISTA */
 
-.lista-melhores-clientes-dashboard{
+.lista-melhores-clientes-dashboard {
     display: flex;
     flex-direction: column;
 
@@ -259,7 +256,7 @@
 
 /* ITEM */
 
-.item-melhor-cliente-dashboard{
+.item-melhor-cliente-dashboard {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -271,7 +268,7 @@
 
 /* INFO */
 
-.informacoes-melhor-cliente-dashboard{
+.informacoes-melhor-cliente-dashboard {
     display: flex;
     align-items: center;
 
@@ -280,7 +277,7 @@
 
 /* AVATAR */
 
-.avatar-melhor-cliente-dashboard{
+.avatar-melhor-cliente-dashboard {
     width: 45px;
     height: 45px;
 
@@ -300,13 +297,13 @@
 
 /* TEXTOS */
 
-.informacoes-melhor-cliente-dashboard h3{
+.informacoes-melhor-cliente-dashboard h3 {
     color: white;
 
     font-size: 15px;
 }
 
-.informacoes-melhor-cliente-dashboard span{
+.informacoes-melhor-cliente-dashboard span {
     color: #7d7d7d;
 
     font-size: 13px;
@@ -318,11 +315,11 @@
 
 /* QUANTIDADE */
 
-.quantidade-agendamentos-dashboard{
+.quantidade-agendamentos-dashboard {
     text-align: right;
 }
 
-.quantidade-agendamentos-dashboard strong{
+.quantidade-agendamentos-dashboard strong {
     color: #C9A646;
 
     font-size: 20px;
@@ -330,8 +327,133 @@
     display: block;
 }
 
-.quantidade-agendamentos-dashboard span{
+.quantidade-agendamentos-dashboard span {
     color: #7d7d7d;
 
     font-size: 12px;
+}
+
+
+
+/* ==================== */
+/* NOTEBOOK */
+/* ==================== */
+
+@media (max-width: 1200px) {
+
+    .layout-inferior-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .lado-direito-dashboard {
+        max-width: 100%;
+    }
+
+    .grid-acoes-dashboard {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ==================== */
+/* TABLET */
+/* ==================== */
+
+@media (max-width: 992px) {
+
+    .pagina-dashboard {
+        padding: 20px;
+    }
+
+    .grid-acoes-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .titulo-dashboard {
+        font-size: 32px;
+    }
+
+    .card-dashboard h2 {
+        font-size: 32px;
+    }
+}
+
+/* ==================== */
+/* CELULAR */
+/* ==================== */
+
+/* CELULAR */
+
+@media (max-width: 768px) {
+
+    .layout-inferior-dashboard {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lado-direito-dashboard {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .container-cards-dashboard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .topo-dashboard {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .acoes-topo-dashboard {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .item-melhor-cliente-dashboard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .quantidade-agendamentos-dashboard {
+        text-align: left;
+    }
+}
+
+/* ==================== */
+/* CELULAR PEQUENO */
+/* ==================== */
+
+@media (max-width: 480px) {
+
+    .titulo-dashboard {
+        font-size: 24px;
+    }
+
+    .subtitulo-dashboard {
+        font-size: 13px;
+    }
+
+    .avatar-admin {
+        width: 38px;
+        height: 38px;
+    }
+
+    .avatar-melhor-cliente-dashboard {
+        width: 40px;
+        height: 40px;
+    }
+
+    .quantidade-agendamentos-dashboard strong {
+        font-size: 16px;
+    }
+
+    .informacoes-melhor-cliente-dashboard h3 {
+        font-size: 14px;
+    }
+
+    .informacoes-melhor-cliente-dashboard span {
+        font-size: 12px;
+    }
 }

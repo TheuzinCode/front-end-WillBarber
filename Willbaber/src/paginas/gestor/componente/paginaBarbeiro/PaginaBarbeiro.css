@@ -272,3 +272,147 @@
 .botao-excluir-barbeiro:hover{
     background:#481515;
 }
+
+/* ========================= */
+/* RESPONSIVIDADE */
+/* ========================= */
+
+/* Notebook */
+@media (max-width: 1200px) {
+
+    .grid-barbeiros {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .pagina-barbeiros {
+        padding: 20px;
+    }
+
+    .topo-barbeiros {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .barra-superior-barbeiros {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .botao-cadastrar-barbeiro {
+        width: 100%;
+    }
+
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .pagina-barbeiros {
+        padding: 15px;
+    }
+
+    .titulo-barbeiros {
+        font-size: 28px;
+    }
+
+    .acoes-topo-barbeiros {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .informacoes-barbeiros {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .topo-card-barbeiro {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .informacoes-principais-barbeiro {
+        width: 100%;
+    }
+
+    .detalhes-barbeiro {
+        flex-wrap: wrap;
+    }
+
+    .linha-dias {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dias-trabalho {
+        flex-wrap: wrap;
+    }
+
+    .rodape-card-barbeiro {
+        flex-direction: column;
+    }
+
+    .botao-editar-barbeiro,
+    .botao-desativar-barbeiro,
+    .botao-ativar-barbeiro,
+    .botao-excluir-barbeiro {
+        width: 100%;
+    }
+
+    .botao-excluir-barbeiro {
+        height: 46px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .titulo-barbeiros {
+        font-size: 24px;
+    }
+
+    .subtitulo-barbeiros {
+        font-size: 13px;
+    }
+
+    .card-barbeiro {
+        padding: 18px;
+    }
+
+    .foto-barbeiro {
+        width: 55px;
+        height: 55px;
+    }
+
+    .nome-barbeiro {
+        font-size: 16px;
+    }
+
+    .especialidade-barbeiro {
+        font-size: 13px;
+    }
+
+    .descricao-barbeiro {
+        font-size: 14px;
+    }
+
+    .dias-trabalho span {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+
+    .quantidade-barbeiros {
+        font-size: 13px;
+    }
+
+    .barbeiros-ativos {
+        font-size: 13px;
+    }
+}

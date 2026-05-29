@@ -262,3 +262,106 @@
     font-weight: 700;
     font-size: 18px;
 }
+
+
+/* ========================= */
+/* RESPONSIVIDADE */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .pagina-agendamentos {
+        padding: 20px;
+    }
+
+    .container-cards-agendamentos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container-filtros-agendamentos {
+        flex-wrap: wrap;
+    }
+
+    .select-filtro-agendamentos {
+        width: 100%;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    .pagina-agendamentos {
+        padding: 15px;
+    }
+
+    .topo-agendamentos {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .titulo-agendamentos {
+        font-size: 28px;
+    }
+
+    .container-filtros-agendamentos {
+        flex-direction: column;
+    }
+
+    .input-pesquisa-agendamentos,
+    .select-filtro-agendamentos {
+        width: 100%;
+    }
+
+    .container-cards-agendamentos {
+        grid-template-columns: 1fr;
+    }
+
+    .card-resumo-agendamentos {
+        padding: 20px;
+    }
+
+    .card-resumo-agendamentos h2 {
+        font-size: 32px;
+    }
+
+    /* TABELA COM SCROLL */
+    .container-tabela-agendamentos {
+        overflow-x: auto;
+    }
+
+    .tabela-agendamentos {
+        min-width: 900px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .titulo-agendamentos {
+        font-size: 24px;
+    }
+
+    .subtitulo-agendamentos {
+        font-size: 13px;
+    }
+
+    .card-resumo-agendamentos {
+        padding: 18px;
+    }
+
+    .card-resumo-agendamentos h2 {
+        font-size: 28px;
+    }
+
+    .card-resumo-agendamentos p {
+        font-size: 14px;
+    }
+
+    .input-pesquisa-agendamentos,
+    .select-filtro-agendamentos {
+        height: 48px;
+        font-size: 14px;
+    }
+}

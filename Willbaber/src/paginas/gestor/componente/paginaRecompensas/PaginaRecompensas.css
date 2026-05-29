@@ -25,7 +25,7 @@
 .titulo-pagina-recompensa-adm {
 
     font-family: 'Inter', sans-serif;
-    
+
     color: white;
 
     font-size: 38px;
@@ -233,4 +233,129 @@
     font-size: 13px;
 
     font-weight: bold;
+}
+
+/* ================================= */
+/* NOTEBOOK */
+/* ================================= */
+
+@media (max-width: 1200px) {
+
+    .titulo-pagina-recompensa-adm {
+        font-size: 32px;
+    }
+
+    .grid-cards-pagina-recompensa-adm {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+/* ================================= */
+/* TABLET */
+/* ================================= */
+
+@media (max-width: 768px) {
+
+    .pagina-recompensa-adm {
+        padding: 15px;
+    }
+
+    .topo-pagina-recompensa-adm {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .titulo-pagina-recompensa-adm {
+        font-size: 28px;
+    }
+
+    .botao-nova-recompensa-pagina-recompensa-adm {
+        width: 100%;
+        padding: 14px;
+        text-align: center;
+    }
+
+    .quantidade-recompensas-pagina-recompensas {
+        width: fit-content;
+    }
+
+    .grid-cards-pagina-recompensa-adm {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .titulo-card-pagina-recompensa-adm {
+        font-size: 22px;
+    }
+
+    .pontos-card-pagina-recompensa-adm {
+        font-size: 24px;
+    }
+}
+
+/* ================================= */
+/* CELULAR */
+/* ================================= */
+
+@media (max-width: 480px) {
+
+    .pagina-recompensa-adm {
+        padding: 12px;
+    }
+
+    .titulo-pagina-recompensa-adm {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .grid-cards-pagina-recompensa-adm {
+        grid-template-columns: 1fr;
+    }
+
+    .card-recompensa-pagina-recompensa-adm {
+        padding: 16px;
+    }
+
+    .topo-card-pagina-recompensa-adm {
+        margin-bottom: 15px;
+    }
+
+    .titulo-card-pagina-recompensa-adm {
+        font-size: 20px;
+    }
+
+    .descricao-card-pagina-recompensa-adm {
+        font-size: 14px;
+        min-height: auto;
+    }
+
+    .rodape-card-pagina-recompensa-adm {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .pontos-card-pagina-recompensa-adm {
+        font-size: 22px;
+    }
+
+    .status-card-pagina-recompensa-adm {
+        font-size: 12px;
+    }
+}
+
+/* EVITA BARRA HORIZONTAL */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.pagina-recompensa-adm {
+    width: 100%;
+    overflow-x: hidden;
 }

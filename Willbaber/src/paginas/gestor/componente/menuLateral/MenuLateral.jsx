@@ -12,12 +12,14 @@ import logoBarbearia from "../../../../imgs/logo.png"
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GiPresent } from "react-icons/gi";
+import { Menu } from "lucide-react";
 
 const MenuLateral = ({ paginaAtiva, setPaginaAtiva }) => {
 
   const navigate = useNavigate()
 
   const [gestor, setGestor] = useState(null)
+  const [menuAberto, setMenuAberto] = useState(false);
 
   useEffect(() => {
 
@@ -54,12 +56,19 @@ const MenuLateral = ({ paginaAtiva, setPaginaAtiva }) => {
 
   const deslogarGestor = () => {
     localStorage.removeItem("clientAuth")
-     setGestor(null)
-     navigate("/")
+    setGestor(null)
+    navigate("/")
   }
   return (
     <>
-      <aside className="sidebar">
+      <button
+        className="botao-menu-mobile"
+        onClick={() => setMenuAberto(!menuAberto)}
+      >
+        <Menu size={28} />
+      </button>
+
+      <aside className={`sidebar ${menuAberto ? "ativo" : ""}`}>
         {/* TOPO */}
         <div>
           <div className="sidebar-logo">
@@ -75,7 +84,10 @@ const MenuLateral = ({ paginaAtiva, setPaginaAtiva }) => {
           <nav className="sidebar-menu">
             <button
               className={paginaAtiva === "Dashboard" ? "menu-item active" : "menu-item"}
-              onClick={() => setPaginaAtiva("Dashboard")}
+              onClick={() => {
+                setPaginaAtiva("Dashboard");
+                setMenuAberto(false);
+              }}
             >
               <LayoutDashboard size={18} />
               Dashboard
@@ -102,14 +114,14 @@ const MenuLateral = ({ paginaAtiva, setPaginaAtiva }) => {
               Agendamentos
             </button>
 
-             <button
+            <button
               className={paginaAtiva === "Recompensa" ? "menu-item active" : "menu-item"}
               onClick={() => setPaginaAtiva("Recompensa")}>
               <GiPresent size={18} />
               Recompensas
             </button>
 
-            
+
           </nav>
         </div>
         {/* FOOTER */}
@@ -123,9 +135,9 @@ const MenuLateral = ({ paginaAtiva, setPaginaAtiva }) => {
               <p>{gestor?.email}</p>
             </div>
           </div>
-          <button 
-          className="logout-button"
-          onClick={deslogarGestor}
+          <button
+            className="logout-button"
+            onClick={deslogarGestor}
           >
             <LogOut size={18} />
             Sair do painel

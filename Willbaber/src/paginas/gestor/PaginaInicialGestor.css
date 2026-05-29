@@ -7,3 +7,12 @@
     margin-left:300px;
     padding:30px;
 }
+
+@media (max-width:768px){
+
+    .conteudo-pagina-gestor{
+        margin-left:0;
+        padding:80px 15px 15px 15px;
+    }
+
+}
