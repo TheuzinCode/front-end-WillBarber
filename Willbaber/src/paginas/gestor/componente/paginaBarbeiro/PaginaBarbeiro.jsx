@@ -1,6 +1,8 @@
 import "./PaginaBarbeiro.css"
 import ModalBarbeiro from "../modalBarbeiro/ModalBarbeiro";
 import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
+
 
 
 const PaginaBarbeiro = ({ gestor }) => {
@@ -23,6 +25,8 @@ const PaginaBarbeiro = ({ gestor }) => {
           return
         }
 
+
+
         setBarbeiros(data)
       } catch (error) {
         console.log("error na requisição", error)
@@ -33,6 +37,44 @@ const PaginaBarbeiro = ({ gestor }) => {
 
   }, [])
 
+
+  async function deletarbarbeiro(barbeiro) {
+
+    try {
+      const resp = await fetch(
+        `http://localhost:8080/willbarber/gestor/barbeiros/deletar-barbeiro/${barbeiro.id}`,
+        {
+          method: "DELETE"
+        }
+      )
+
+      if (!resp.ok) {
+        const data = await resp.json()
+        console.log("error", data)
+        return
+      }
+
+      Swal.fire({
+        icon: "success",
+        title: "Barbeiro excluído com sucesso",
+        confirmButtonColor: "#C9A646",
+        background: "#111111",
+        color: "#FFFFFF"
+      });
+    } catch (error) {
+      console.log("error na requisição", error)
+
+      Swal.fire({
+        icon: "error",
+        title: "Erro ao excluir barbeiro",
+        text: error.message,
+        confirmButtonColor: "#C9A646",
+        background: "#111111",
+        color: "#FFFFFF"
+      });
+    }
+
+  }
 
   return (
     <>
@@ -133,7 +175,7 @@ const PaginaBarbeiro = ({ gestor }) => {
                   >
                     ✏ Editar
                   </button>
-                  <button className="botao-excluir-barbeiro">
+                  <button className="botao-excluir-barbeiro" onClick={() => deletarbarbeiro(barbeiro)}>
                     🗑
                   </button>
                 </div>

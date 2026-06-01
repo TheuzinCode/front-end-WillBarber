@@ -56,6 +56,24 @@ const ModalBarbeiro = ({ fecharModal, barbeiro }) => {
         e.preventDefault();
 
 
+        if (!nome || !email || !numero || !cpf || !senha) {
+            alert("Por favor, preencha todos os campos");
+            return;
+        }
+
+        if (senha.length < 8) {
+            alert("A senha deve ter no mínimo 8 caracteres");
+            return;
+        }
+        if (cpf.length !== 11) {
+            alert("O CPF deve ter exatamente 11 números");
+            return;
+        }
+        if (!email.includes("@")) {
+            alert("Digite um email válido");
+            return;
+        }
+
 
 
         const url = editando
@@ -151,6 +169,24 @@ const ModalBarbeiro = ({ fecharModal, barbeiro }) => {
         }
     }
 
+    const formatarCPF = (valor) => {
+        valor = valor.replace(/\D/g, "");
+
+        valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+        valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+        valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+        return valor;
+    }
+    const formatarTelefone = (valor) => {
+        valor = valor.replace(/\D/g, "");
+
+        valor = valor.replace(/^(\d{2})(\d)/g, "($1)$2");
+        valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+
+        return valor;
+    }
+
     return (
         <>
             <div
@@ -236,10 +272,13 @@ const ModalBarbeiro = ({ fecharModal, barbeiro }) => {
 
                             <input
                                 type="text"
-                                value={cpf}
+                                value={formatarCPF(cpf)}
                                 onChange={(e) =>
-                                    setCpf(e.target.value)
+                                    setCpf(e.target.value.replace(/\D/g, ""))
+
                                 }
+                                minLength={14}
+                                maxLength={14}
                                 placeholder="000.000.000-00"
                             />
                         </div>
@@ -250,11 +289,12 @@ const ModalBarbeiro = ({ fecharModal, barbeiro }) => {
 
                             <input
                                 type="text"
-                                value={numero}
+                                value={formatarTelefone(numero)}
                                 onChange={(e) =>
-                                    setNumero(e.target.value)
+                                    setNumero(e.target.value.replace(/\D/g, ""))
                                 }
                                 placeholder="(11) 99999-9999"
+                                maxLength={14}
                             />
                         </div>
 
