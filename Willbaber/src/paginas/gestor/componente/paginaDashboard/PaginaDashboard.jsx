@@ -134,6 +134,11 @@ const PaginaDashboard = ({ gestor }) => {
   }, [])
 
 
+  const faturamentoTotal = agendamentos.reduce(
+    (total, agendamento) =>
+      total + agendamento.precoServico,
+    0
+  );
 
   return (
     <>
@@ -190,7 +195,10 @@ const PaginaDashboard = ({ gestor }) => {
           </div>
           <div className="card-dashboard">
             <div className="icone-card verde"><MdOutlineAttachMoney color="#0ffd07" size={24} /></div>
-            <h2>{servicos.length}</h2>
+            <h2> {faturamentoTotal.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL"
+            })}</h2>
             <h3>Faturamento</h3>
             <p>total</p>
           </div>
