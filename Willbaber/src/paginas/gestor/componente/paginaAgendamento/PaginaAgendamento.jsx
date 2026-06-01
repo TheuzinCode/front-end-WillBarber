@@ -42,7 +42,7 @@ const PaginaAgendamento = ({ gestor }) => {
   ).length;
 
   const totalCancelado = agendamentos.filter((agendamentos) =>
-    agendamentos.statusAgendamento === "CANCELADOS").length
+    agendamentos.statusAgendamento === "CANCELADO").length
 
   return (
     <div className="pagina-agendamentos">
